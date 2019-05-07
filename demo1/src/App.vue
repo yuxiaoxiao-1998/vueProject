@@ -20,6 +20,6 @@ export default {
      width: 100%;
      height: 100%;
      background-color:red;
-     font-siez:50px;
+     font-size:50px;
    }
 </style>
