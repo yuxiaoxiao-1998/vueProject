@@ -1,6 +1,9 @@
 <template>
   <div id="app">
+    <!--城市页面-->
     <YxCity></YxCity>
+    <!--搜索页面-->
+    <!--<SearchCity></SearchCity>-->
   </div>
 </template>
 
@@ -8,9 +11,10 @@
   import {} from './js/resize'
 
   import YxCity from "./components/YxCity";
+  import SearchCity from "./components/SearchCity";
 export default {
   name: 'App',
-  components: {YxCity},
+  components: {SearchCity, YxCity},
 }
 </script>
 
