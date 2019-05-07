@@ -1,25 +1,22 @@
 <template>
   <div id="app">
-    你好
+    <YxCity></YxCity>
   </div>
 </template>
 
 <script>
   import {} from './js/resize'
+
+  import YxCity from "./components/YxCity";
 export default {
   name: 'App',
+  components: {YxCity},
 }
 </script>
 
 <style>
+  @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
   html,body{
-    width: 100%;
-    height: 100%;
+    font-size: 20px;
   }
-   #app{
-     width: 100%;
-     height: 100%;
-     background-color:red;
-     font-size:50px;
-   }
 </style>

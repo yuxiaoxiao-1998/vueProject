@@ -5,6 +5,9 @@ Vue.config.productionTip = false
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 Vue.use(MintUI)
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+Vue.use(VueAxios, axios)
 
 new Vue({
   el: '#app',
