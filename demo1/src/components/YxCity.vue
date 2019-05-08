@@ -1,8 +1,8 @@
 <template>
   <div class="max">
       <mt-header fixed class="title">
-        <!--路由跳转页面1(左侧)-->
-        <router-link to="/" slot="left">
+        <!--路由跳转页面(左侧)-->
+        <router-link to="/city" slot="left">
           ele.me
         </router-link>
         <!--路由跳转页面2(右侧登录注册)-->
@@ -30,9 +30,8 @@
       <span slot="left">热门城市</span>
   </mt-header>
     <p class="content content3">
-      <!--路由跳转3,进入页面-->
-      <!--传递参数-->
-      <router-link to='/' v-for="h in hotC" class="hc">
+      <!--路由跳转,进入页面-->
+      <router-link to='/search' v-for="h in hotC" class="hc">
         <a @click="sendVueX(h.name,h.id)">
         {{h.name}}
         </a>
@@ -45,8 +44,10 @@
             <span slot="left">{{k}}</span>
           </mt-header>
           <!--所有城市路由跳转4-->
-            <router-link to='/' v-for="item in v">
+            <router-link to='/search' v-for="item in v">
+              <a @click="sendVueX(item.name,item.id)">
               {{item.name}}
+              </a>
             </router-link>
         </li>
       </div>
@@ -84,6 +85,7 @@
       methods:{
         sendVueX(n,i){
           this.$store.state.cityIn={name:n,id:i};
+          // console.log(this.$store.state.cityIn);
         }
       },
         created() {
@@ -110,11 +112,7 @@
 </script>
 
 <style scoped>
-  <!--应设置全局清除默认样式-->
-  *{
-    padding: 0;
-    margin: 0;
-  }
+
 .max{
   background: #F5F5F5;
   }

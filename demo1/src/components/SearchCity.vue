@@ -1,22 +1,169 @@
 <template>
-    <div>
-      <!--中间城市不固定,点击哪个显示哪个-->
-      <mt-header title="上海">
+    <div class="max">
+      <!--城市从vuex中获取-->
+      <mt-header :title="$store.state.cityIn.name" class="sea1">
         <router-link to="/" slot="left">
-          <mt-button icon="back"></mt-button>
+        <!--左侧按钮未写,预留-->
+          <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
         </router-link>
-        <router-link to='/' slot="right">切换城市</router-link>
+        <router-link to='/city' slot="right" class="back">切换城市</router-link>
       </mt-header>
 
+      <div class="sMax">
+      <div class="top">
+        <input type="text" class="form-control" placeholder="输入学校,商务楼,地址" id="inputOne" @input="inputC($event)">
+        <button class="btn btn-primary btn1" @click="searchCity">提交</button>
+      </div>
+      <div class="bottom">
+        <p :class="{'his1':true,'his':isHis ? true:false}">搜索历史</p>
+        <div>
+          <!--根据输入框内容显示对应地址显示-->
+          <li v-for="c in seaCity" :class="{'cLi':true,'cLi1': isLi ? true:false}" @click="souSuoHis(c)">
+            <router-link to="/home">
+              <a @click="sendVuexone(c.name,c.latitude,c.longitude)">
+              <p>{{c.name}}</p>
+              <span>{{c.address}}</span>
+              </a>
+            </router-link>
+          </li>
+          <!--搜索历史的显示-->
+          <ul v-for="c1 in newLocal" :class="{'cLi':true,'his':isHis ? true:false}" >
+            <li v-for="c2 in c1">
+              <p>{{c2.name}}</p>
+              <span>{{c2.address}}</span>
+              <p @click="removeC" class="remo">清除所有历史</p>
+            </li>
+          </ul>
+        </div>
+        <div></div>
+      </div>
+      </div>
     </div>
 </template>
 
 <script>
+  import  Vue from "vue";
     export default {
         name: "SearchCity",
+        data(){
+            return{
+              cityData:'',
+              seaCity:[],
+              //搜索历史是否显示
+              isHis:false,
+              //搜索到的列表是否显示
+              isLi:true,
+              //本地存储时的数组
+              localone:[],
+              //要展示的本地存储搜索历史
+              newLocal:[]
+          }
+        },
+        methods:{
+          inputC(e){
+            //可修改为不操作dom获取输入框的值
+            this.cityData=e.target.value;
+          },
+          searchCity(){
+            //搜索历史文字的显示和隐藏
+            this.isHis = !this.isHis;
+            if(this.isHis){
+              this.isLi=false;
+            }else{
+              this.isLi=true;
+            }
+            Vue.axios.get('https://elm.cangdu.org/v1/pois?city_id='+this.$store.state.cityIn.id+'&keyword='+this.cityData+'&type=search').then((res) => {
+              this.seaCity=res.data;
+            }).catch((error)=>{console.log('请求错误',error)});
+          },
+          souSuoHis(c){
+            //点击某一个时本地存储搜索历史
+            this.localone.push(c);
+            localStorage.setItem('sousuo',JSON.stringify(this.localone));
+            // console.log(this.localone);
+          },
+          removeC(){
+            //点击清除所有历史
+            this.newLocal='';
+            localStorage.removeItem('sousuo');
+          },
+          sendVuexone(name,latitude,longitude){
+            this.$store.state.cityall={n:name,l:latitude,l1:longitude};
+          }
+        },
+      mounted(){
+        //显示本地存储
+        //注意:有一个问题未解决,只显示最后一个访问的历史记录
+       this.newLocal.push(JSON.parse(localStorage.getItem('sousuo')));
+      }
     }
 </script>
 
 <style scoped>
-
+  .max{
+    background: #F5F5F5;
+  }
+.sea1{
+  height: 2rem;
+  font-size: 0.8rem;
+}
+.back{
+  font-size: 0.6rem;
+}
+#inputOne{
+  height: 1.5rem;
+  font-size: 0.6rem;
+  margin: 0.5rem;
+  width: 15rem;
+  margin-top: 0;
+}
+.btn1{
+    width: 15rem;
+    height: 1.5rem;
+    font-size: 0.6rem;
+    margin: 0.5rem;
+    margin-top: 0;
+    background: #3190E8;
+}
+  .top{
+    background: white;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+    border:1px solid #E4E4E4;
+  }
+  .his{
+    display: none;
+  }
+  .his1{
+    height: 1rem;
+    line-height: 1rem;
+    border: 1px solid #e4e4e4;
+    font-size: 0.5rem;
+    margin-bottom: 0;
+  }
+  .cLi{
+    list-style:none;
+    height: 3rem;
+    font-size: 0.6rem;
+    border: 1px solid #E4E4E4;
+    background: white;
+    box-sizing: border-box;
+    padding-left: 1rem;
+  }
+  .cLi1{
+    display: none;
+  }
+  .cLi p{
+    height: 1.5rem;
+    line-height: 1.5rem;
+  }
+  .cLi span{
+    font-size: 0.45rem;
+  }
+  .remo{
+    text-align: center;
+    height: 2rem;
+    line-height: 2rem;
+    padding-top: 1rem;
+  }
 </style>

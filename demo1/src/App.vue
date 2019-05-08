@@ -1,9 +1,6 @@
 <template>
   <div id="app">
-    <!--城市页面-->
-    <YxCity></YxCity>
-    <!--搜索页面-->
-    <!--<SearchCity></SearchCity>-->
+    <router-view></router-view>
   </div>
 </template>
 
@@ -20,7 +17,12 @@ export default {
 
 <style>
   @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+  @import "../node_modules/swiper/dist/css/swiper.css";
   html,body{
     font-size: 20px;
   }
+ *{
+    padding: 0;
+    margin: 0;
+ }
 </style>
