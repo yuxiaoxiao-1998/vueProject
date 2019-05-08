@@ -47,6 +47,11 @@
               </div>
               <!--右侧-->
               <div>
+                <span class="pp">品牌</span>
+                <span>{{p.name}}</span>
+                <span>{{}}</span>
+                <span>{{}}</span>
+                <span>{{}}</span>
               </div>
             </li>
           </ul>
@@ -166,5 +171,13 @@
   }
   .y_img{
     width: 3rem;
+  }
+  .pp{
+    display: inline-block;
+    background: #FFD930;
+    padding: 0.05rem 0.15rem;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.5rem;
   }
 </style>

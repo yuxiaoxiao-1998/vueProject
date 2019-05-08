@@ -73,7 +73,8 @@
   bottom: 0;
   left: 0;
   right: 0;
-  border: 2px solid #e4e4e4;
+  border-top: 2px solid #e4e4e4;
+  border-bottom: 2px solid #e4e4e4;
   height: 2.3rem;
   padding-top: 0.3rem;
   z-index: 10;
@@ -82,7 +83,7 @@
 .bottomLi li{
   list-style: none;
   float: left;
-  width: 3.5rem;
+  width: 3.95rem;
   text-align: center;
 }
 .bottomLi li .e{
@@ -151,6 +152,8 @@
 }
 .bottomLi li p{
   color: #8D8D8D;
+  margin-top: -0.2rem;
+  font-size: 0.5rem;
 }
 .bottomLi li a{
   text-decoration: none;
