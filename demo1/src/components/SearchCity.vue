@@ -20,7 +20,7 @@
           <!--根据输入框内容显示对应地址显示-->
           <li v-for="c in seaCity" :class="{'cLi':true,'cLi1': isLi ? true:false}" @click="souSuoHis(c)">
             <router-link to="/home">
-              <a @click="sendVuexone(c.name,c.latitude,c.longitude)">
+              <a @click="sendVuexone(c.name,c.latitude,c.longitude,c.geohash)">
               <p>{{c.name}}</p>
               <span>{{c.address}}</span>
               </a>
@@ -31,9 +31,9 @@
             <li v-for="c2 in c1">
               <p>{{c2.name}}</p>
               <span>{{c2.address}}</span>
-              <p @click="removeC" class="remo">清除所有历史</p>
             </li>
           </ul>
+          <div @click="removeC" :class="{'qingchu':true,'his':isHis ? true:false}">清除所有历史</div>
         </div>
         <div></div>
       </div>
@@ -87,8 +87,9 @@
             this.newLocal='';
             localStorage.removeItem('sousuo');
           },
-          sendVuexone(name,latitude,longitude){
-            this.$store.state.cityall={n:name,l:latitude,l1:longitude};
+          sendVuexone(name,latitude,longitude,geohash){
+            //传给vuex经纬度以及名字信息
+            this.$store.state.cityall={n:name,l:latitude,l1:longitude,geo:geohash};
           }
         },
       mounted(){
@@ -135,7 +136,7 @@
     display: none;
   }
   .his1{
-    height: 1rem;
+    height: 1.5rem;
     line-height: 1rem;
     border: 1px solid #e4e4e4;
     font-size: 0.5rem;
@@ -149,6 +150,9 @@
     background: white;
     box-sizing: border-box;
     padding-left: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
   }
   .cLi1{
     display: none;
@@ -160,10 +164,14 @@
   .cLi span{
     font-size: 0.45rem;
   }
-  .remo{
+  .qingchu{
     text-align: center;
     height: 2rem;
     line-height: 2rem;
-    padding-top: 1rem;
+    font-size: 0.5rem;
+    background: white;
+    color: black;
+    margin-top: -0.5rem;
+    border-top: 1px solid #e4e4e4;
   }
 </style>

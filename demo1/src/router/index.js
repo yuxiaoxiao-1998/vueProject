@@ -4,6 +4,8 @@ import SearchCity from '../components/SearchCity'
 import YxCity from '../components/YxCity'
 import YxHome from '../components/YxHome'
 import YxOnePage from '../components/YxOnePage'
+import YxFoodList from '../components/YxFoodList'
+import YxFootListOne from '../components/YxFootListOne'
 
 Vue.use(Router)
 
@@ -17,5 +19,10 @@ export default new Router({
         {path:'',redirect:{path:'onepage'}},
         {path:'onepage',component:YxOnePage}
       ]},
+    {path:'/food',component:YxFoodList,children: [
+        //二级路由重定向
+        {path:'',redirect:{path:'foodone'}},
+        {path:'foodone',component:YxFootListOne}
+      ]}
   ]
 })

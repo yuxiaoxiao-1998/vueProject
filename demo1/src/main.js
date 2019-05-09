@@ -13,13 +13,21 @@ Vue.use(VueAxios, axios)
 //vuex插件
 import Vuex from 'vuex'
 Vue.use(Vuex)
+//Element插件
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(ElementUI);
 
 const store=new Vuex.Store({
   state:{
     //该对象存储了被点击的城市对象的name和id
     cityIn:{},
     cityall:{},
-    cityPos:[]
+    cityPos:[],
+  //  存储甜品饮品等点击过来的名字,及下列商铺所有信息
+    title:'',
+    allList:[]
+
   }
 });
 

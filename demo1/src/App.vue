@@ -6,7 +6,6 @@
 
 <script>
   import {} from './js/resize'
-
   import YxCity from "./components/YxCity";
   import SearchCity from "./components/SearchCity";
 export default {
@@ -18,6 +17,7 @@ export default {
 <style>
   @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
   @import "../node_modules/swiper/dist/css/swiper.css";
+
   html,body{
     font-size: 20px;
   }
