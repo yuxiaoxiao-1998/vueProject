@@ -20,6 +20,7 @@ export default {
 
   html,body{
     font-size: 20px;
+    background: #F5F5F5;
   }
  *{
     padding: 0;

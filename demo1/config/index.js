@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/baseUrl':{
-        target:'https://elm.cangdu.org/v1/cities',
+        target:'https://elm.cangdu.org',
         changeOrigin:true
       }
     },

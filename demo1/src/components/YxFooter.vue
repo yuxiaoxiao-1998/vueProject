@@ -8,7 +8,7 @@
           </router-link>
         </li>
         <li>
-          <router-link to="/home">
+          <router-link to="/home/homeOne">
             <span :class="{'s':true,'s1':isS==='搜索'?true:false}"  @click="spanC('搜索')"></span>
             <p>搜索</p>
           </router-link>

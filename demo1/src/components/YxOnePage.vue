@@ -46,8 +46,9 @@
           <ul class="y_ul">
             <!--商铺列表-->
             <!--路由跳转2-每一个商铺页面-->
-            <router-link to="/merchant ">
+            <router-link to="/shopHome">
             <li v-for="p in allShop">
+              <a @click="sendId(p.id)">
               <!--左侧-->
               <div class="s_left">
                 <img :src="'//elm.cangdu.org/img/'+p.image_path" alt="无法显示图片" class="y_img">
@@ -80,6 +81,7 @@
                 </p>
               </div>
               <div class="empty"></div>
+              </a>
             </li>
             </router-link>
           </ul>
@@ -140,6 +142,16 @@
         sendVuexY(title,all){
           this.$store.state.title=title;
           this.$store.state.allList=all;
+        },
+        sendId(id){
+          //点击哪一个发送哪一个的请求
+          Vue.axios.get('https://elm.cangdu.org/shopping/v2/menu?restaurant_id='+id).then((res) => {
+            this.$store.state.shopAll=res.data;
+            // console.log(res.data);
+            // console.log(this.$store.state.shopAll);
+          }).catch((error) => {
+            console.log('请求错误', error)
+          });
         }
       }
     }

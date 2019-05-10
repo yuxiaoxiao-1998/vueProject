@@ -6,7 +6,10 @@ import YxHome from '../components/YxHome'
 import YxOnePage from '../components/YxOnePage'
 import YxFoodList from '../components/YxFoodList'
 import YxFootListOne from '../components/YxFootListOne'
-
+import YxFootListTwo from '../components/YxFootListTwo'
+import YxSearch from '../components/YxSearch'
+import YxShopHome from '../components/YxShopHome'
+import YxShopTopOne from '../components/YxShopTopOne'
 Vue.use(Router)
 
 export default new Router({
@@ -17,12 +20,18 @@ export default new Router({
     {path:'/home',component:YxHome,children:[
         //二级路由重定向
         {path:'',redirect:{path:'onepage'}},
-        {path:'onepage',component:YxOnePage}
+        {path:'onepage',component:YxOnePage},
+        {path:'homeOne',component:YxSearch}
       ]},
     {path:'/food',component:YxFoodList,children: [
         //二级路由重定向
         {path:'',redirect:{path:'foodone'}},
-        {path:'foodone',component:YxFootListOne}
-      ]}
+        {path:'foodone',component:YxFootListOne},
+        {path:'foodtwo',component:YxFootListTwo},
+      ]},
+    {path:'/shopHome',component:YxShopHome,children:[
+        {path:'',redirect:{path:'shopone'}},
+        {path:'shopone',component:YxShopTopOne}
+      ]},
   ]
 })

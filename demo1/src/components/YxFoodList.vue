@@ -8,7 +8,7 @@
       <!--排序,筛选等-->
       <ul class="y_top">
         <li @click="y_LiOne" :class="{'LiOne':isLiOne}"><span>{{listTitle}}</span><span :class="{'glyphicon':true, 'glyphicon-triangle-bottom':true,'y_is':y_isOne}"></span></li>
-        <li><span>排序</span><span class="glyphicon glyphicon-triangle-bottom"></span></li>
+        <li @click="y_LiTwo" :class="{'LiOne':isLiTwo}"><span>排序</span><span :class="{'glyphicon':true, 'glyphicon-triangle-bottom':true,'y_is':y_isTwo}"></span></li>
         <li><span>筛选</span><span class="glyphicon glyphicon-triangle-bottom"></span></li>
         <div class="empty"></div>
       </ul>
@@ -20,6 +20,7 @@
           <a @click="sendRight(list)">
             <img :src="srcSOne[k]">
             <span>{{list.name}}</span>
+            <span class="kongge"></span>
             <mt-badge size="small" color="#ccc" class="btn">{{list.count}}</mt-badge>
           <span class="glyphicon glyphicon-menu-right jt"></span>
           </a>
@@ -39,17 +40,66 @@
       </el-collapse-transition>
       <!--点击第二个按钮显示的列表-->
       <el-collapse-transition>
-        <ul>
+        <ul class="yListTwo"  v-if="isTwoExt">
           <li>
+            <!--通过路由传值-->
+            <router-link to="/food/foodtwo">
+              <a @click="clickOne">
+            <img src="../image/1.png" alt="无法显示">
+            <span>智能排序</span>
+                <span :class="{'y_znS':true,'y_znList':y_znListOne==='1'?true:false}"><img src="../image/dui.png" alt="无"></span>
+              </a>
+            </router-link>
           </li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li>
+            <router-link  to="/food/foodtwo">
+              <a @click="clicktwo">
+                <img src="../image/2.png" alt="无法显示">
+                <span>距离最近</span>
+                <span :class="{'y_znS':true,'y_znList':y_znListOne==='2'?true:false}"><img src="../image/dui.png" alt="无"></span>
+              </a>
+            </router-link>
+
+          </li>
+          <li>
+            <router-link  to="/food/foodtwo">
+              <a @click="clickthree">
+            <img src="../image/3.png" alt="无法显示">
+            <span>销量最高</span>
+                <span :class="{'y_znS':true,'y_znList':y_znListOne==='3'?true:false}"><img src="../image/dui.png" alt="无"></span>
+              </a>
+            </router-link>
+          </li>
+          <li>
+            <router-link  to="/food/foodtwo">
+              <a @click="clickfour">
+            <img src="../image/4.png" alt="无法显示">
+            <span>起送价最低</span>
+                <span :class="{'y_znS':true,'y_znList':y_znListOne==='4'?true:false}"><img src="../image/dui.png" alt="无"></span>
+              </a>
+            </router-link>
+          </li>
+          <li>
+            <router-link  to="/food/foodtwo">
+              <a @click="clickfive">
+            <img src="../image/5.png" alt="无法显示">
+            <span>配送速度最快</span>
+                <span :class="{'y_znS':true,'y_znList':y_znListOne==='5'?true:false}"><img src="../image/dui.png" alt="无"></span>
+              </a>
+            </router-link>
+          </li>
+          <li>
+            <router-link  to="/food/foodtwo">
+              <a @click="clicksix">
+            <img src="../image/6.png" alt="无法显示">
+            <span>评分最高</span>
+                <span :class="{'y_znS':true,'y_znList':y_znListOne==='6'?true:false}"><img src="../image/dui.png" alt="无"></span>
+              </a>
+            </router-link>
+          </li>
         </ul>
       </el-collapse-transition>
-      <!--点击第三个按钮显示的列表-->
+      <!--点击第三个按钮显示的列表,未写-->
       <el-collapse-transition>
       </el-collapse-transition>
       <!--商铺列表-->
@@ -80,12 +130,19 @@
           //小三角按钮旋转
           y_isOne:false,
           //字体颜色变化
-          isLiOne:false
+          isLiOne:false,
           //  -------------
           // 排序的三个变量(字体颜色,按钮旋转,ul是否存在的判断)
-
+            isTwoExt:false,//ul
+            y_isTwo:false,//按钮是否旋转
+            isLiTwo:false,//字体颜色
           //---------------
-          //筛选的三个变量()
+          //筛选的三个变量(字体颜色,按钮旋转,ul是否存在的判断)一个存在时,另外两个都不存在
+
+          //-----------
+          //对号是否存在的变量
+          y_znListOne:'',
+        //  ---------------
         }
       },
       created() {
@@ -105,19 +162,37 @@
       },
       methods: {
         y_LiOne() {
-          //ul是否显示
+          //第一个列表ul是否显示
           this.isExt= !this.isExt;
           //根据ul是否显示完成字的切换
           if(this.isExt){
             this.listTitle='分类';
             this.y_isOne=true;
             this.isLiOne=true;
+            this.isTwoExt=false;
+            this.y_isTwo=false;
+            this.isLiTwo=false;
 
           }else{
             this.listTitle= this.$store.state.title;
             this.y_isOne=false;
             this.isLiOne=false;
           }
+        },
+        y_LiTwo(){
+          //第二个列表ul是否显示
+          this.isTwoExt = !this.isTwoExt;
+          if(this.isTwoExt){
+              this.y_isTwo=true;
+              this.isLiTwo=true;
+              this.isExt=false;
+              this.y_isOne=false;
+              this.isLiOne=false;
+          }else{
+            this.y_isTwo=false;
+            this.isLiTwo=false;
+          }
+
         },
         //判断图片的格式
         showImage() {
@@ -139,6 +214,61 @@
           this.isShowOne=list.name;
           //赋值给右侧子对象
           this.listTwo=list.sub_categories;
+        },
+        //点击不同的通过路由传值,传过去不同的id值,two组件根据不同的id发起请求
+        clickOne(){
+          this.y_znListOne='1';
+          this.isTwoExt=false;
+          this.y_isTwo=false;
+          this.isLiTwo=false;
+          Vue.axios.get('https://elm.cangdu.org/shopping/restaurants?latitude='+this.$store.state.cityall.l+'&longitude='+this.$store.state.cityall.l1+'&order_by=4').then((res) => {
+            this.$store.state.clickTwo=res.data;
+          }).catch((error)=>{console.log('请求错误',error)});
+        },
+        clicktwo(){
+          this.y_znListOne='2';
+          this.isTwoExt=false;
+          this.y_isTwo=false;
+          this.isLiTwo=false;
+          Vue.axios.get('https://elm.cangdu.org/shopping/restaurants?latitude='+this.$store.state.cityall.l+'&longitude='+this.$store.state.cityall.l1+'&order_by=5').then((res) => {
+            this.$store.state.clickTwo=res.data;
+          }).catch((error)=>{console.log('请求错误',error)});
+        },
+        clickthree(){
+          this.y_znListOne='3';
+          this.isTwoExt=false;
+          this.y_isTwo=false;
+          this.isLiTwo=false;
+          Vue.axios.get('https://elm.cangdu.org/shopping/restaurants?latitude='+this.$store.state.cityall.l+'&longitude='+this.$store.state.cityall.l1+'&order_by=6').then((res) => {
+            this.$store.state.clickTwo=res.data;
+          }).catch((error)=>{console.log('请求错误',error)});
+        },
+        clickfour(){
+          this.y_znListOne='4';
+          this.isTwoExt=false;
+          this.y_isTwo=false;
+          this.isLiTwo=false;
+          Vue.axios.get('https://elm.cangdu.org/shopping/restaurants?latitude='+this.$store.state.cityall.l+'&longitude='+this.$store.state.cityall.l1+'&order_by=1').then((res) => {
+            this.$store.state.clickTwo=res.data;
+          }).catch((error)=>{console.log('请求错误',error)});
+        },
+        clickfive(){
+          this.y_znListOne='5';
+          this.isTwoExt=false;
+          this.y_isTwo=false;
+          this.isLiTwo=false;
+          Vue.axios.get('https://elm.cangdu.org/shopping/restaurants?latitude='+this.$store.state.cityall.l+'&longitude='+this.$store.state.cityall.l1+'&order_by=2').then((res) => {
+            this.$store.state.clickTwo=res.data;
+          }).catch((error)=>{console.log('请求错误',error)});
+        },
+        clicksix(){
+          this.y_znListOne='6';
+          this.isTwoExt=false;
+          this.y_isTwo=false;
+          this.isLiTwo=false;
+          Vue.axios.get('https://elm.cangdu.org/shopping/restaurants?latitude='+this.$store.state.cityall.l+'&longitude='+this.$store.state.cityall.l1+'&order_by=3').then((res) => {
+            this.$store.state.clickTwo=res.data;
+          }).catch((error)=>{console.log('请求错误',error)});
         }
       }
     }
@@ -222,6 +352,12 @@
   .y_listOne_left>li img{
     width: 1rem;
   }
+  .y_listOne_left>li .kongge{
+    display: inline-block;
+    width: 1.5rem;
+    height: 1rem;
+    line-height: 1rem;
+  }
   .jt{
     position: absolute;
     right: 0.3rem;
@@ -256,8 +392,40 @@
     top:0.6rem;
     font-size: 0.4rem;
   }
-  svg{
-    width: 1rem;
-    height: 1rem;
+  .yListTwo{
+    position: fixed;
+    top: 4rem;
+    left: 0;
+    right: 0;
+    background: white;
+    z-index: 10;
+  }
+  .yListTwo li{
+    height: 2.3rem;
+    line-height: 2.3rem;
+    font-size: 0.5rem;
+    border-bottom: 1px solid #e4e4e4;
+    background: white;
+    position: relative;
+  }
+  .yListTwo li a{
+    color: black;
+    display: block;
+    background: white;
+    text-decoration: none;
+  }
+  .yListTwo li img{
+    width: 0.7rem;
+    margin-right:1rem;
+    margin-left: 1rem;
+  }
+  .y_znS{
+    display: none;
+  }
+  .y_znList{
+    width: 0.7rem;
+    position: absolute;
+    right: 2rem;
+    display:inline-block;
   }
 </style>

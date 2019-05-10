@@ -1,7 +1,7 @@
 <template>
     <div class="max">
       <!--城市从vuex中获取-->
-      <mt-header :title="$store.state.cityIn.name" class="sea1">
+      <mt-header fixed :title="$store.state.cityIn.name" class="sea1">
         <router-link to="/" slot="left">
         <!--左侧按钮未写,预留-->
           <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
@@ -27,11 +27,9 @@
             </router-link>
           </li>
           <!--搜索历史的显示-->
-          <ul v-for="c1 in newLocal" :class="{'cLi':true,'his':isHis ? true:false}" >
-            <li v-for="c2 in c1">
-              <p>{{c2.name}}</p>
-              <span>{{c2.address}}</span>
-            </li>
+          <ul v-for="c1 in $store.state.cityHistory" :class="{'cLi':true,'his':isHis ? true:false}" >
+              <p>{{c1.name}}</p>
+              <span>{{c1.address}}</span>
           </ul>
           <div @click="removeC" :class="{'qingchu':true,'his':isHis ? true:false}">清除所有历史</div>
         </div>
@@ -53,10 +51,6 @@
               isHis:false,
               //搜索到的列表是否显示
               isLi:true,
-              //本地存储时的数组
-              localone:[],
-              //要展示的本地存储搜索历史
-              newLocal:[]
           }
         },
         methods:{
@@ -76,27 +70,17 @@
               this.seaCity=res.data;
             }).catch((error)=>{console.log('请求错误',error)});
           },
-          souSuoHis(c){
-            //点击某一个时本地存储搜索历史
-            this.localone.push(c);
-            localStorage.setItem('sousuo',JSON.stringify(this.localone));
-            // console.log(this.localone);
+          souSuoHis(c) {
+            this.$store.state.cityHistory.push(c);
           },
           removeC(){
-            //点击清除所有历史
-            this.newLocal='';
-            localStorage.removeItem('sousuo');
+            this.$store.state.cityHistory=[];
           },
           sendVuexone(name,latitude,longitude,geohash){
             //传给vuex经纬度以及名字信息
             this.$store.state.cityall={n:name,l:latitude,l1:longitude,geo:geohash};
           }
         },
-      mounted(){
-        //显示本地存储
-        //注意:有一个问题未解决,只显示最后一个访问的历史记录
-       this.newLocal.push(JSON.parse(localStorage.getItem('sousuo')));
-      }
     }
 </script>
 
@@ -107,6 +91,10 @@
 .sea1{
   height: 2rem;
   font-size: 0.8rem;
+  z-index: 10;
+}
+.sMax{
+  margin-top: 2rem;
 }
 .back{
   font-size: 0.6rem;
