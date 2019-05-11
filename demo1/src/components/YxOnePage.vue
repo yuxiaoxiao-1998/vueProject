@@ -48,7 +48,7 @@
             <!--路由跳转2-每一个商铺页面-->
             <router-link to="/shopHome">
             <li v-for="p in allShop">
-              <a @click="sendId(p.id)">
+              <a @click="sendId(p.id,p)">
               <!--左侧-->
               <div class="s_left">
                 <img :src="'//elm.cangdu.org/img/'+p.image_path" alt="无法显示图片" class="y_img">
@@ -66,19 +66,31 @@
                  </span>
                 </p>
                 <!--月售多少单-->
-                <p class="s_num"><span class="pf">{{p.rating}}</span>{{'月售'+p.recent_order_num}}单</p>
+                <p class="s_num">
+                  <el-rate
+                    v-model="p.rating"
+                    disabled
+                    show-score
+                    text-color="#ff9900"
+                  class="xingxing">
+                  </el-rate>
+                  <span class="pf">{{'月售'+p.recent_order_num}}单</span>
+                  </p>
                 <!--蜂鸟快送/准时达-->
                 <p class="s_f">
                   <span class="s_f1">{{p.delivery_mode.text}}</span>
                   <span class="s_f2">{{p.supports[1].name}}</span>
                 </p>
                 <!--配送费-->
+                <div>
                   <span class="s_peisong">&yen;{{p.float_minimum_order_amount+'元起送/'+p.piecewise_agent_fee.tips}}</span>
                 <!--公里数/时间-->
-                <p class="s_gongli">
+                <span class="s_gongli">
                 <span class="gongli_1">{{p.distance}}</span>
                 <span>/{{p.order_lead_time}}</span>
-                </p>
+                </span>
+                  <div class="empty"></div>
+                </div>
               </div>
               <div class="empty"></div>
               </a>
@@ -143,12 +155,14 @@
           this.$store.state.title=title;
           this.$store.state.allList=all;
         },
-        sendId(id){
+        sendId(id,p){
           //点击哪一个发送哪一个的请求
           Vue.axios.get('https://elm.cangdu.org/shopping/v2/menu?restaurant_id='+id).then((res) => {
+            //该数据为点击商铺列表所存储的该商铺内所有信息
             this.$store.state.shopAll=res.data;
-            // console.log(res.data);
-            // console.log(this.$store.state.shopAll);
+            //该数据为首页店铺页本身对象
+            this.$store.state.shopP=p;
+
           }).catch((error) => {
             console.log('请求错误', error)
           });
@@ -263,15 +277,14 @@
   font-size: 0.5rem;
 }
   .s_f{
-    position: absolute;
-    right: 0.5rem;
-    top:1.3rem;
+    height: 0.7rem;
+    line-height: 0.7rem;
+    text-align: right;
   }
 .s_f1{
   color: white;
   background: #72B3EF;
-  display: inline-block;
-  padding:0 0.1rem;
+  padding:0.1rem 0.1rem;
   font-size: 0.3rem;
   border-radius: 4px;
 }
@@ -283,26 +296,25 @@
     margin-left: -0.1rem;
   }
   .s_peisong{
-    display:block;
+    display:inline-block;
     width: 6rem;
-    margin-top: 0.4rem;
     color: #666;
     font-size: 0.4rem;
   }
   .s_gongli{
+    width: 5.35rem;
     display: inline-block;
-    width: 5.3rem;
-    text-align: right;
     font-size: 0.4rem;
-    position:absolute;
-    right:0.5rem;
-    top:2.8rem;
+    float: right;
+    text-align: right;
   }
   .gongli_1{
     color: #666;
   }
   .pf{
-   color:#FF6000;
     font-size: 0.5rem;
+  }
+  .xingxing{
+    display: inline-block;
   }
 </style>

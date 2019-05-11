@@ -24,6 +24,8 @@ const store=new Vuex.Store({
     cityIn:{},
     //存储历史记录
     cityHistory:[],
+    //搜索店铺或商家的历史记录
+    shopHistory:[],
     //传递过来的地址名字,经度纬度,经纬度数组
     cityall:{},
   //  存储甜品饮品等点击过来的名字,及下列商铺所有信息(初始页面的显示)
@@ -32,7 +34,9 @@ const store=new Vuex.Store({
 //当点击智能排序等按钮时,传递的数据,动态变量
     clickTwo:[],
     //点击商铺,该数据记录被点击的商铺里的商品信息
-    shopAll:[]
+    shopAll:[],
+    //商铺本身的页面
+    shopP:{}
   }
 });
 

@@ -24,20 +24,31 @@
                  </span>
             </p>
             <!--月售多少单-->
-            <p class="s_num"><span class="pf">{{p.rating}}</span>{{'月售'+p.recent_order_num}}单</p>
-            <!--蜂鸟快送/准时达-->
+            <p class="s_num">
+              <el-rate
+                v-model="p.rating"
+                disabled
+                show-score
+                text-color="#ff9900"
+                id="xingxing">
+              </el-rate>
+              <span class="pf">{{'月售'+p.recent_order_num}}单</span>
+            </p>
             <p class="s_f">
               <span class="s_f1">{{getp(p)}}</span>
               <span class="s_f2" v-if="is_show">{{getp1(p)}}</span>
-              <!--<span class="s_f2">{{p.supports[1].name}}</span>-->
             </p>
             <!--配送费-->
-            <span class="s_peisong">&yen;{{p.float_minimum_order_amount+'元起送/'+p.piecewise_agent_fee.tips}}</span>
-            <!--公里数/时间-->
-            <p class="s_gongli">
-              <span class="gongli_1">{{p.distance}}</span>
-              <span>/{{p.order_lead_time}}</span>
-            </p>
+            <div>
+              <span class="s_peisong">&yen;{{p.float_minimum_order_amount+'元起送/'+p.piecewise_agent_fee.tips}}</span>
+              <!--公里数/时间-->
+              <span class="s_gongli">
+                <span class="gongli_1">{{p.distance}}</span>
+                <span>/{{p.order_lead_time}}</span>
+                </span>
+              <div class="empty"></div>
+            </div>
+            <!------------------------>
           </div>
           <div class="empty"></div>
         </li>
@@ -88,6 +99,7 @@
   .shopMax{
     border:1px solid #e4e4e4;
     background: white;
+    padding-top: 4rem;
   }
   .y_p1 img{
     width: 0.7rem;
@@ -149,19 +161,17 @@
     font-size: 0.5rem;
   }
   .pf{
-    color:#FF6000;
     font-size: 0.5rem;
   }
   .s_f{
-    position: absolute;
-    right: 0.5rem;
-    top:1.3rem;
+    height: 0.7rem;
+    line-height: 0.7rem;
+    text-align: right;
   }
   .s_f1{
     color: white;
     background: #72B3EF;
-    display: inline-block;
-    padding:0 0.1rem;
+    padding:0.1rem 0.1rem;
     font-size: 0.3rem;
     border-radius: 4px;
   }
@@ -173,23 +183,22 @@
     margin-left: -0.1rem;
   }
   .s_peisong{
-    display:block;
+    display:inline-block;
     width: 6rem;
-    margin-top: 0.4rem;
     color: #666;
     font-size: 0.4rem;
   }
   .s_gongli{
+    width: 5.35rem;
     display: inline-block;
-    width: 5.3rem;
-    text-align: right;
     font-size: 0.4rem;
-    position:absolute;
-    right:0.5rem;
-    top:2.8rem;
+    float: right;
+    text-align: right;
   }
   .gongli_1{
     color: #666;
   }
-
+  #xingxing{
+    display: inline-block;
+  }
 </style>
