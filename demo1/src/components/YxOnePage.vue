@@ -160,12 +160,15 @@
           Vue.axios.get('https://elm.cangdu.org/shopping/v2/menu?restaurant_id='+id).then((res) => {
             //该数据为点击商铺列表所存储的该商铺内所有信息
             this.$store.state.shopAll=res.data;
-            //该数据为首页店铺页本身对象
-            this.$store.state.shopP=p;
-
           }).catch((error) => {
             console.log('请求错误', error)
           });
+          //判断当icon_name为无时,不显示
+          if(p.activities.length === 0){
+            p.activities.push({'icon_name':'无'});
+          }
+          //该数据为首页店铺页本身对象
+          this.$store.state.shopP=p;
         }
       }
     }

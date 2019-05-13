@@ -36,7 +36,7 @@ const store=new Vuex.Store({
     //点击商铺,该数据记录被点击的商铺里的商品信息
     shopAll:[],
     //商铺本身的页面
-    shopP:{}
+    shopP:{},
   }
 });
 

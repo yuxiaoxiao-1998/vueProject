@@ -10,6 +10,9 @@ import YxFootListTwo from '../components/YxFootListTwo'
 import YxSearch from '../components/YxSearch'
 import YxShopHome from '../components/YxShopHome'
 import YxShopTopOne from '../components/YxShopTopOne'
+import YxSale from '../components/YxSale'
+import YxDetails from '../components/YxDetails'
+
 Vue.use(Router)
 
 export default new Router({
@@ -33,5 +36,7 @@ export default new Router({
         {path:'',redirect:{path:'shopone'}},
         {path:'shopone',component:YxShopTopOne}
       ]},
+    {path:'/proone',component:YxSale},
+    {path:'/pro',component:YxDetails},
   ]
 })

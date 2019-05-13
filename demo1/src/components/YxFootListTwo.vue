@@ -4,8 +4,9 @@
     <ul class="y_ul">
       <!--商铺列表-->
       <!--路由跳转2-每一个商铺页面-->
-      <router-link to="/merchant ">
+      <router-link to="/shophome">
         <li v-for="p in $store.state.clickTwo">
+          <a @click="sendId(p.id,p)">
           <!--左侧-->
           <div class="s_left">
             <!--有两个图片路径出错-->
@@ -51,6 +52,7 @@
             <!------------------------>
           </div>
           <div class="empty"></div>
+          </a>
         </li>
       </router-link>
     </ul>
@@ -58,7 +60,7 @@
 </template>
 
 <script>
-
+  import Vue from 'vue'
     export default {
       name: "YxFootListTwo",
       data(){
@@ -88,6 +90,21 @@
               return p.supports[1].name;
           }
         },
+        sendId(id,p){
+          //点击哪一个发送哪一个的请求
+          Vue.axios.get('https://elm.cangdu.org/shopping/v2/menu?restaurant_id='+id).then((res) => {
+            //该数据为点击商铺列表所存储的该商铺内所有信息
+            this.$store.state.shopAll=res.data;
+          }).catch((error) => {
+            console.log('请求错误', error)
+          });
+          //判断当icon_name为无时,不显示
+          if(p.activities.length === 0){
+            p.activities.push({'icon_name':'无'});
+          }
+          //该数据为首页店铺页本身对象
+          this.$store.state.shopP=p;
+        }
       }
     }
 </script>
