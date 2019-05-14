@@ -37,6 +37,13 @@ const store=new Vuex.Store({
     shopAll:[],
     //商铺本身的页面
     shopP:{},
+  //  --------------------
+      //点击加入购物车时的数组
+    //{name:this.geName,price:this.geMoney,sName:this.gName,countS:1,id:this.foodId,wy:this.weiyi}
+    addShopAll:[],
+    //点击加入购物车商品的总数量
+    addCount:0
+
   }
 });
 
