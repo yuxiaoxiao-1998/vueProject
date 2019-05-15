@@ -85,7 +85,6 @@
       methods:{
         sendVueX(n,i){
           this.$store.state.cityIn={name:n,id:i};
-          // console.log(this.$store.state.cityIn);
         }
       },
         created() {

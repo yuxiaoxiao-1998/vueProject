@@ -12,6 +12,9 @@ import YxShopHome from '../components/YxShopHome'
 import YxShopTopOne from '../components/YxShopTopOne'
 import YxSale from '../components/YxSale'
 import YxDetails from '../components/YxDetails'
+import YxOrder from '../components/YxOrder'
+import YxDetailsOne from '../components/YxDetailsOne'
+
 
 Vue.use(Router)
 
@@ -34,9 +37,11 @@ export default new Router({
       ]},
     {path:'/shopHome',component:YxShopHome,children:[
         {path:'',redirect:{path:'shopone'}},
-        {path:'shopone',component:YxShopTopOne}
+        {path:'shopone',component:YxShopTopOne},
+        {path:'detailone',component:YxDetailsOne}
       ]},
     {path:'/proone',component:YxSale},
     {path:'/pro',component:YxDetails},
+    {path:'/order1',component:YxOrder},
   ]
 })

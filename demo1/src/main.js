@@ -42,9 +42,16 @@ const store=new Vuex.Store({
     //{name:this.geName,price:this.geMoney,sName:this.gName,countS:1,id:this.foodId,wy:this.weiyi}
     addShopAll:[],
     //点击加入购物车商品的总数量
-    addCount:0
-
-  }
+    addCount:0,
+    //-------------------------
+    //商品页点击图片进入详情页的对象
+    detilsOne:{}
+  },
+  mutations:{
+    xiangQing(state,sps){
+      state.detilsOne=sps;
+    }
+  },
 });
 
 new Vue({

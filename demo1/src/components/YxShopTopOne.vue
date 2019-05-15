@@ -35,6 +35,7 @@
           商品
         </span>
         <span :class="{'pingjia':true,'sele':sele==='评价'?true:false}" @click="sele='评价'">评价</span></p>
+        <!--商品-->
       <div class="sMax">
         <div class="sLeft1">
           <ul>
@@ -51,23 +52,34 @@
             <li class="sRightLiOne"><span>{{liName}}</span><span class="spanTwo">{{liDes}}</span></li>
             <!--右侧列表-->
             <li v-for="s1 in liAll" class="sRightList">
+              <router-link to="/shopHome/detailone">
+                <a @click="sengS(s1)">
               <div class="new" v-if="newFood(s1)">新品</div>
               <div class="s1Img">
                 <img :src="'//elm.cangdu.org/img/'+s1.image_path" alt="无">
               </div>
               <div class="zp" v-if="zp(s1)">招牌</div>
+                </a>
+              </router-link>
               <div class="s1Right">
+                <router-link to="/shopHome/detailone">
+                  <a @click="sengS(s1)">
                 <span class="c1Name">{{s1.name}}</span>
                 <span class="c1Des">{{s1.description}}</span>
                 <p>
                 <span class="yueshou1">{{gettips(s1)}}</span>
                 <span class="yueshou1">好评率{{s1.satisfy_rate}}%</span>
                 </p>
+                  </a>
+                </router-link>
                 <div class="zp1">{{des(s1)}}</div>
                 <p class="gp">
                   <span class="moneyOne"><span class="mone">¥{{s1.specfoods[0].price}}</span>起</span>
                   <!--选规格或者加号-->
+                  <span class="gj">
+                  <span v-if="yCount(s1)>0?true:false" class="coun"><i class="el-icon-remove pre" @click="preCount(s1)"></i>{{yCount(s1)}}</span>
                   <span :class="{'ge':true}" @click="compareGuGe(s1)">{{getGuige(s1)}}</span>
+                  </span>
                 </p>
               </div>
               <div class="empty"></div>
@@ -90,6 +102,7 @@
         </div>
         <div class="empty"></div>
       </div>
+        <!--评价-->
       </div>
     </div>
 </template>
@@ -112,18 +125,18 @@
           //当没有活动时,不显示上面图片
           isImg: true,
           //规格数组
-          guige:[],
+          guige: [],
           //规格是否存在
-          ge:false,
+          ge: false,
           //点开规格的商品自身的名字
-          geName:'',
+          geName: '',
           //当前被选中的商品的价格
-          geMoney:'',
+          geMoney: '',
           //小商品的选择的颜色变更
-          gName:'默认',
-          foodId:'',
+          gName: '默认',
+          foodId: '',
           //唯一标识
-          weiyi:'',
+          weiyi: '',
           //当点击加入购物车时,1,左边减号出现,显示数量,当数组specfoods.length>1则不能使用减号,当为加号时,则匹配id是否相等,相等时count--;2,bootom中点击时改变数量,
         }
       },
@@ -197,79 +210,114 @@
         },
         //判断是选规格还是加号
         getGuige(l) {
-            if(l.specfoods.length === 1){
-                  return '+';
-            }else{
-              return '选规格';
-            }
-          },
-        compareGuGe(l){
+          if (l.specfoods.length === 1) {
+            return '+';
+          } else {
+            return '选规格';
+          }
+        },
+        compareGuGe(l) {
           //判断当为选规格时,弹出框,框可以选择购物
-          if(l.specfoods.length>1){
-                this.geName=l.name;
-                this.guige=l.specfoods;
-                this.geMoney=l.specfoods[0].price;
-                this.ge=true;
-                this.weiyi=l.item_id;
-          }else{
-            this.geName=l.name;
-            this.geMoney=l.specfoods[0].price;
-            this.foodId=l.specfoods[0].food_id;
-            this.weiyi=l.item_id;
-            this.gName='';
+          if (l.specfoods.length > 1) {
+            this.geName = l.name;
+            this.guige = l.specfoods;
+            this.geMoney = l.specfoods[0].price;
+            this.ge = true;
+            this.weiyi = l.item_id;
+          } else {
+            this.geName = l.name;
+            this.geMoney = l.specfoods[0].price;
+            this.foodId = l.specfoods[0].food_id;
+            this.weiyi = l.item_id;
+            this.gName = '';
             this.addShop();
           }
         },
         //点击商品时将价格显示在下方
-        sendMoney(f){
-          this.geMoney=f.price;
-          this.gName=f.specs_name;
-          this.foodId=f.food_id;
+        sendMoney(f) {
+          this.geMoney = f.price;
+          this.gName = f.specs_name;
+          this.foodId = f.food_id;
         },
-        addShop(){
+        addShop() {
           //向vueX中添加时,将数据进行过滤
           //逻辑:1.将要显示的数据封装成一个对象2,(若数组长度为0,则直接添加到数组中)3(否则,遍历并通过id(也就是food_id)判断该数组中是否已经存在对应对象,v代表已经存在于数组中的对象,3-1如果存在,则过滤出来对应的那个对象,将该对象的countS++,3-2,若不存在直接添加)
-          let shopA={name:this.geName,price:this.geMoney,sName:this.gName,countS:1,id:this.foodId,wy:this.weiyi};
-          if(this.$store.state.addShopAll.length==0){
+          let shopA = {
+            name: this.geName,
+            price: this.geMoney,
+            sName: this.gName,
+            countS: 1,
+            id: this.foodId,
+            wy: this.weiyi
+          };
+          if (this.$store.state.addShopAll.length == 0) {
             this.$store.state.addShopAll.push(shopA);
-          }else{
-            let isHas=this.$store.state.addShopAll.some((v)=>{
-                return v.id===this.foodId;
+          } else {
+            let isHas = this.$store.state.addShopAll.some((v) => {
+              return v.id === this.foodId;
             });
-            if(isHas){
+            if (isHas) {
               //找到对应的对象,将其count++
-              const arr=this.$store.state.addShopAll.filter((v)=>{
+              const arr = this.$store.state.addShopAll.filter((v) => {
                 //过滤之后产生的新数组中只有一个元素
-                return v.id===this.foodId;
+                return v.id === this.foodId;
               });
               arr[0].countS++;
-            }else{
+            } else {
               //否则将对象添加到数组中
               this.$store.state.addShopAll.push(shopA);
             }
           }
           //-----------------
           //将选规格框不显示
-          this.ge=false;
+          this.ge = false;
           //将总数量++
           this.$store.state.addCount++;
         },
-        //左侧的对应的数量的显示
-        leftCount(s){
-          let sum=null;
-          for(let i in s){
-            for(let j in this.$store.state.addShopAll){
-                if(s[i].item_id === this.$store.state.addShopAll[j].wy){
-                  sum += this.$store.state.addShopAll[j].countS;
-                }
+        //减号的显示和隐藏,数量的显示和隐藏(item_id为右侧小商品之间的唯一标识)
+        yCount(m) {
+          let sum = 0;
+          for (let j in this.$store.state.addShopAll) {
+            if (m.item_id === this.$store.state.addShopAll[j].wy) {
+              sum += this.$store.state.addShopAll[j].countS;
             }
           }
           return sum;
         },
-
-         },
+        //左侧的对应的数量的显示
+        leftCount(s) {
+          let sum = null;
+          for (let i in s) {
+            for (let j in this.$store.state.addShopAll) {
+              if (s[i].item_id === this.$store.state.addShopAll[j].wy) {
+                sum += this.$store.state.addShopAll[j].countS;
+              }
+            }
+          }
+          return sum;
+        },
+        //点击减号时判断是否可以点击
+        preCount(s1){
+          console.log(s1);
+          if(s1.specfoods.length>1){
+            alert('选规格商品请在购物车进行减少');
+          }else{
+            //当只有一条时,判断找到相对应的vuex中的对象,进行数量的减少
+            for (let j in this.$store.state.addShopAll) {
+              if (s1.specfoods[0].item_id === this.$store.state.addShopAll[j].wy) {
+                this.$store.state.addShopAll[j].countS--;
+                this.$store.state.addCount--;
+              }
+            }
+          }
+        },
+        //点击时将对应的自身的信息传入vuex中
+        sengS(s1){
+          this.$store.commit('xiangQing',s1);
+        }
+      },
         created() {
-          //商铺本身的信息
+          //商铺本身的信息,判断上方图片是否显示
           for (let icon of this.$store.state.shopP.activities) {
             if (icon.icon_name === '无') {
               this.isImg = false;
@@ -372,6 +420,9 @@
     background: white;
     position: relative;
     overflow: hidden;
+  }
+  .sRightList a{
+    color:#666;
   }
   .s1Img,.s1Right{
     float: left;
@@ -545,9 +596,6 @@
     font-weight: bolder;
     padding:0.2rem;
     border-radius: 10px;
-    position: absolute;
-    right: 1rem;
-    top:0.05rem;
   }
   .y_g{
     width: 100%;
@@ -626,4 +674,25 @@
 .isShowOne{
   display: none;
 }
+  .num{
+    font-size: 0.5rem;
+  }
+  .pre{
+    font-size: 0.8rem;
+    display: inline-block;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    color: #ccc;
+    margin-right: 0.2rem;
+  }
+  .coun{
+    font-size: 0.7rem;
+  }
+  .gj{
+    display: inline-block;
+    width: 4rem;
+    position: absolute;
+    right: 0.5rem;
+    text-align: right;
+  }
 </style>

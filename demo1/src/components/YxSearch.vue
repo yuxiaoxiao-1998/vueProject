@@ -17,7 +17,7 @@
           <ul class="bottom_yx">
             <router-link to="/shopHome">
             <li v-for="p in zsData">
-              <a @click="sendAll(p.id)">
+              <a @click="sendAll(p.id,p)">
               <div class="left">
               <img :src="'//elm.cangdu.org/img/'+p.image_path" alt="">
               </div>
@@ -109,11 +109,12 @@
           this.$store.state.shopHistory.splice(i,1);
         },
         //点击搜索出来的每一条数据之后,传入对应id发起请求,将数据存放到 shopAll中,在YxshopTop页面将页面进行渲染,数据进行遍历
-        sendAll(id){
+        sendAll(id,p){
           //点击哪一个发送哪一个的请求
           Vue.axios.get('https://elm.cangdu.org/shopping/v2/menu?restaurant_id='+id).then((res) => {
             //该数据为点击商铺列表所存储的该商铺的所有信息
             this.$store.state.shopAll=res.data;
+            this.$store.state.shopP=p;
           }).catch((error) => {
             console.log('请求错误', error)
           });
@@ -161,6 +162,7 @@
     position: relative;
     left:-1rem;
     color:#9C8B8B;
+    font-size: 0.5rem;
     font-weight: bold;
     display: inline-block;
     height: 1rem;
@@ -193,6 +195,7 @@
     display:inline-block;
     height:0.5rem;
     line-height:0.5rem;
+    font-size: 0.5rem;
     font-weight: bold;
     color: #FF6000;
     transform: skew(-20deg);
@@ -231,6 +234,7 @@
     line-height: 1rem;
     top:0.5rem;
     width: 3rem;
+    font-size: 0.5rem;
     text-align: center;
     height: 1.5rem;
   }
