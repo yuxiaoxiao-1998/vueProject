@@ -137,7 +137,9 @@
           foodId: '',
           //唯一标识
           weiyi: '',
-          //当点击加入购物车时,1,左边减号出现,显示数量,当数组specfoods.length>1则不能使用减号,当为加号时,则匹配id是否相等,相等时count--;2,bootom中点击时改变数量,
+          //当点击加入购物车时,1,左边减号出现,显示数量,当数组specfoods.length>1则不能使用减号,当为加号时,则匹配id是否相等,相等时count--;2,bootom中点击时改变数量;
+          //餐盒费
+          ch:0,
         }
       },
       methods: {
@@ -248,7 +250,8 @@
             sName: this.gName,
             countS: 1,
             id: this.foodId,
-            wy: this.weiyi
+            wy: this.weiyi,
+            canhe:this.ch
           };
           if (this.$store.state.addShopAll.length == 0) {
             this.$store.state.addShopAll.push(shopA);

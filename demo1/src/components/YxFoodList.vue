@@ -9,7 +9,7 @@
       <ul class="y_top">
         <li @click="y_LiOne" :class="{'LiOne':isLiOne}"><span>{{listTitle}}</span><span :class="{'glyphicon':true, 'glyphicon-triangle-bottom':true,'y_is':y_isOne}"></span></li>
         <li @click="y_LiTwo" :class="{'LiOne':isLiTwo}"><span>排序</span><span :class="{'glyphicon':true, 'glyphicon-triangle-bottom':true,'y_is':y_isTwo}"></span></li>
-        <li><span>筛选</span><span class="glyphicon glyphicon-triangle-bottom"></span></li>
+        <li  @click="y_Lithr" :class="{'LiOne':isLithr}"><span>筛选</span><span :class="{'glyphicon':true, 'glyphicon-triangle-bottom':true,'y_is':y_isthr}"></span></li>
         <div class="empty"></div>
       </ul>
       <!--点击第一个li时显示的列表-->
@@ -29,9 +29,11 @@
         <ul class="y_listOne_right">
           <li v-for="list in listTwo">
             <!--点击进行路由跳转-->
-            <router-link to="/111">
+            <router-link to="/food/foodtwo">
+            <a @click="send1(list.id)">
               <span>{{list.name}}</span>
               <mt-badge size="small" color="#ccc" class="btn">{{list.count}}</mt-badge>
+              </a>
             </router-link>
           </li>
         </ul>
@@ -101,6 +103,26 @@
       </el-collapse-transition>
       <!--点击第三个按钮显示的列表,未写-->
       <el-collapse-transition>
+        <div class="yListThr" v-if="isthrExt">
+         <p class="ps1">配送方式</p>
+          <p>
+            <span v-for="s in y_ps"  class="ps">
+              <img src="../image/fn.png" alt="" class="fn">
+              <img src="../image/dui.png" alt="" class="fn1"  v-if="false">
+              {{s.text}}
+            </span>
+          </p>
+          <p  class="ps1">商家属性(可以多选)</p>
+          <p v-for="(s,i) in y_sx" class="ps" @click="addOne(s)" :class="{'color':s.isClick}">
+            <span :style="{'borderColor':'#'+s.icon_color,'borderStyle':'solid','color':'#'+s.icon_color}" class="sx">{{s.icon_name}}</span>
+            <img src="../image/dui.png" alt="" class="fn1" v-if="false">
+            <span>{{s.name}}</span>
+          </p>
+          <p class="zh">
+            <el-button class="qingkong">清空</el-button>
+            <el-button type="success"  class="qingkong">确定</el-button>
+          </p>
+        </div>
       </el-collapse-transition>
       <!--商铺列表-->
       <router-view></router-view>
@@ -138,11 +160,17 @@
             isLiTwo:false,//字体颜色
           //---------------
           //筛选的三个变量(字体颜色,按钮旋转,ul是否存在的判断)一个存在时,另外两个都不存在
-
+          isthrExt:false,//ul
+          y_isthr:false,//按钮是否旋转
+          isLithr:false,//字体颜色
           //-----------
           //对号是否存在的变量
           y_znListOne:'',
         //  ---------------
+        //   筛选对应显示的数据
+          y_ps:[],
+          y_sx:[],
+          //点击时
         }
       },
       created() {
@@ -153,9 +181,16 @@
         }).catch((error) => {
           console.log('请求错误', error)
         });
-        //第二个排序的按钮的数据获取
-        Vue.axios.get('https://elm.cangdu.org/shopping/v2/restaurant/category').then((res) => {
-          this.listOne = res.data;
+        //第三个筛选的按钮的数据获取
+        Vue.axios.get('https://elm.cangdu.org/shopping/v1/restaurants/delivery_modes').then((res) => {
+          this.y_ps = res.data;
+        }).catch((error) => {
+          console.log('请求错误', error)
+        });
+        //第三个筛选的按钮的数据获取1
+        Vue.axios.get('https://elm.cangdu.org/shopping/v1/restaurants/activity_attributes').then((res) => {
+          this.y_sx = res.data;
+          console.log(res.data);
         }).catch((error) => {
           console.log('请求错误', error)
         });
@@ -172,27 +207,51 @@
             this.isTwoExt=false;
             this.y_isTwo=false;
             this.isLiTwo=false;
+            this.y_isthr=false;
+            this.isLithr=false;
+            this.isthrExt=false;
 
           }else{
             this.listTitle= this.$store.state.title;
             this.y_isOne=false;
             this.isLiOne=false;
+            this.isthrExt=false;
           }
         },
         y_LiTwo(){
           //第二个列表ul是否显示
           this.isTwoExt = !this.isTwoExt;
           if(this.isTwoExt){
+              this.listTitle= this.$store.state.title;
               this.y_isTwo=true;
               this.isLiTwo=true;
               this.isExt=false;
               this.y_isOne=false;
               this.isLiOne=false;
+              this.y_isthr=false;
+              this.isLithr=false;
+              this.isthrExt=false;
           }else{
             this.y_isTwo=false;
             this.isLiTwo=false;
           }
-
+        },
+        y_Lithr(){
+          this.isthrExt = !this.isthrExt;
+          if(this.isthrExt){
+            this.listTitle= this.$store.state.title;
+            this.y_isTwo=false;
+            this.isLiTwo=false;
+            this.isTwoExt=false;
+            this.isExt=false;
+            this.y_isOne=false;
+            this.isLiOne=false;
+            this.y_isthr=true;
+            this.isLithr=true;
+          }else{
+            this.y_isthr=false;
+            this.isLithr=false;
+          }
         },
         //判断图片的格式
         showImage() {
@@ -269,12 +328,32 @@
           Vue.axios.get('https://elm.cangdu.org/shopping/restaurants?latitude='+this.$store.state.cityall.l+'&longitude='+this.$store.state.cityall.l1+'&order_by=3').then((res) => {
             this.$store.state.clickTwo=res.data;
           }).catch((error)=>{console.log('请求错误',error)});
+        },
+        send1(id){
+          Vue.axios.get('https://elm.cangdu.org/shopping/restaurants?latitude='+this.$store.state.cityall.l+'&longitude='+this.$store.state.cityall.l1+'&restaurant_category_ids[]='+id).then((res) => {
+              this.isExt=false,
+              this.y_isOne=false,
+              this.isLiOne=false,
+              this.listTitle= this.$store.state.title;
+            this.$store.state.clickTwo=res.data;
+          }).catch((error)=>{console.log('请求错误',error)});
+        },
+        //是否显示
+        addOne(s){
+          if(s.isClick){
+              Vue.set(s,'isClick',false);
+          }else{
+             Vue.set(s,'isClick',true);
+          }
         }
       }
     }
 </script>
 
 <style scoped>
+  .color{
+    color:#3190E8;
+  }
   .empty{
     clear: both;
   }
@@ -427,5 +506,52 @@
     position: absolute;
     right: 2rem;
     display:inline-block;
+  }
+  .yListThr{
+    position: fixed;
+    top: 4rem;
+    left: 0;
+    right: 0;
+    background: white;
+    z-index: 10;
+  }
+  .ps1{
+    font-size: 0.5rem;
+    height: 1rem;
+    line-height: 1rem;
+    font-size: 0.5rem;
+    padding-left: 0.5rem;
+  }
+  .ps{
+    display: inline-block;
+    padding:0.3rem 0.3rem;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    font-size: 0.45rem;
+    width: 4.6rem;
+    margin: 0.2rem 0.3rem;
+  }
+  .sx{
+    padding: 0.1rem;
+    border-radius: 10px;
+    font-size: 0.5rem;
+  }
+  .zh{
+    height: 2.2rem;
+    background:#F1F1F1;
+    margin-top: 0.5rem;
+  }
+  .qingkong{
+    width: 7.5rem;
+    height: 1.7rem;
+    font-size: 0.7rem;
+    margin-left: 0.2rem;
+    margin-top: 0.2rem;
+  }
+  .fn{
+    width: 0.8rem;
+  }
+  .fn1{
+    width: 0.8rem;
   }
 </style>

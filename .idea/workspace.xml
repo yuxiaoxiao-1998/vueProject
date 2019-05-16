@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93b9e32e-ce3b-4346-8a61-27026cf359ff" name="默认的" comment="">
-      <change afterPath="$PROJECT_DIR$/demo1/src/components/YxDetailsOne.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo1/src/components/YxOrder.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo1/src/image/aaa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo1/src/image/fn.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo1/src/components/YxCity.vue" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/src/components/YxCity.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo1/src/components/YxSearch.vue" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/src/components/YxSearch.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo1/src/components/YxShopBottom.vue" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/src/components/YxShopBottom.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo1/src/components/YxFoodList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/src/components/YxFoodList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo1/src/components/YxOrder.vue" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/src/components/YxOrder.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo1/src/components/YxShopTopOne.vue" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/src/components/YxShopTopOne.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo1/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo1/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/src/router/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,43 +21,45 @@
     <session id="951214215">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.14" value="4" />
           <entry key="project.open.time.15" value="2" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.23" value="1" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="1" />
-          <entry key="js" value="16" />
+          <entry key="js" value="17" />
           <entry key="json" value="3" />
-          <entry key="png" value="2" />
-          <entry key="vue" value="64" />
+          <entry key="png" value="3" />
+          <entry key="vue" value="69" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="1" />
-          <entry key="Image" value="2" />
+          <entry key="Image" value="3" />
           <entry key="JSON" value="3" />
-          <entry key="JavaScript" value="16" />
-          <entry key="Vue.js" value="64" />
+          <entry key="JavaScript" value="17" />
+          <entry key="Vue.js" value="69" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="js" value="1406" />
-          <entry key="vue" value="39920" />
+          <entry key="vue" value="44663" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JavaScript" value="1407" />
-          <entry key="Vue.js" value="39919" />
+          <entry key="Vue.js" value="44662" />
         </counts>
       </usages-collector>
     </session>
@@ -72,23 +69,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/demo1/src/components/YxShopTopOne.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="251" column="12" lean-forward="true" selection-start-line="244" selection-start-column="10" selection-end-line="251" selection-end-column="12" />
+            <state relative-caret-position="432">
+              <caret line="24" column="80" lean-forward="true" selection-start-line="24" selection-start-column="80" selection-end-line="24" selection-end-column="80" />
               <folding>
-                <element signature="n#div#0;n#div#0;n#template#0;n#!!top" />
-                <element signature="n#div#1;n#li#1;n#ul#0;n#div#1;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" />
-                <element signature="e#5331#5474#0" />
-                <element signature="e#5598#6352#0" />
-                <element signature="e#6383#7141#0" />
-                <element signature="e#7178#7323#0" />
-                <element signature="e#7366#7500#0" />
-                <element signature="e#7525#8051#0" />
-                <element signature="e#8098#8215#0" />
-                <element signature="e#9499#9766#0" />
-                <element signature="e#9811#10135#0" />
-                <element signature="e#10181#10644#0" />
-                <element signature="e#10973#10995#0" />
-                <element signature="e#10672#10935#0" />
+                <element signature="e#7505#7650#0" />
+                <element signature="e#7693#7827#0" />
               </folding>
             </state>
           </provider>
@@ -97,12 +82,60 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/demo1/src/components/YxDetails.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4111">
-              <caret line="151" column="10" selection-start-line="151" selection-start-column="10" selection-end-line="151" selection-end-column="10" />
+            <state relative-caret-position="2887">
+              <caret line="141" column="14" lean-forward="true" selection-start-line="141" selection-start-column="14" selection-end-line="141" selection-end-column="14" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#p#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/demo1/src/components/YxFoodList.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="18" column="95" lean-forward="true" selection-start-line="18" selection-start-column="95" selection-end-line="18" selection-end-column="95" />
+              <folding>
+                <element signature="n#mt-header#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#ul#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#el-collapse-transition#1;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#el-collapse-transition#2;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#p#1;n#div#0;n#el-collapse-transition#2;n#div#0;n#template#0;n#!!top" />
+                <element signature="e#5387#5891#0" />
+                <element signature="e#5928#6390#0" />
+                <element signature="e#6040#6246#0" />
+                <element signature="e#6409#6775#0" />
+                <element signature="e#7152#7174#0" />
+                <element signature="e#6815#7487#0" />
+                <element signature="e#7535#7676#0" />
+                <element signature="e#7745#8168#0" />
+                <element signature="e#8188#8611#0" />
+                <element signature="e#8633#9056#0" />
+                <element signature="e#9077#9500#0" />
+                <element signature="e#9521#9944#0" />
+                <element signature="e#9964#10387#0" />
+                <element signature="e#10466#10488#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo1/src/components/YxFootListTwo.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo1/src/components/YxSale.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1224">
+              <caret line="50" column="10" lean-forward="true" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -117,53 +150,44 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demo1/src/components/YxCity.vue">
+        <entry file="file://$PROJECT_DIR$/demo1/src/components/YxShopBottom.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
-              <caret line="86" column="49" lean-forward="true" selection-start-line="86" selection-start-column="49" selection-end-line="86" selection-end-column="49" />
+            <state relative-caret-position="-888">
+              <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demo1/src/components/YxShopBottom.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/demo1/src/components/YxOrder.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="128" column="22" lean-forward="true" selection-start-line="128" selection-start-column="22" selection-end-line="128" selection-end-column="22" />
+            <state relative-caret-position="184">
+              <caret line="267" column="3" selection-start-line="267" selection-start-column="3" selection-end-line="267" selection-end-column="3" />
               <folding>
                 <element signature="n#mt-header#0;n#div#0;n#template#0;n#!!top" />
                 <element signature="n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="e#943#1493#0" />
+                <element signature="e#2511#2713#0" />
+                <element signature="e#1551#1571#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demo1/src/router/index.js">
+        <entry file="file://$PROJECT_DIR$/demo1/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="37" column="20" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="337">
+              <caret line="50" column="15" lean-forward="true" selection-start-line="50" selection-start-column="15" selection-end-line="50" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demo1/src/components/YxShopHome.vue">
+        <entry file="file://$PROJECT_DIR$/demo1/src/components/YxOnePage.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+            <state relative-caret-position="265">
+              <caret line="53" column="92" lean-forward="true" selection-start-line="53" selection-start-column="92" selection-end-line="53" selection-end-column="92" />
             </state>
           </provider>
         </entry>
@@ -195,15 +219,15 @@
         <option value="$PROJECT_DIR$/demo1/src/components/YxFootListOne.vue" />
         <option value="$PROJECT_DIR$/demo1/src/components/YxFootListTwo.vue" />
         <option value="$PROJECT_DIR$/demo1/src/components/YxDetails.vue" />
-        <option value="$PROJECT_DIR$/demo1/src/components/YxFoodList.vue" />
         <option value="$PROJECT_DIR$/demo1/src/components/YxSearch.vue" />
         <option value="$PROJECT_DIR$/demo1/src/components/YxCity.vue" />
         <option value="$PROJECT_DIR$/demo1/src/main.js" />
         <option value="$PROJECT_DIR$/demo1/src/router/index.js" />
         <option value="$PROJECT_DIR$/demo1/src/components/YxDetailsOne.vue" />
         <option value="$PROJECT_DIR$/demo1/src/components/YxShopBottom.vue" />
-        <option value="$PROJECT_DIR$/demo1/src/components/YxShopTopOne.vue" />
         <option value="$PROJECT_DIR$/demo1/src/components/YxOrder.vue" />
+        <option value="$PROJECT_DIR$/demo1/src/components/YxShopTopOne.vue" />
+        <option value="$PROJECT_DIR$/demo1/src/components/YxFoodList.vue" />
       </list>
     </option>
   </component>
@@ -221,10 +245,10 @@
       <path value="$PROJECT_DIR$/demo1/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="560" />
-    <option name="y" value="5" />
-    <option name="width" value="760" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="794" />
     <option name="height" value="738" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -235,6 +259,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -251,12 +276,6 @@
               <item name="yxPro" type="b2602c69:ProjectViewProjectNode" />
               <item name="yxPro" type="462c0819:PsiDirectoryNode" />
               <item name="demo1" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxPro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yxPro" type="462c0819:PsiDirectoryNode" />
-              <item name="demo1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -266,24 +285,10 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="yxPro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yxPro" type="462c0819:PsiDirectoryNode" />
-              <item name="demo1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="router" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxPro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yxPro" type="462c0819:PsiDirectoryNode" />
-              <item name="demo1" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -292,10 +297,10 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\lx\Desktop\yxPro\demo1\src\image" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\lx\Desktop\yxPro\demo1\src\image" />
     </key>
   </component>
@@ -329,18 +334,20 @@
       <workItem from="1557708960194" duration="38768000" />
       <workItem from="1557795448371" duration="36569000" />
       <workItem from="1557881136421" duration="22983000" />
-      <workItem from="1557911488236" duration="13336000" />
+      <workItem from="1557911488236" duration="13494000" />
+      <workItem from="1557968135415" duration="24000" />
+      <workItem from="1557968509989" duration="29428000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="280375000" />
+    <option name="totallyTimeSpent" value="309985000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="560" y="5" width="760" height="738" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22022161" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16443452" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -353,7 +360,7 @@
       <window_info anchor="bottom" id="运行" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32840723" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3283582" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="调试" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -401,35 +408,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/components/YxFoodList.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="109" column="8" selection-start-line="109" selection-start-column="8" selection-end-line="109" selection-end-column="8" />
-          <folding>
-            <element signature="n#mt-header#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#ul#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#el-collapse-transition#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#el-collapse-transition#1;n#div#0;n#template#0;n#!!top" />
-            <element signature="e#5387#5891#0" />
-            <element signature="e#5908#10395#0" />
-            <element signature="e#7535#7676#0" />
-            <element signature="e#7745#8168#0" />
-            <element signature="e#8188#8611#0" />
-            <element signature="e#8633#9056#0" />
-            <element signature="e#9077#9500#0" />
-            <element signature="e#9521#9944#0" />
-            <element signature="e#9964#10387#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/components/YxFootListTwo.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1776">
-          <caret line="74" column="23" selection-start-line="74" selection-start-column="23" selection-end-line="74" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/demo1/src/components/YxFootListOne.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="864">
@@ -448,9 +426,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
           <caret line="2" column="31" lean-forward="true" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-          <folding>
-            <element signature="e#93#121#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -475,55 +450,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/components/YxSale.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1392">
-          <caret line="58" column="23" lean-forward="true" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#1;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/demo1/src/components/YxSearch.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-          <folding>
-            <element signature="n#mt-header#0;n#div#0;n#template#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/main.js">
+    <entry file="file://$PROJECT_DIR$/../1.png" />
+    <entry file="file://$PROJECT_DIR$/demo1/src/image/1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/YxCity.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="47" column="13" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="13" />
+        <state relative-caret-position="2040">
+          <caret line="86" column="49" selection-start-line="86" selection-start-column="49" selection-end-line="86" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo1/src/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="37" column="20" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="20" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-            <element signature="e#119#147#0" expanded="true" />
-            <element signature="e#204#229#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/components/YxOnePage.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/components/YxDetails.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4111">
-          <caret line="151" column="10" selection-start-line="151" selection-start-column="10" selection-end-line="151" selection-end-column="10" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -535,20 +485,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/router/index.js">
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/YxOnePage.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="37" column="20" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="265">
+          <caret line="53" column="92" lean-forward="true" selection-start-line="53" selection-start-column="92" selection-end-line="53" selection-end-column="92" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/components/YxCity.vue">
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/YxShopBottom.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="86" column="49" lean-forward="true" selection-start-line="86" selection-start-column="49" selection-end-line="86" selection-end-column="49" />
+        <state relative-caret-position="-888">
+          <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -559,49 +506,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/image/1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/components/YxShopTopOne.vue">
+    <entry file="file://$PROJECT_DIR$/demo1/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="251" column="12" lean-forward="true" selection-start-line="244" selection-start-column="10" selection-end-line="251" selection-end-column="12" />
+        <state relative-caret-position="337">
+          <caret line="50" column="15" lean-forward="true" selection-start-line="50" selection-start-column="15" selection-end-line="50" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/YxFootListTwo.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo1/src/image/dui.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/YxOrder.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="267" column="3" selection-start-line="267" selection-start-column="3" selection-end-line="267" selection-end-column="3" />
           <folding>
-            <element signature="n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#div#1;n#li#1;n#ul#0;n#div#1;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" />
-            <element signature="e#5331#5474#0" />
-            <element signature="e#5598#6352#0" />
-            <element signature="e#6383#7141#0" />
-            <element signature="e#7178#7323#0" />
-            <element signature="e#7366#7500#0" />
-            <element signature="e#7525#8051#0" />
-            <element signature="e#8098#8215#0" />
-            <element signature="e#9499#9766#0" />
-            <element signature="e#9811#10135#0" />
-            <element signature="e#10181#10644#0" />
-            <element signature="e#10973#10995#0" />
-            <element signature="e#10672#10935#0" />
+            <element signature="n#mt-header#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="e#943#1493#0" />
+            <element signature="e#2511#2713#0" />
+            <element signature="e#1551#1571#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/components/YxShopBottom.vue">
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/YxSale.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+        <state relative-caret-position="1224">
+          <caret line="50" column="10" lean-forward="true" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/components/YxOrder.vue">
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/YxShopTopOne.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="128" column="22" lean-forward="true" selection-start-line="128" selection-start-column="22" selection-end-line="128" selection-end-column="22" />
+        <state relative-caret-position="432">
+          <caret line="24" column="80" lean-forward="true" selection-start-line="24" selection-start-column="80" selection-end-line="24" selection-end-column="80" />
+          <folding>
+            <element signature="e#7505#7650#0" />
+            <element signature="e#7693#7827#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/YxDetails.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2887">
+          <caret line="141" column="14" lean-forward="true" selection-start-line="141" selection-start-column="14" selection-end-line="141" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/YxFoodList.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="18" column="95" lean-forward="true" selection-start-line="18" selection-start-column="95" selection-end-line="18" selection-end-column="95" />
           <folding>
             <element signature="n#mt-header#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#ul#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#el-collapse-transition#1;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#el-collapse-transition#2;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#p#1;n#div#0;n#el-collapse-transition#2;n#div#0;n#template#0;n#!!top" />
+            <element signature="e#5387#5891#0" />
+            <element signature="e#5928#6390#0" />
+            <element signature="e#6040#6246#0" />
+            <element signature="e#6409#6775#0" />
+            <element signature="e#7152#7174#0" />
+            <element signature="e#6815#7487#0" />
+            <element signature="e#7535#7676#0" />
+            <element signature="e#7745#8168#0" />
+            <element signature="e#8188#8611#0" />
+            <element signature="e#8633#9056#0" />
+            <element signature="e#9077#9500#0" />
+            <element signature="e#9521#9944#0" />
+            <element signature="e#9964#10387#0" />
+            <element signature="e#10466#10488#0" />
           </folding>
         </state>
       </provider>
