@@ -18,7 +18,7 @@
         <p :class="{'his1':true,'his':isHis ? true:false}">搜索历史</p>
         <div>
           <!--根据输入框内容显示对应地址显示-->
-          <li v-for="c in seaCity" :class="{'cLi':true,'cLi1': isLi ? true:false}" @click="souSuoHis(c)">
+          <li v-for="c in seaCity" :class="{'cLi':true,'cLi1': isLi ? true:false}" @click="souSuoHis(c)"  id="h">
             <router-link to="/home">
               <a @click="sendVuexone(c.name,c.latitude,c.longitude,c.geohash)">
               <p>{{c.name}}</p>
@@ -161,5 +161,9 @@
     color: black;
     margin-top: -0.5rem;
     border-top: 1px solid #e4e4e4;
+  }
+  #h a{
+    color: black;
+    text-decoration: none;
   }
 </style>

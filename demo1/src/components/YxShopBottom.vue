@@ -14,7 +14,7 @@
       <!--当购物车商品发生变化时,会变为结算-->
       <router-link to="/order1">
       <div :class="{'jiesuan':yanse1==='1'?true:false,'jiesuan1':yanse1===''?true:false}">
-        {{jiesuanFont}}
+        {{jiesuanFont()}}
       </div>
       </router-link>
     </div>
@@ -54,20 +54,8 @@
               return '';
             }
           },
-          jiesuanFont(){
-            let money=0;
-            for(let p of this.$store.state.addShopAll){
-              money += p.price*p.countS;
-              if(money >= this.$store.state.shopP.float_minimum_order_amount){
-                this.jiesuan='去结算';
-              }else{
-                this.jiesuan='还差'+this.$store.state.shopP.float_minimum_order_amount+'元起送';
-              }
-            }
-            return this.jiesuan;
-          }
         },
-      methods:{
+        methods:{
         removeAll(){
           this.$store.state.addShopAll=[];
           this.$store.state.addCount=0;
@@ -77,8 +65,12 @@
               if(s.id===this.$store.state.addShopAll[i].id){
                 this.$store.state.addShopAll[i].countS--;
                 this.$store.state.addCount--;
+                if(this.$store.state.addShopAll[i].countS <= 0){
+                  this.$store.state.addShopAll.splice(i,1);
+                }
               }
           }
+          console.log(this.$store.state.addShopAll);
         },
         addOne1(s){
           for(let i in this.$store.state.addShopAll){
@@ -87,6 +79,7 @@
               this.$store.state.addCount++;
             }
           }
+          console.log(this.$store.state.addShopAll);
         },
         getMoney(){
           let money=0;
@@ -101,7 +94,23 @@
             }
           }
           return money;
+          },
+        jiesuanFont(){
+          let money=0;
+          if(this.$store.state.addShopAll.length>0){
+            for(let p of this.$store.state.addShopAll){
+              money += p.price*p.countS;
+              if(money >= this.$store.state.shopP.float_minimum_order_amount){
+                this.jiesuan='去结算';
+              }else{
+                this.jiesuan='还差'+this.$store.state.shopP.float_minimum_order_amount+'元起送';
+              }
+            }
+          }else{
+            this.jiesuan='还差'+this.$store.state.shopP.float_minimum_order_amount+'元起送';
           }
+          return this.jiesuan;
+          },
         },
     }
 </script>

@@ -1,14 +1,19 @@
 <template>
     <div class="onePage">
-      <mt-header fixed :title="$store.state.cityall.n" id="homeOne">
-        <router-link to="/foodSearch" slot="left">
+      <div id="homeOne">
+        <router-link to="/home/homeOne" class="left11">
           <span class="glyphicon glyphicon-search"></span>
         </router-link>
+        <router-link to="/city">
+        <span class="center">
+          {{this.$store.state.cityall.n}}
+        </span>
+        </router-link>
         <!--登录跳转-->
-        <router-link to="/dl" slot="right">
+        <router-link to="/dl" class="right11">
           登录|注册
         </router-link>
-      </mt-header>
+      </div>
       <div class="homeOneMax">
         <div class="swiper-container swMax">
           <div class="swiper-wrapper">
@@ -182,9 +187,14 @@
     background: #e4e4e4;
   }
   #homeOne{
+    width: 100%;
     height: 2rem;
     font-size: 0.7rem;
    z-index: 10;
+    position: fixed;
+    top:0;
+    left: 0;
+    background: #26A2FF;
   }
   .homeOneMax{
     margin-top: 2rem;
@@ -319,5 +329,30 @@
   }
   .xingxing{
     display: inline-block;
+  }
+  .right11{
+    display: inline-block;
+    width: 3rem;
+    color: white;
+    margin-left: 2.5rem;
+    font-size: 0.7rem;
+    vertical-align: 0.2rem;
+  }
+  .center{
+    display: inline-block;
+    width: 3.5rem;
+    color: white;
+    margin-left: 4.5rem;
+    font-size: 0.7rem;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    margin-top: 0.5rem;
+  }
+  .left11{
+    margin-left: 0.5rem;
+    color: white;
+    font-size: 0.7rem;
+    vertical-align: 0.1rem;
   }
 </style>

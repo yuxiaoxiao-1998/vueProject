@@ -106,21 +106,23 @@
         <div class="yListThr" v-if="isthrExt">
          <p class="ps1">配送方式</p>
           <p>
-            <span v-for="s in y_ps"  class="ps">
-              <img src="../image/fn.png" alt="" class="fn">
-              <img src="../image/dui.png" alt="" class="fn1"  v-if="false">
+            <span v-for="s in y_ps"  class="ps" @click="addOne(s)" :class="{'color':s.isClick}">
+              <img src="../image/fn.png" alt="" class="fn" v-if="!s.isClick">
+              <img src="../image/dui.png" alt="" class="fn1"  v-if="s.isClick" >
               {{s.text}}
             </span>
           </p>
           <p  class="ps1">商家属性(可以多选)</p>
           <p v-for="(s,i) in y_sx" class="ps" @click="addOne(s)" :class="{'color':s.isClick}">
-            <span :style="{'borderColor':'#'+s.icon_color,'borderStyle':'solid','color':'#'+s.icon_color}" class="sx">{{s.icon_name}}</span>
-            <img src="../image/dui.png" alt="" class="fn1" v-if="false">
+            <span :style="{'borderColor':'#'+s.icon_color,'borderStyle':'solid','color':'#'+s.icon_color,'borderWidth':'1px'}" class="sx"  v-if="!s.isClick">{{s.icon_name}}</span>
+            <img src="../image/dui.png" alt="" class="fn1"  v-if="s.isClick">
             <span>{{s.name}}</span>
           </p>
           <p class="zh">
-            <el-button class="qingkong">清空</el-button>
-            <el-button type="success"  class="qingkong">确定</el-button>
+            <el-button class="qingkong" @click="qk()">清空</el-button>
+            <router-link to="/food/foodtwo">
+            <el-button type="success"  class="qingkong" @click="qd()">确定{{count()}}</el-button>
+            </router-link>
           </p>
         </div>
       </el-collapse-transition>
@@ -143,7 +145,7 @@
           srcS: '',
           srcSOne: [],
         //  被点击的li背景的切换
-          isShowOne:'',
+          isShowOne:'异国料理',
           //右侧显示的对应左侧的子数据
           listTwo:{},
           //------------------
@@ -170,7 +172,11 @@
         //   筛选对应显示的数据
           y_ps:[],
           y_sx:[],
-          //点击时
+          //被选中时的数量
+          s_count:0,
+          //请求参数对应的数组
+          p_arr:[],
+          p_arr1:[]
         }
       },
       created() {
@@ -178,6 +184,12 @@
         Vue.axios.get('https://elm.cangdu.org/shopping/v2/restaurant/category').then((res) => {
           this.listOne = res.data;
           this.showImage();
+          //进入时,默认选中异国料理
+          for(let list of this.listOne){
+            if(list.name==='异国料理'){
+              this.sendRight(list);
+            }
+          }
         }).catch((error) => {
           console.log('请求错误', error)
         });
@@ -190,7 +202,6 @@
         //第三个筛选的按钮的数据获取1
         Vue.axios.get('https://elm.cangdu.org/shopping/v1/restaurants/activity_attributes').then((res) => {
           this.y_sx = res.data;
-          console.log(res.data);
         }).catch((error) => {
           console.log('请求错误', error)
         });
@@ -341,10 +352,51 @@
         //是否显示
         addOne(s){
           if(s.isClick){
+            //不选中
+            //当前被选中的数量
+              this.s_count--;
+             var index = this.p_arr1.indexOf(s.id);
+            // 如果在数组中没找到指定元素则返回 -1
+              if (index > -1) {
+                this.p_arr1.splice(index, 1);
+              }
               Vue.set(s,'isClick',false);
           }else{
+              //选中
+              this.s_count++;
+             this.p_arr.push(s.id);
+             //最后发请求的数组
+             this.p_arr1=Array.from(new Set(this.p_arr));
              Vue.set(s,'isClick',true);
+
           }
+        },
+        //清空所有的对号和样式
+        qk(){
+          for(let s of this.y_sx){
+            Vue.set(s,'isClick',false);
+          }
+          for(let s of this.y_ps){
+            Vue.set(s,'isClick',false);
+          }
+          this.s_count=0;
+        },
+        //被选中的数量的判断
+        count(){
+          if(this.s_count <= 0){
+            return '';
+          }else{
+            return '('+this.s_count+')';
+          }
+        },
+        //筛选出的数据
+        qd(){
+          Vue.axios.get('https://elm.cangdu.org/shopping/restaurants?latitude='+this.$store.state.cityall.l+'&longitude='+this.$store.state.cityall.l1+'&support_ids []='+this.p_arr1).then((res) => {
+            this.$store.state.clickTwo=res.data;
+          }).catch((error) => {
+            console.log('请求错误', error)
+          });
+          this.isthrExt=false;
         }
       }
     }

@@ -225,13 +225,14 @@
             this.guige = l.specfoods;
             this.geMoney = l.specfoods[0].price;
             this.ge = true;
-            this.weiyi = l.item_id;
           } else {
             this.geName = l.name;
             this.geMoney = l.specfoods[0].price;
             this.foodId = l.specfoods[0].food_id;
             this.weiyi = l.item_id;
             this.gName = '';
+            //包装费
+            this.ch=l.specfoods[0].packing_fee;
             this.addShop();
           }
         },
@@ -240,6 +241,8 @@
           this.geMoney = f.price;
           this.gName = f.specs_name;
           this.foodId = f.food_id;
+          //包装费
+          this.ch=f.packing_fee;
         },
         addShop() {
           //向vueX中添加时,将数据进行过滤
@@ -310,6 +313,9 @@
               if (s1.specfoods[0].item_id === this.$store.state.addShopAll[j].wy) {
                 this.$store.state.addShopAll[j].countS--;
                 this.$store.state.addCount--;
+                if(this.$store.state.addShopAll[j].countS <= 0){
+                  this.$store.state.addShopAll.splice(j,1);
+                }
               }
             }
           }
@@ -328,6 +334,11 @@
               this.isImg = true;
             }
           }
+          //初始进入的右侧显示
+          // for(let i in this.$store.state.shopAll){
+          //     this.sendLiRight(this.$store.state.shopAll[0]);
+            // console.log(111);
+          // }
         },
     }
 </script>

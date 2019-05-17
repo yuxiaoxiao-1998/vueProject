@@ -35,7 +35,7 @@
             <span  class="allMax2">x{{s.countS}}</span>
             <span  class="allMax3">¥{{s.price}}</span>
           </p>
-          <p class="ps"><span class="allMax1">餐盒</span><span class="allMax3">¥{{canhe}}</span></p>
+          <p class="ps"><span class="allMax1">餐盒</span><span class="allMax3">¥{{canhe1()}}</span></p>
           <p class="ps"><span class="allMax1">配送费</span><span class="allMax3">{{peisong}}</span></p>
         </div>
         <p class="ord"><span class="ord1">订单¥{{money()}}</span> <span class="ord2">待支付</span><span class="ord3">¥{{money()}}</span></p>
@@ -67,7 +67,7 @@
         data(){
             return {
               shopP:this.$store.state.shopP,
-              canhe:30441.5,
+              canhe:0,
               peisong:this.$store.state.shopP.piecewise_agent_fee.tips.slice(4),
               zaixian:false
             }
@@ -88,13 +88,22 @@
           mon=mon+this.canhe+Number(this.peisong.slice(1));
           return mon;
         },
-      //    备注信息的显示
-          bz(){
+      //备注信息的显示
+        bz(){
 
+        },
+      // 包装费
+       canhe1(){
+          let mon1=0;
+          for(let p of this.$store.state.addShopAll){
+            mon1 += p.countS * p.canhe;
           }
+          this.canhe=mon1;
+          return mon1;
+        }
       },
       created(){
-        // console.log(this.$store.state.shopP);
+        // console.log(this.$store.state.addShopAll);
       }
     }
 </script>
