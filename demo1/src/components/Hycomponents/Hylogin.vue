@@ -105,7 +105,7 @@
               captcha_code:this.captcha,
             }
           ).then((res)=>{
-            console.log(res.data);
+            // console.log(res.data);
             if (res.data.id) {
               // console.log(res.data);
               sessionStorage.user_id =JSON.stringify( res.data.id);
