@@ -18,6 +18,14 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI);
 
+//----------------------------
+// animated.css动画
+import animated from 'animate.css'
+Vue.use(animated)
+// 解决跨域请求问题的
+axios.defaults.withCredentials = true;
+// import Vuex from 'vuex'
+// Vue.use(Vuex)
 const store=new Vuex.Store({
   state:{
     //该对象存储了被点击的城市对象的name和id
@@ -45,12 +53,35 @@ const store=new Vuex.Store({
     addCount:0,
     //-------------------------
     //商品页点击图片进入详情页的对象
-    detilsOne:{}
+    detilsOne:{},
+  //  -----------------------hyy-------------------------
+    //
+    packNum: [],
+    // 修改的名字
+    setUserName: '',
+    // 登录的用户名
+    isName: false,
+    // 快速备注数组
+    remarkArr:[],
+    // 存储id
+    getUserId:'',
   },
   mutations:{
     xiangQing(state,sps){
       state.detilsOne=sps;
-    }
+    },
+    //------------------------hyy-------------------
+    isname(state) {
+      if (sessionstroage.username) {
+        state.isName = true;
+      } else {
+        state.isName = false;
+      }
+    },
+    remark(state,pay){
+      state.remarkArr = pay;
+    },
+
   },
 });
 

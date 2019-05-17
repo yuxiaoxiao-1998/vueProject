@@ -25,7 +25,7 @@
     <!-- 减免配送费 -->
     <section class="accep">
       <div class="accep_left">
-        <img src="../imgages/18.jpeg" alt="">
+        <img src="../../../imgages/18.jpeg" alt="">
       </div>
       <div class="accep_right">
         <h4>减免配送费</h4>
@@ -35,7 +35,7 @@
     </section>
     <section class="accep">
       <div class="accep_left">
-        <img src="../imgages/17.jpeg" alt="">
+        <img src="../../../imgages/17.jpeg" alt="">
       </div>
       <div class="accep_right">
         <h4>减免配送费</h4>

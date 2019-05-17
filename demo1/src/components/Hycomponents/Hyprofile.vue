@@ -13,7 +13,7 @@
         <!--登录跳转到info-->
         <a href="###" slot="left">
           <div class="pic" >
-            <img src="../imgages/16.jpg" alt="">
+            <img src="../../imgages/16.jpg" alt="">
           </div>
           <div class="profile_middle">
             <span v-if="isShow" class="profile_span1" @click="skipLogin">登录/注册</span>

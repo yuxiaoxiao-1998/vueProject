@@ -8,19 +8,19 @@
     </div>
     <!-- 图片 -->
     <div class="com_banner">
-      <img src="../imgages/9.png" alt="">
+      <img src="../../../imgages/9.png" alt="">
     </div>
     <div class="com_content">
       <div class="left">
-        <img src="../imgages/10.png" alt="" @click="part">
+        <img src="../../../imgages/10.png" alt="" @click="part">
         <p>邀请微信好友</p>
       </div>
       <div class="middle">
-        <img src="../imgages/11.png" alt="" @click="part">
+        <img src="../../../imgages/11.png" alt="" @click="part">
         <p>邀请QQ好友</p>
       </div>
       <div class="right">
-        <img src="../imgages/12.png" alt=""
+        <img src="../../../imgages/12.png" alt=""
              @click="part">
         <p>面对面邀请</p>
       </div>
@@ -40,7 +40,7 @@
           <p>-收益说明-</p>
         </div>
         <div class="foot_but">
-          <img src="../imgages/13.png" alt="">
+          <img src="../../../imgages/13.png" alt="">
           <p>还不赶紧去邀请好友</p>
         </div>
       </div>

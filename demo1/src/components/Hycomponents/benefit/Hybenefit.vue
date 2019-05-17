@@ -59,7 +59,7 @@
       </div>
       <div class="block1_con">
         <!-- 临时图片 -->
-        <img src="../imgages/8.png" alt="">
+        <img src="../../../imgages/8.png" alt="">
         <h4>无法使用代金券</h4>
         <p>非客户端或客户端版本过低</p>
         <button @click="block1_but">下载或升级客户端</button>
@@ -181,7 +181,7 @@
     width: 98%;
     height: 4rem;
     margin-left: 1%;
-    background: url('../imgages/7.png') repeat-x;
+    background: url('../../../imgages/7.png') repeat-x;
     background-size: .5rem;
     box-sizing: border-box;
     padding: .6rem;

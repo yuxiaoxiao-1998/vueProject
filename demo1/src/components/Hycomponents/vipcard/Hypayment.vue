@@ -22,16 +22,16 @@
         <p>选择支付方式</p>
       </div>
       <div class="alipay">
-        <img class="logo" src="../imgages/15.png" alt="">
+        <img class="logo" src="../../../imgages/15.png" alt="">
         <p class="txt">支付宝</p>
-        <img class="logo1" src="../imgages/images/未选中.png" alt="" @click="aliclick">
-        <img v-if="isShow" class="logo1" src="../imgages/images/选中.png" alt="" >
+        <img class="logo1" src="../../../imgages/images/未选中.png" alt="" @click="aliclick">
+        <img v-if="isShow" class="logo1" src="../../../imgages/images/选中.png" alt="" >
       </div>
       <div class="wechat">
-        <img class="logo" src="../imgages/10.png" alt="">
+        <img class="logo" src="../../../imgages/10.png" alt="">
         <p class="txt">微信</p>
-        <img class="logo1" src="../imgages/images/未选中.png" alt="" @click="weclick">
-        <img v-if="isShow1" class="logo1" src="../imgages/images/选中.png" alt="" >
+        <img class="logo1" src="../../../imgages/images/未选中.png" alt="" @click="weclick">
+        <img v-if="isShow1" class="logo1" src="../../../imgages/images/选中.png" alt="" >
       </div>
     </div>
     <!-- 确认支付 -->
@@ -67,7 +67,7 @@
   import 'element-ui/lib/theme-chalk/index.css';
   Vue.use(ElementUI);
   export default {
-    name: "Hyorder",
+    name: "Hypayment",
     data () {
       return {
         time:'900',

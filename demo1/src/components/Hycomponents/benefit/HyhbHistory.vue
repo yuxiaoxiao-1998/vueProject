@@ -20,7 +20,7 @@
         <p>{{item.description_map.phone}}</p>
       </div>
       <div class="item_right">
-        <img src="../imgages/过期.png" alt="">
+        <img src="../../../imgages/过期.png" alt="">
       </div>
     </section>
   </div>
@@ -89,7 +89,7 @@
     width: 94%;
     height: 4rem;
     margin-left: 3%;
-    background: url('../imgages/expired.png') repeat-x ;
+    background: url('../../../imgages/expired.png') repeat-x ;
     background-size: .5rem;
     box-sizing: border-box;
     padding: .6rem;

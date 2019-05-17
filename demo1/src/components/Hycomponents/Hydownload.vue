@@ -7,7 +7,7 @@
       </router-link>
     </mt-header>
     <div class="banner">
-      <img src="../imgages/下载.jpg" alt="">
+      <img src="../../imgages/下载.jpg" alt="">
       <p>下载饿了么APP</p>
       <mt-button type="default" size="large" @click="downClick">下载</mt-button>
     </div>

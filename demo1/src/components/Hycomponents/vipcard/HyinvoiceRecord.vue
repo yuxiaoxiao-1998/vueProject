@@ -8,7 +8,7 @@
       </mt-header>
     </div>
     <div class="inv_pic">
-      <img src="../imgages/images/no-log.png" alt="">
+      <img src="../../../imgages/images/no-log.png" alt="">
       <br>
       <br>
       <span>没有购买记录</span>
@@ -28,7 +28,7 @@
   import 'element-ui/lib/theme-chalk/index.css';
   Vue.use(ElementUI);
   export default {
-    name: "Hyorder"
+    name: "HyinvoiceRecord"
   }
 </script>
 

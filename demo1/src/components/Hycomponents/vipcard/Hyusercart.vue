@@ -51,7 +51,7 @@
   import 'element-ui/lib/theme-chalk/index.css';
   Vue.use(ElementUI);
   export default {
-    name: "Hyorder",
+    name: "Hyusercart",
     data () {
       return {
         isShow:false,

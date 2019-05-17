@@ -8,9 +8,20 @@
   import {} from './js/resize'
   import YxCity from "./components/YxCity";
   import SearchCity from "./components/SearchCity";
+  import Vue from 'vue';
 export default {
   name: 'App',
   components: {SearchCity, YxCity},
+  mounted () {
+    Vue.axios.get('https://elm.cangdu.org/promotion/v2/users/1/hongbaos?limit=20&offset=0').then((res)=>{
+      console.log(res.data);
+      // this.itemArr = res.data;
+      this.$store.state.packNum = res.data;
+    }).catch((err)=>{
+      console.log("请求错误",error);
+    });
+  },
+
 }
 </script>
 
