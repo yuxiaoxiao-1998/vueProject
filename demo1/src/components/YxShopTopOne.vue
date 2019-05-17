@@ -36,7 +36,7 @@
         </span>
         <span :class="{'pingjia':true,'sele':sele==='评价'?true:false}" @click="sele='评价'">评价</span></p>
         <!--商品-->
-      <div class="sMax">
+      <div class="sMax" v-if="sele==='商品'?true:false">
         <div class="sLeft1">
           <ul>
             <li v-for="s in $store.state.shopAll" :class="{'sLi':true,'select':issele===s.id?true:false}"  @click="sendLiRight(s)">
@@ -103,11 +103,83 @@
         <div class="empty"></div>
       </div>
         <!--评价-->
+        <div class="sMax2" v-if="sele==='评价'?true:false">
+          <div class="top rating_header">
+            <div class="left">
+              <div :class="{fontC:true}">{{overallScore}}</div>
+              <div :style="{fontSize:'.65rem'}">综合评价</div>
+              <div :style="{fontSize:'.4rem',color:'#999'}">高于周边商家{{compareRating}}</div>
+            </div>
+            <div class="right">
+              <div>
+                <span>服务态度</span>
+                <el-rate
+                  v-model="serviceScore"
+                  disabled
+                  show-score
+                  text-color="#ff9900" class="el-rate">
+                </el-rate></div>
+              <div>
+                <span>菜品评价</span>
+                <el-rate
+                  v-model="foodScore"
+                  disabled
+                  show-score
+                  text-color="#ff9900" class="el-rate">
+                </el-rate>
+              </div>
+              <div><span>送达时间</span>{{delayTime}}分钟</div>
+            </div>
+
+            <div class="empty"></div>
+          </div>
+          <div class="middle" >
+            <span v-for="item in sortAll" :style="{ backgroundColor:item.name==color1 ? '#3190e8':item.name=='不满意' ? ' #f5f5f5':(tag==true&&item.name=='全部')?'#3190e8':'#ebf5ff',color:item.name==color1 ? 'white':(tag==true&&item.name=='全部')?'white':'#6d7885'}" :class="{'span1':true}" @click="changeC(item.name)">
+              {{item.name+'('+item.count+')'}}
+            </span>
+
+          </div>
+          <div class="bottom" v-for="(item,index) in allMsg">
+            <section class="leftB">
+              <img :src="item.avatar==''?'//elm.cangdu.org/img/default.jpg':'https://fuss10.elemecdn.com/'+item.avatar+'.jpeg'" alt="" class="user_avatar">
+            </section>
+            <section class="rightB">
+              <header class="header">
+                <section class="rightBH">
+                  <span>{{item.username}}</span>
+                  <div class="el">
+                    <el-rate
+                      v-model=" item.rating_star"
+                      disabled
+                      show-score
+                      text-color="#ff9900" class="el-rate">
+                    </el-rate>
+                  </div>
+                  <p>{{item.time_spent_desc}}</p>
+                </section>
+                <time>{{item.rated_at}}</time>
+                <div class="empty"></div>
+              </header>
+              <ul class="ul1">
+                <li v-for="foodPhoto in item.item_ratings" v-if="foodPhoto.image_hash==''?false:true" >
+                  <img :src="'https://fuss10.elemecdn.com/'+foodPhoto.image_hash+'.jpeg'" alt="">
+                </li>
+              </ul>
+              <ul class="ul2">
+                <li v-for="foodName in item.item_ratings">
+                  {{foodName.food_name}}
+                </li>
+              </ul>
+            </section>
+            <section class="empty"></section>
+          </div>
+        </div>
       </div>
     </div>
 </template>
 
 <script>
+  import Vue from "vue";
     export default {
       name: "YxShopTopOne",
       data() {
@@ -140,6 +212,27 @@
           //当点击加入购物车时,1,左边减号出现,显示数量,当数组specfoods.length>1则不能使用减号,当为加号时,则匹配id是否相等,相等时count--;2,bootom中点击时改变数量;
           //餐盒费
           ch:0,
+        //-------------------------------------------------------------
+          //存储商铺的restaurant_id
+          resId:'',
+          //存储综合评分
+          overallScore:'',
+          //高于周边
+          compareRating:'',
+          //食物评价
+          foodScore:'',
+          //服务评价
+          serviceScore:'',
+          //送达时间
+          delayTime:'',
+          //评价分类
+          sortAll:[],
+          // radio1: '全部',
+          color1:'',
+          //用户评价信息
+          allMsg:[],
+          //点击事件标识
+          tag:true,
         }
       },
       methods: {
@@ -323,6 +416,15 @@
         //点击时将对应的自身的信息传入vuex中
         sengS(s1){
           this.$store.commit('xiangQing',s1);
+        },
+        getShopP(){
+          // console.log('shopP的值是:',this.$store.state.shopP);
+          console.log('restaurant_id是:',this.$store.state.shopAll)
+        },
+        changeC(name){//更改span标签的背景颜色
+          // this.color=!this.color;
+          this.color1=name;
+          this.tag=false;
         }
       },
         created() {
@@ -339,6 +441,32 @@
           //     this.sendLiRight(this.$store.state.shopAll[0]);
             // console.log(111);
           // }
+          //shopAll存有点击商铺列表所存储的该商铺内所有信息,数组对象,每一个数组对象都含有restaurant_id并且值都相同
+          this.resId=this.$store.state.shopP.id;
+          //发起get请求,获取评价分数
+          Vue.axios.get('https://elm.cangdu.org/ugc/v2/restaurants/'+this.resId+'/ratings/scores').then((res)=>{
+            this.overallScore=res.data.overall_score.toFixed(1);
+            this.compareRating=(res.data.compare_rating*100).toFixed(1)+'%';
+            this.serviceScore=Number(res.data.service_score.toFixed(1));
+            this.foodScore=Number(res.data.food_score.toFixed(1));
+            this.delayTime=res.data.deliver_time;
+          }).catch((error)=>{
+            console.log('请求错误',error)
+          });
+          //获取评价分类
+          Vue.axios.get('https://elm.cangdu.org/ugc/v2/restaurants/'+this.resId+'/ratings/tags').then((res)=>{
+            this.sortAll=res.data;
+          }).catch((error)=>{
+            console.log('请求错误',error)
+          })
+
+          //发起get请求,请求得到评价信息
+          Vue.axios.get('https://elm.cangdu.org/ugc/v2/restaurants/'+this.resId+'/ratings').then((res)=>{
+            this.allMsg=res.data;
+          }).catch((error)=>{
+            console.log('请求错误',error)
+          });
+
         },
     }
 </script>
@@ -709,4 +837,131 @@
     right: 0.5rem;
     text-align: right;
   }
+  /*-----------------------------------------*/
+  .top{
+    height: 5rem;
+    padding: .8rem .5rem;
+    box-sizing: border-box;
+    margin-bottom: .5rem;
+    background-color: white;
+  }
+  .left{
+    text-align: center;
+    width: 45%;
+    float: left;
+    box-sizing:border-box;
+  }
+  .right{
+    width: 55%;
+    font-size:.65rem;
+    float: right;
+    color:#666;
+    box-sizing:border-box;
+  }
+  .right span{
+    margin-right:.35rem;
+  }
+  .fontC{
+    font-size:1.2rem;
+    color:#f60;
+  }
+  .el-rate{
+    display:inline-block;
+    width:5rem;
+    height:.4rem;
+  }
+  .middle{
+    background-color: white;
+    height:8rem;
+    padding: .5rem;
+    font-size:.6rem;
+    color: #6d7885;
+  }
+  .middle span:nth-child(1){
+    background-color: #3190e8;
+  }
+  .span1{
+    display:inline-block;
+    padding:.3rem;
+    margin:0 0.4rem 0.2rem 0;
+    background-color: #ebf5ff;
+    border-radius:5%;
+  }
+  .spanSort{
+    display:inline-block;
+    padding:.3rem;
+    margin:0 0.4rem 0.2rem 0;
+    background-color: #f5f5f5;
+    border-radius:5%;
+  }
+  .changeColor{
+    background-color:red;
+  }
+  .bottom{
+    padding:.6rem;
+    background-color:white;
+    border-bottom: 0.01rem solid #e4e4e4;
+  }
+  .leftB{
+    width: 1.5rem;
+    height:1.5rem;
+    margin-right:.8rem;
+    float: left;
+  }
+  .rightB{
+    width: 12rem;
+    float: right;
+    font-size:.55rem;
+  }
+  .ul1 li{
+    display: inline-block;
+  }
+  .ul li img{
+    width: 4rem;
+    height:3rem;
+  }
+  .rightBH{
+    width: 5rem;
+    float: left;
+  }
+  .rightBH p{
+    text-align: center;
+  }
+
+  time{
+    float: right;
+    width: 4rem;
+    text-align:right;
+    color: #999;
+  }
+  .ul1 li img{
+    width: 3rem;
+    height: 3rem;
+    margin-right: .4rem;
+    display: inline-block;
+  }
+  .ul2 li{
+    font-size:.55rem;
+    color: #999;
+    width: 2.2rem;
+    padding: .2rem;
+    border: .025rem solid #ebebeb;
+    border-radius: .15rem;
+    margin-right: .3rem;
+    margin-bottom: 4px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-sizing: border-box;
+    display: inline-block;
+  }
+  .user_avatar{
+    width: 1.5rem;
+    height: 1.5rem;
+    border: .025rem;
+    border-radius: 50%;
+    margin-right: .8rem;
+  }
+
 </style>
