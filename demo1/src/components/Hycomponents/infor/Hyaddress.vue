@@ -9,17 +9,17 @@
     <div class="part"></div>
     <ul>
       <!-- 假数据  循环添加 -->
-      <li>
+      <li v-for="(item,index) in addEdit" :key="index">
         <!-- 非固定值 -->
-        <p>地址名称</p>
-        <span>电话</span>
-        <i class="el-icon-delete" v-if="isShow" @click="delete_li"></i>
+        <p>{{item.name}}</p>
+        <span>{{item.phone}}</span>
+        <i class="el-icon-delete" v-if="isShow" @click="delete_li(item,index)"></i>
       </li>
-      <li>
+      <!-- <li>
         <p>地址名称</p>
         <span>电话</span>
         <i class="el-icon-delete" v-if="isShow"></i>
-      </li>
+      </li> -->
     </ul>
     <div class="part"></div>
     <router-link :to="{path:'/profile/infor/address/add'}">
@@ -45,27 +45,46 @@
         perform:'完成',
         addEdit:[],
         user_id:'',
+        removeaddress:'',
       }
     },
-    created(){
-      // 本地存储的id
-      this.user_id = sessionStorage.user_id;
-      // this.getAddress();
+    mounted(){
+      this.getAddress();
+
+    },
+    beforeRouteUpdate(to, from, next) {
+      this.getAddress();
+      next()
     },
     methods:{
       // 封装请求地址
-      // getAddress(){
-      //   Vue.axios.post("https://elm.cangdu.org/v1/users"/+this.user_id+"/addresses").then((res)=>{
-      //     console.log(res.data);
-      //   }).catch((error) => {
-      //     console.log('请求错误', error)
-      //   });
-      // },
+      getAddress(){
+        Vue.axios.get('https://elm.cangdu.org/v1/user').then(res=>{
+          Vue.axios.get("https://elm.cangdu.org/v1/users/"+res.data.user_id+"/addresses").then((res)=>{
+            this.addEdit = res.data.reverse();
+          }).catch((error) => {
+            console.log('请求错误', error)
+          });
+        }).catch(err=>{
+          console.log("请求错误",err);
+        });
+      },
       changeEdit(){
         this.isShow = !this.isShow;
       },
-      delete_li(){
+      delete_li(item,index){
+        console .log(item,index);
+        Vue.axios.get('https://elm.cangdu.org/v1/user').then(res=>{
+          Vue.axios.delete("https://elm.cangdu.org/v1/users/"+res.data.user_id+"/addresses/"+item.id).then(res=>{
+            // console.log(res.data);
+            // this.removeaddress=res.data;
+            // console.log( this.removeaddress);
 
+          });
+        }).catch(err=>{
+          console.log("请求错误",err);
+        })
+        this.addEdit.splice(index,1);
       }
     },
   }

@@ -32,8 +32,8 @@ import Hydownload from '../components/Hycomponents/Hydownload.vue'
 import Hyinfor from '../components/Hycomponents/infor/Hyinfor.vue'
 import Hysetusername from '../components/Hycomponents/infor/Hysetusername.vue'
 import Hyaddress from '../components/Hycomponents/infor/Hyaddress.vue'
-// import Hyadd from '../components/Hycomponents/infor/Hyadd.vue'
-// import HyaddDetail from '../components/Hycomponents/infor/HyaddDetail.vue'
+import Hyadd from '../components/Hycomponents/infor/Hyadd.vue'
+import HyaddDetail from '../components/Hycomponents/infor/HyaddDetail.vue'
 import Hyforget from '../components/Hycomponents/Hyforget.vue'
 
 import Hyexchange from '../components/Hycomponents/benefit/Hyexchange.vue'
@@ -102,21 +102,21 @@ export default new Router({
               path: 'address',
               component: Hyaddress,
               // 四级路由
-              // children:[
-              //   // 新增地址
-              //   {
-              //     path: 'add',
-              //     component: Hyadd,
-              //     // 五级路由
-              //     children:[
-              //       // 搜索地址
-              //       {
-              //         path:'addDetail',
-              //         component:HyaddDetail,
-              //       }
-              //     ]
-              //   }
-              // ]
+              children:[
+                // 新增地址
+                {
+                  path: 'add',
+                  component: Hyadd,
+                  // 五级路由
+                  children:[
+                    // 搜索地址
+                    {
+                      path:'addDetail',
+                      component:HyaddDetail,
+                    }
+                  ]
+                }
+              ]
             },
             // 三级forget
             {
@@ -189,10 +189,10 @@ export default new Router({
       // 二级路由
       children:[
         // 二级 在线支付
-        // {
-        //   path:'payment',
-        //   component:Hypayment,
-        // },
+        {
+          path:'payment',
+          component:Hypayment,
+        },
         // 二级 兑换会员
         {
           path: 'usercart',
