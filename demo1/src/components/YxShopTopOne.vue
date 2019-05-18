@@ -1,50 +1,51 @@
 <template>
+<div>
   <!--每一个店铺的具体商品展示页面-->
-    <div>
-      <img :src="'//elm.cangdu.org/img/'+$store.state.shopP.image_path" alt="无法显示" class="bg" v-if="isImg">
-      <div class="getMsg" v-if="isImg">
-        <div class="getImgleft">
-          <img :src="'//elm.cangdu.org/img/'+$store.state.shopP.image_path" alt="无法显示图片" class="leftImg">
-        </div>
-        <div class="getImgright">
-          <p class="rightname">{{$store.state.shopP.name}}</p>
-          <div class="rou1">
-            <router-link to="/pro">
-          <p>商家配送 / 分钟送达 / {{$store.state.shopP.piecewise_agent_fee.tips}}</p>
-          <p>公告:{{$store.state.shopP.promotion_info}}</p>
+  <div>
+    <img :src="'//elm.cangdu.org/img/'+$store.state.shopP.image_path" alt="无法显示" class="bg" v-if="isImg">
+    <div class="getMsg" v-if="isImg">
+      <div class="getImgleft">
+        <img :src="'//elm.cangdu.org/img/'+$store.state.shopP.image_path" alt="无法显示图片" class="leftImg">
+      </div>
+      <div class="getImgright">
+        <p class="rightname">{{$store.state.shopP.name}}</p>
+        <div class="rou1">
+          <router-link to="/pro">
+            <p>商家配送 / 分钟送达 / {{$store.state.shopP.piecewise_agent_fee.tips}}</p>
+            <p>公告:{{$store.state.shopP.promotion_info}}</p>
             <span class="glyphicon glyphicon-menu-right jiantou1"></span>
-            </router-link>
-          </div>
-        </div>
-        <div class="empty"></div>
-        <div class="huodong">
-          <router-link to="/proone">
-          <p class="threeP">
-           <span class="threeImg">{{$store.state.shopP.activities[0].icon_name}}</span>
-          <span class="activ">{{$store.state.shopP.activities[0].description}}(APP专享)</span>
-            <span class="num">{{$store.state.shopP.activities.length}}个活动</span>
-            <span class="glyphicon glyphicon-menu-right jiantou2"></span>
-          </p>
           </router-link>
         </div>
       </div>
-      <div class="shop12">
+      <div class="empty"></div>
+      <div class="huodong">
+        <router-link to="/proone">
+          <p class="threeP">
+            <span class="threeImg">{{$store.state.shopP.activities[0].icon_name}}</span>
+            <span class="activ">{{$store.state.shopP.activities[0].description}}(APP专享)</span>
+            <span class="num">{{$store.state.shopP.activities.length}}个活动</span>
+            <span class="glyphicon glyphicon-menu-right jiantou2"></span>
+          </p>
+        </router-link>
+      </div>
+    </div>
+    <div class="shop12">
       <p class="sShop11">
         <router-link to="/home/onepage" class="jiantou">
-        <span class="glyphicon glyphicon-menu-left"></span>
+          <span class="glyphicon glyphicon-menu-left"></span>
         </router-link>
         <span :class="{'shangpin':true,'sele':sele==='商品'?true:false}" @click="sele='商品'">
           商品
         </span>
         <span :class="{'pingjia':true,'sele':sele==='评价'?true:false}" @click="sele='评价'">评价</span></p>
-        <!--商品-->
+      <!--商品-->
       <div class="sMax" v-if="sele==='商品'?true:false">
         <div class="sLeft1">
           <ul>
             <li v-for="s in $store.state.shopAll" :class="{'sLi':true,'select':issele===s.id?true:false}"  @click="sendLiRight(s)">
               <span>{{s.name}}</span>
               <div class="leftTop1">
-                 <mt-badge size="large" type="error" class="count" v-if="leftCount(s.foods)>0?true:false">{{leftCount(s.foods)}}</mt-badge>
+                <mt-badge size="large" type="error" class="count" v-if="leftCount(s.foods)>0?true:false">{{leftCount(s.foods)}}</mt-badge>
               </div>
             </li>
           </ul>
@@ -56,22 +57,22 @@
             <li v-for="s1 in liAll" class="sRightList">
               <router-link to="/shopHome/detailone">
                 <a @click="sengS(s1)">
-              <div class="new" v-if="newFood(s1)">新品</div>
-              <div class="s1Img">
-                <img :src="'//elm.cangdu.org/img/'+s1.image_path" alt="无">
-              </div>
-              <div class="zp" v-if="zp(s1)">招牌</div>
+                  <div class="new" v-if="newFood(s1)">新品</div>
+                  <div class="s1Img">
+                    <img :src="'//elm.cangdu.org/img/'+s1.image_path" alt="无">
+                  </div>
+                  <div class="zp" v-if="zp(s1)">招牌</div>
                 </a>
               </router-link>
               <div class="s1Right">
                 <router-link to="/shopHome/detailone">
                   <a @click="sengS(s1)">
-                <span class="c1Name">{{s1.name}}</span>
-                <span class="c1Des">{{s1.description}}</span>
-                <p>
-                <span class="yueshou1">{{gettips(s1)}}</span>
-                <span class="yueshou1">好评率{{s1.satisfy_rate}}%</span>
-                </p>
+                    <span class="c1Name">{{s1.name}}</span>
+                    <span class="c1Des">{{s1.description}}</span>
+                    <p>
+                      <span class="yueshou1">{{gettips(s1)}}</span>
+                      <span class="yueshou1">好评率{{s1.satisfy_rate}}%</span>
+                    </p>
                   </a>
                 </router-link>
                 <div class="zp1">{{des(s1)}}</div>
@@ -104,86 +105,90 @@
         </div>
         <div class="empty"></div>
       </div>
-        <!--评价-->
-        <div class="sMax2" v-if="sele==='评价'?true:false">
-          <div class="top rating_header">
-            <div class="left">
-              <div :class="{fontC:true}">{{overallScore}}</div>
-              <div :style="{fontSize:'.65rem'}">综合评价</div>
-              <div :style="{fontSize:'.4rem',color:'#999'}">高于周边商家{{compareRating}}</div>
-            </div>
-            <div class="right">
-              <div>
-                <span>服务态度</span>
-                <el-rate
-                  v-model="serviceScore"
-                  disabled
-                  show-score
-                  text-color="#ff9900" class="el-rate">
-                </el-rate></div>
-              <div>
-                <span>菜品评价</span>
-                <el-rate
-                  v-model="foodScore"
-                  disabled
-                  show-score
-                  text-color="#ff9900" class="el-rate">
-                </el-rate>
-              </div>
-              <div><span>送达时间</span>{{delayTime}}分钟</div>
-            </div>
-
-            <div class="empty"></div>
+      <!--评价-->
+      <div class="sMax2" v-if="sele==='评价'?true:false">
+        <div class="top rating_header">
+          <div class="left">
+            <div :class="{fontC:true}">{{overallScore}}</div>
+            <div :style="{fontSize:'.65rem'}">综合评价</div>
+            <div :style="{fontSize:'.4rem',color:'#999'}">高于周边商家{{compareRating}}</div>
           </div>
-          <div class="middle" >
+          <div class="right">
+            <div>
+              <span>服务态度</span>
+              <el-rate
+                v-model="serviceScore"
+                disabled
+                show-score
+                text-color="#ff9900" class="el-rate">
+              </el-rate></div>
+            <div>
+              <span>菜品评价</span>
+              <el-rate
+                v-model="foodScore"
+                disabled
+                show-score
+                text-color="#ff9900" class="el-rate">
+              </el-rate>
+            </div>
+            <div><span>送达时间</span>{{delayTime}}分钟</div>
+          </div>
+
+          <div class="empty"></div>
+        </div>
+        <div class="middle" >
             <span v-for="item in sortAll" :style="{ backgroundColor:item.name==color1 ? '#3190e8':item.name=='不满意' ? ' #f5f5f5':(tag==true&&item.name=='全部')?'#3190e8':'#ebf5ff',color:item.name==color1 ? 'white':(tag==true&&item.name=='全部')?'white':'#6d7885'}" :class="{'span1':true}" @click="changeC(item.name)">
               {{item.name+'('+item.count+')'}}
             </span>
 
-          </div>
-          <div class="bottom" v-for="(item,index) in allMsg">
-            <section class="leftB">
-              <img :src="item.avatar==''?'//elm.cangdu.org/img/default.jpg':'https://fuss10.elemecdn.com/'+item.avatar+'.jpeg'" alt="" class="user_avatar">
-            </section>
-            <section class="rightB">
-              <header class="header">
-                <section class="rightBH">
-                  <span>{{item.username}}</span>
-                  <div class="el">
-                    <el-rate
-                      v-model=" item.rating_star"
-                      disabled
-                      show-score
-                      text-color="#ff9900" class="el-rate">
-                    </el-rate>
-                  </div>
-                  <p>{{item.time_spent_desc}}</p>
-                </section>
-                <time>{{item.rated_at}}</time>
-                <div class="empty"></div>
-              </header>
-              <ul class="ul1">
-                <li v-for="foodPhoto in item.item_ratings" v-if="foodPhoto.image_hash==''?false:true" >
-                  <img :src="'https://fuss10.elemecdn.com/'+foodPhoto.image_hash+'.jpeg'" alt="">
-                </li>
-              </ul>
-              <ul class="ul2">
-                <li v-for="foodName in item.item_ratings">
-                  {{foodName.food_name}}
-                </li>
-              </ul>
-            </section>
-            <section class="empty"></section>
-          </div>
+        </div>
+        <div class="bottom" v-for="(item,index) in allMsg">
+          <section class="leftB">
+            <img :src="item.avatar==''?'//elm.cangdu.org/img/default.jpg':'https://fuss10.elemecdn.com/'+item.avatar+'.jpeg'" alt="" class="user_avatar">
+          </section>
+          <section class="rightB">
+            <header class="header">
+              <section class="rightBH">
+                <span>{{item.username}}</span>
+                <div class="el">
+                  <el-rate
+                    v-model=" item.rating_star"
+                    disabled
+                    show-score
+                    text-color="#ff9900" class="el-rate">
+                  </el-rate>
+                </div>
+                <p>{{item.time_spent_desc}}</p>
+              </section>
+              <time>{{item.rated_at}}</time>
+              <div class="empty"></div>
+            </header>
+            <ul class="ul1">
+              <li v-for="foodPhoto in item.item_ratings" v-if="foodPhoto.image_hash==''?false:true" >
+                <img :src="'https://fuss10.elemecdn.com/'+foodPhoto.image_hash+'.jpeg'" alt="">
+              </li>
+            </ul>
+            <ul class="ul2">
+              <li v-for="foodName in item.item_ratings">
+                {{foodName.food_name}}
+              </li>
+            </ul>
+          </section>
+          <section class="empty"></section>
         </div>
       </div>
     </div>
+  </div>
+  <YxLoding v-if="loadingMark"></YxLoding>
+</div>
 </template>
 
 <script>
   import Vue from "vue";
+  import YxLoding from "./YxLoding";
     export default {
       name: "YxShopTopOne",
+      components: {YxLoding},
       data() {
         return {
           //首页上点击商铺传递的商铺本身的信息
@@ -235,6 +240,8 @@
           allMsg:[],
           //点击事件标识
           tag:true,
+          //预加载标识
+          loadingMark:true,
         }
       },
       methods: {
@@ -467,6 +474,10 @@
           });
 
         },
+      mounted(){
+        //预加载
+        this.loadingMark=false;
+      }
     }
 </script>
 

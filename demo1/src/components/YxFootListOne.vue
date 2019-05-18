@@ -1,67 +1,78 @@
 <template>
+  <div>
     <!--从home点击轮播图之后默认的点击进入的页面组件,为YxFoodList的默认子组件-->
-     <div class="shopMax">
-        <ul class="y_ul">
-          <!--商铺列表-->
-  <!--路由跳转2-每一个商铺页面-->
-  <router-link to="/shophome">
-    <li v-for="p in $store.state.allList">
-      <a @click="sendId(p.id,p)">
-      <!--左侧-->
-      <div class="s_left">
-        <img :src="'//elm.cangdu.org/img/'+p.image_path" alt="无法显示图片" class="y_img">
-      </div>
-      <!--右侧-->
-      <div class="s_right">
-        <!--动态判断-->
-        <span :class="{'pp':true,'pp1':!p.is_premium}">品牌</span>
-        <!--商家名字-->
-        <span class="s_name">{{p.name}}</span>
-        <p class="s_span">
-          <!--保准票的显示-->
-          <span v-for="s in p.supports">
+    <div class="shopMax">
+      <ul class="y_ul">
+        <!--商铺列表-->
+        <!--路由跳转2-每一个商铺页面-->
+        <router-link to="/shophome">
+          <li v-for="p in $store.state.allList">
+            <a @click="sendId(p.id,p)">
+              <!--左侧-->
+              <div class="s_left">
+                <img :src="'//elm.cangdu.org/img/'+p.image_path" alt="无法显示图片" class="y_img">
+              </div>
+              <!--右侧-->
+              <div class="s_right">
+                <!--动态判断-->
+                <span :class="{'pp':true,'pp1':!p.is_premium}">品牌</span>
+                <!--商家名字-->
+                <span class="s_name">{{p.name}}</span>
+                <p class="s_span">
+                  <!--保准票的显示-->
+                  <span v-for="s in p.supports">
                    {{s.icon_name}}
                  </span>
-        </p>
-        <!--月售多少单-->
-        <p class="s_num">
-          <el-rate
-            v-model="p.rating"
-            disabled
-            show-score
-            text-color="#ff9900"
-            id="xingxing">
-          </el-rate>
-          <span class="pf">{{'月售'+p.recent_order_num}}单</span>
-        </p>
-        <!--蜂鸟快送/准时达-->
-        <p class="s_f">
-          <span class="s_f1">{{p.delivery_mode.text}}</span>
-          <span class="s_f2">{{p.supports[1].name}}</span>
-        </p>
-        <!--配送费-->
-        <div>
-          <span class="s_peisong">&yen;{{p.float_minimum_order_amount+'元起送/'+p.piecewise_agent_fee.tips}}</span>
-          <!--公里数/时间-->
-          <span class="s_gongli">
+                </p>
+                <!--月售多少单-->
+                <p class="s_num">
+                  <el-rate
+                    v-model="p.rating"
+                    disabled
+                    show-score
+                    text-color="#ff9900"
+                    id="xingxing">
+                  </el-rate>
+                  <span class="pf">{{'月售'+p.recent_order_num}}单</span>
+                </p>
+                <!--蜂鸟快送/准时达-->
+                <p class="s_f">
+                  <span class="s_f1">{{p.delivery_mode.text}}</span>
+                  <span class="s_f2">{{p.supports[1].name}}</span>
+                </p>
+                <!--配送费-->
+                <div>
+                  <span class="s_peisong">&yen;{{p.float_minimum_order_amount+'元起送/'+p.piecewise_agent_fee.tips}}</span>
+                  <!--公里数/时间-->
+                  <span class="s_gongli">
                 <span class="gongli_1">{{p.distance}}</span>
                 <span>/{{p.order_lead_time}}</span>
                 </span>
-          <div class="empty"></div>
-        </div>
-      </div>
-      <div class="empty"></div>
-      </a>
-    </li>
-  </router-link>
-  </ul>
+                  <div class="empty"></div>
+                </div>
+              </div>
+              <div class="empty"></div>
+            </a>
+          </li>
+        </router-link>
+      </ul>
+    </div>
+    <YxLoding v-if=" loadingMark"></YxLoding>
   </div>
 </template>
 
 <script>
-  import Vue from 'vue'
+  import Vue from 'vue';
+  import YxLoding from "./YxLoding";
     export default {
         name: "YxFootListOne",
+      components: {YxLoding},
+      data(){
+          return{
+            //预加载标识
+            loadingMark:true,
+          }
+      },
          methods:{
         sendId(id,p){
           //点击哪一个发送哪一个的请求
@@ -78,6 +89,10 @@
           //该数据为首页店铺页本身对象
           this.$store.state.shopP=p;
         }
+      },
+      mounted(){
+        //预加载
+        this.loadingMark=false;
       }
     }
 </script>

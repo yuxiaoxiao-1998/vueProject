@@ -1,124 +1,131 @@
 <template>
-    <div class="onePage">
-      <div id="homeOne">
-        <router-link to="/home/homeOne" class="left11">
-          <span class="glyphicon glyphicon-search"></span>
-        </router-link>
-        <router-link to="/city">
+   <div>
+     <div class="onePage">
+       <div id="homeOne">
+         <router-link to="/home/homeOne" class="left11">
+           <span class="glyphicon glyphicon-search"></span>
+         </router-link>
+         <router-link to="/city">
         <span class="center">
           {{this.$store.state.cityall.n}}
         </span>
-        </router-link>
-        <!--登录跳转-->
-        <router-link to="/login" class="right11">
-          登录|注册
-        </router-link>
-      </div>
-      <div class="homeOneMax">
-        <div class="swiper-container swMax">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <ul class="swUl">
-                <li v-for="p in food">
-                  <router-link to="/food">
-                    <!--向vuex发送数据-->
-                    <a @click="sendVuexY(p.title,allShop)">
-                  <img :src="'http://fuss10.elemecdn.com'+p.image_url" alt="无法显示图片">
-                  <p>{{p.title}}</p>
-                    </a>
-                  </router-link>
-                </li>
-              </ul>
-            </div>
-            <div class="swiper-slide">
-              <ul class="swUl1">
-                <li v-for="p1 in foodTwo">
-                  <!--路由跳转1-food页面-->
-                  <router-link to="/food">
-                  <img :src="'http://fuss10.elemecdn.com'+p1.image_url" alt="无法显示图片" >
-                  <p>{{p1.title}}</p>
-                  </router-link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- 如果需要分页器 -->
-          <div class="swiper-pagination"></div>
-        </div>
-        <!--所有商铺列表-->
-        <div class="shopMax">
-          <p class="y_p1"><img src="../image/shop.png" alt="无法显示">附近商家</p>
-          <ul class="y_ul">
-            <!--商铺列表-->
-            <!--路由跳转2-每一个商铺页面-->
-            <router-link to="/shopHome">
-            <li v-for="p in allShop">
-              <a @click="sendId(p.id,p)">
-              <!--左侧-->
-              <div class="s_left">
-                <img :src="'//elm.cangdu.org/img/'+p.image_path" alt="无法显示图片" class="y_img">
-              </div>
-              <!--右侧-->
-              <div class="s_right">
-                <!--动态判断-->
-                <span :class="{'pp':true,'pp1':!p.is_premium}">品牌</span>
-                <!--商家名字-->
-                <span class="s_name">{{p.name}}</span>
-                <p class="s_span">
-                <!--保准票的显示-->
-                 <span v-for="s in p.supports">
+         </router-link>
+         <!--登录跳转-->
+         <router-link to="/login" class="right11">
+           登录|注册
+         </router-link>
+       </div>
+       <div class="homeOneMax">
+         <div class="swiper-container swMax">
+           <div class="swiper-wrapper">
+             <div class="swiper-slide">
+               <ul class="swUl">
+                 <li v-for="p in food">
+                   <router-link to="/food">
+                     <!--向vuex发送数据-->
+                     <a @click="sendVuexY(p.title,allShop)">
+                       <img :src="'http://fuss10.elemecdn.com'+p.image_url" alt="无法显示图片">
+                       <p>{{p.title}}</p>
+                     </a>
+                   </router-link>
+                 </li>
+               </ul>
+             </div>
+             <div class="swiper-slide">
+               <ul class="swUl1">
+                 <li v-for="p1 in foodTwo">
+                   <!--路由跳转1-food页面-->
+                   <router-link to="/food">
+                     <img :src="'http://fuss10.elemecdn.com'+p1.image_url" alt="无法显示图片" >
+                     <p>{{p1.title}}</p>
+                   </router-link>
+                 </li>
+               </ul>
+             </div>
+           </div>
+           <!-- 如果需要分页器 -->
+           <div class="swiper-pagination"></div>
+         </div>
+         <!--所有商铺列表-->
+         <div class="shopMax">
+           <p class="y_p1"><img src="../image/shop.png" alt="无法显示">附近商家</p>
+           <ul class="y_ul">
+             <!--商铺列表-->
+             <!--路由跳转2-每一个商铺页面-->
+             <router-link to="/shopHome">
+               <li v-for="p in allShop">
+                 <a @click="sendId(p.id,p)">
+                   <!--左侧-->
+                   <div class="s_left">
+                     <img :src="'//elm.cangdu.org/img/'+p.image_path" alt="无法显示图片" class="y_img">
+                   </div>
+                   <!--右侧-->
+                   <div class="s_right">
+                     <!--动态判断-->
+                     <span :class="{'pp':true,'pp1':!p.is_premium}">品牌</span>
+                     <!--商家名字-->
+                     <span class="s_name">{{p.name}}</span>
+                     <p class="s_span">
+                       <!--保准票的显示-->
+                       <span v-for="s in p.supports">
                    {{s.icon_name}}
                  </span>
-                </p>
-                <!--月售多少单-->
-                <p class="s_num">
-                  <el-rate
-                    v-model="p.rating"
-                    disabled
-                    show-score
-                    text-color="#ff9900"
-                  class="xingxing">
-                  </el-rate>
-                  <span class="pf">{{'月售'+p.recent_order_num}}单</span>
-                  </p>
-                <!--蜂鸟快送/准时达-->
-                <p class="s_f">
-                  <span class="s_f1">{{p.delivery_mode.text}}</span>
-                  <span class="s_f2">{{p.supports[1].name}}</span>
-                </p>
-                <!--配送费-->
-                <div>
-                  <span class="s_peisong">&yen;{{p.float_minimum_order_amount+'元起送/'+p.piecewise_agent_fee.tips}}</span>
-                <!--公里数/时间-->
-                <span class="s_gongli">
+                     </p>
+                     <!--月售多少单-->
+                     <p class="s_num">
+                       <el-rate
+                         v-model="p.rating"
+                         disabled
+                         show-score
+                         text-color="#ff9900"
+                         class="xingxing">
+                       </el-rate>
+                       <span class="pf">{{'月售'+p.recent_order_num}}单</span>
+                     </p>
+                     <!--蜂鸟快送/准时达-->
+                     <p class="s_f">
+                       <span class="s_f1">{{p.delivery_mode.text}}</span>
+                       <span class="s_f2">{{p.supports[1].name}}</span>
+                     </p>
+                     <!--配送费-->
+                     <div>
+                       <span class="s_peisong">&yen;{{p.float_minimum_order_amount+'元起送/'+p.piecewise_agent_fee.tips}}</span>
+                       <!--公里数/时间-->
+                       <span class="s_gongli">
                 <span class="gongli_1">{{p.distance}}</span>
                 <span>/{{p.order_lead_time}}</span>
                 </span>
-                  <div class="empty"></div>
-                </div>
-              </div>
-              <div class="empty"></div>
-              </a>
-            </li>
-            </router-link>
-          </ul>
-        </div>
-      </div>
+                       <div class="empty"></div>
+                     </div>
+                   </div>
+                   <div class="empty"></div>
+                 </a>
+               </li>
+             </router-link>
+           </ul>
+         </div>
+       </div>
 
-    </div>
+     </div>
+     <YxLoding v-if="loadingMark"></YxLoding>
+   </div>
 </template>
 
 <script>
-  import Swiper from 'swiper'
+  import Swiper from 'swiper';
+  import YxLoding from "./YxLoding";
   import Vue from "vue"
     export default {
         name: "YxOnePage",
+      components: {YxLoding},
         data(){
             return {
               allFood:[],
               one:[],
               two:[],
-              allShop:[]
+              allShop:[],
+              //预加载标识
+              loadingMark:true,
             }
         },
       computed:{
@@ -154,6 +161,8 @@
           }).catch((error) => {
             console.log('请求错误', error)
           });
+          //预加载
+          this.loadingMark=false;
         },
       methods:{
         sendVuexY(title,all){
