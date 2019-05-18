@@ -23,6 +23,7 @@
     </div>
     <!-- 搜索列表-->
     <ul>
+      <router-link to="/infor/address/add">
       <li class="detail_li"
           v-for="(item,index) in seaSiteArr"
           :key="index"
@@ -30,6 +31,7 @@
         <p>{{item.name}}</p>
         <p>{{item.address}}</p>
       </li>
+      </router-link>
     </ul>
     <!-- 提醒 -->
     <div class="foot"
