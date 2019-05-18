@@ -62,7 +62,9 @@ export default new Router({
         {path:'homeOne',component:YxSearch},
         //从登录开始的路由
         // 一级路由 我的页面
-        {path:'profile', component:Hyprofile}
+        {path:'profile', component:Hyprofile},
+        // 一级 我的订单
+        {path:'/order', component:Hyorder},
       ]},
     {path:'/food',component:YxFoodList,children: [
         //二级路由重定向
@@ -169,11 +171,7 @@ export default new Router({
           path:'/detailpoi',
           component:Hydetailpoi,
         },
-    // 一级 我的订单
-    {
-      path:'/order',
-      component:Hyorder,
-    },
+
     // 一级 积分商城
     {
       path:'/chome',

@@ -62,7 +62,7 @@
     <div class="part"></div>
     <!-- 跳转区域 -->
     <!-- 我的订单 -->
-    <router-link :to="{path:'/order'}">
+    <router-link :to="{path:'/home/order'}">
       <div class="pro_content">
         <p class="el-icon-tickets">我的订单</p>
         <span                     class="el-icon-arrow-right"></span>
