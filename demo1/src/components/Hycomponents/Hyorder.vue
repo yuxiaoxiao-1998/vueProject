@@ -4,8 +4,8 @@
     <div class="header">
       <mt-header title="订单列表" class="order-header">
         <!--登录返回-->
-        <router-link :to="{path:'profile'}" slot="left">
-          <mt-button icon="back"></mt-button>
+        <router-link :to="{path:'/home/profile'}" slot="left">
+          <span class="glyphicon glyphicon-menu-left"></span>
         </router-link>
       </mt-header>
     </div>

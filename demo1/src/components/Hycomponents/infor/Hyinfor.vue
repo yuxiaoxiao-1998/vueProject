@@ -4,7 +4,7 @@
     <mt-header title="账户信息"
                class="infor-header">
       <!--登录返回-->
-      <router-link :to="{path:'/profile'}"
+      <router-link :to="{path:'/home/profile'}"
                    slot="left">
         <mt-button icon="back"></mt-button>
       </router-link>
@@ -18,7 +18,7 @@
     </div>
     <!-- 跳转 -->
     <ul>
-      <router-link :to="{path:'/profile/infor/setusername'}">
+      <router-link :to="{path:'/infor/setusername'}">
         <li class="upload_li1">
           <span>用户名</span>
           <!-- 非固定值 -->
@@ -26,7 +26,7 @@
           <span class="el-icon-arrow-right" style="marginLeft:.7rem"></span>
         </li>
       </router-link>
-      <router-link :to="{path:'/profile/infor/address'}">
+      <router-link :to="{path:'/infor/address'}">
         <li class="upload_li2">
           <span>收货地址</span>
           <span class="el-icon-arrow-right"></span>
@@ -43,7 +43,7 @@
         </li>
       </div>
       <div class="part">安全设置</div>
-      <router-link :to="{path:'/profile/infor/forget'}">
+      <router-link :to="{path:'/infor/forget'}">
         <li class="upload_li1">
           <span>登录密码</span>
           <span>修改</span>

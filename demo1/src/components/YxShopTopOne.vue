@@ -30,7 +30,9 @@
       </div>
       <div class="shop12">
       <p class="sShop11">
-        <span class="glyphicon glyphicon-menu-left jiantou" @click="$router.back(-1)"></span>
+        <router-link to="/home/onepage" class="jiantou">
+        <span class="glyphicon glyphicon-menu-left"></span>
+        </router-link>
         <span :class="{'shangpin':true,'sele':sele==='商品'?true:false}" @click="sele='商品'">
           商品
         </span>
@@ -317,6 +319,7 @@
             this.geName = l.name;
             this.guige = l.specfoods;
             this.geMoney = l.specfoods[0].price;
+            this.weiyi = l.item_id;
             this.ge = true;
           } else {
             this.geName = l.name;
@@ -347,7 +350,9 @@
             countS: 1,
             id: this.foodId,
             wy: this.weiyi,
-            canhe:this.ch
+            canhe:this.ch,
+            //通过店铺id作为区分各个商铺之间的唯一信息
+            shopId:this.$store.state.shopP.id
           };
           if (this.$store.state.addShopAll.length == 0) {
             this.$store.state.addShopAll.push(shopA);
@@ -363,7 +368,6 @@
               });
               arr[0].countS++;
             } else {
-              //否则将对象添加到数组中
               this.$store.state.addShopAll.push(shopA);
             }
           }
@@ -371,7 +375,7 @@
           //将选规格框不显示
           this.ge = false;
           //将总数量++
-          this.$store.state.addCount++;
+          // this.$store.state.addCount++;
         },
         //减号的显示和隐藏,数量的显示和隐藏(item_id为右侧小商品之间的唯一标识)
         yCount(m) {
@@ -379,6 +383,7 @@
           for (let j in this.$store.state.addShopAll) {
             if (m.item_id === this.$store.state.addShopAll[j].wy) {
               sum += this.$store.state.addShopAll[j].countS;
+
             }
           }
           return sum;
@@ -405,7 +410,6 @@
             for (let j in this.$store.state.addShopAll) {
               if (s1.specfoods[0].item_id === this.$store.state.addShopAll[j].wy) {
                 this.$store.state.addShopAll[j].countS--;
-                this.$store.state.addCount--;
                 if(this.$store.state.addShopAll[j].countS <= 0){
                   this.$store.state.addShopAll.splice(j,1);
                 }
@@ -417,12 +421,7 @@
         sengS(s1){
           this.$store.commit('xiangQing',s1);
         },
-        getShopP(){
-          // console.log('shopP的值是:',this.$store.state.shopP);
-          console.log('restaurant_id是:',this.$store.state.shopAll)
-        },
         changeC(name){//更改span标签的背景颜色
-          // this.color=!this.color;
           this.color1=name;
           this.tag=false;
         }
@@ -510,6 +509,7 @@
   padding-left: 1rem;
   vertical-align: -0.3rem;
   box-sizing: border-box;
+  color: black;
 }
   .sLi{
     height: 2rem;

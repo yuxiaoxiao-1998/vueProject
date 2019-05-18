@@ -336,6 +336,7 @@
     color: white;
     margin-left: 2.5rem;
     font-size: 0.7rem;
+    line-height: 2rem;
     vertical-align: 0.2rem;
   }
   .center{
@@ -354,5 +355,6 @@
     color: white;
     font-size: 0.7rem;
     vertical-align: 0.1rem;
+    line-height: 2rem;
   }
 </style>

@@ -2,7 +2,7 @@
   <div class="setusername">
     <mt-header title="修改用户名" class="setusername-header">
       <!--登录返回-->
-      <router-link :to="{path:'/profile/infor'}" slot="left">
+      <router-link :to="{path:'/infor'}" slot="left">
         <mt-button icon="back"></mt-button>
       </router-link>
     </mt-header>

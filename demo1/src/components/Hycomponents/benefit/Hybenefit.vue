@@ -5,7 +5,9 @@
     <div class="header">
       <mt-header title="我的优惠" class="benefit-header">
         <!--登录返回-->
-        <mt-button @click="$router.push({path:'/profile'})" icon="back" slot="left"></mt-button>
+        <router-link :to="{path:'/home/profile'}" slot="left">
+          <span class="glyphicon glyphicon-menu-left"></span>
+        </router-link>
       </mt-header>
     </div>
     <!-- banner  红包-->

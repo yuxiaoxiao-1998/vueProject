@@ -3,7 +3,7 @@
     <router-view></router-view>
     <mt-header title="编辑地址" class="address-header">
       <!--登录返回-->
-      <mt-button @click="$router.push({path:'/profile/infor'})" icon="back" slot="left"></mt-button>
+      <mt-button @click="$router.push({path:'/infor'})" icon="back" slot="left"></mt-button>
       <mt-button class="add_edit" @click="changeEdit" slot="right">{{isShow ? perform : edit}}</mt-button>
     </mt-header>
     <div class="part"></div>
@@ -22,7 +22,7 @@
       </li> -->
     </ul>
     <div class="part"></div>
-    <router-link :to="{path:'/profile/infor/address/add'}">
+    <router-link :to="{path:'/infor/address/add'}">
       <div class="foot">
         <span>新增地址</span>
         <span class="el-icon-arrow-right"></span>

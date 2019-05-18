@@ -113,7 +113,7 @@
               // 登录用户名存到本地 vuex可调用
               sessionStorage.username=this.username;
               // 跳转 到 首页面
-              this.$router.push({path:'/profile'});
+              this.$router.push({path:'/home/profile'});
             } else{
               this.isShow = true;
               this.alertText = res.data.message;

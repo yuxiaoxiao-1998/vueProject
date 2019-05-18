@@ -2,8 +2,8 @@
   <div class="service">
     <!-- 导航栏头部 -->
     <mt-header fixed title="服务中心" class="service-header">
-      <router-link :to="{path:'profile'}" slot="left">
-        <mt-button icon="back"></mt-button>
+      <router-link :to="{path:'/home/profile'}" slot="left" class="fw">
+        <span class="glyphicon glyphicon-menu-left"></span>
       </router-link>
     </mt-header>
     <!-- banner 客服区域 -->
@@ -247,5 +247,7 @@
     justify-content: space-between;
     align-items: center;
   }
-
+.fw{
+  color: white;
+}
 </style>

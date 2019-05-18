@@ -3,7 +3,9 @@
     <div class="header">
       <mt-header title="积分问题" class="detailpoi-header">
         <!--登录返回-->
-        <mt-button @click="$router.back(-1)" icon="back" slot="left"></mt-button>
+        <router-link :to="{path:'/points'}" slot="left">
+          <span class="glyphicon glyphicon-menu-left"></span>
+        </router-link>
       </mt-header>
     </div>
     <ul>

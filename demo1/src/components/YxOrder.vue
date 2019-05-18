@@ -1,10 +1,13 @@
 <template>
   <div>
    <mt-header title="确认订单" class="order">
-     <span class="glyphicon glyphicon-menu-left" slot="left" @click="$router.back(-1)"></span>
+     <router-link to="/shopHome/shopone"  slot="left">
+     <span class="glyphicon glyphicon-menu-left"></span>
+     </router-link>
      <span slot="right" class="el-icon-user-solid"></span>
    </mt-header>
     <div class="content">
+      <router-link to="/order2">
       <div class="adress">
         <!--需判断是否有地址,当有地址时,地址显示,否则默认显示-->
         <span class="el-icon-location-outline dizhi"></span>
@@ -12,6 +15,7 @@
         <p></p>
         <p class="bg"></p>
       </div>
+      </router-link>
       <!--送达时间-->
       <div class="time">
         <span class="time1">送达时间</span>
@@ -25,24 +29,28 @@
       </div>
       <!--购买的商品的展示-->
       <div class="goumai">
-        <p><img :src="'//elm.cangdu.org/img/'+shopP.image_path" alt="无法显示图片" class="y_img">
-        <span class="shangpinName">{{shopP.name}}</span></p>
+        <p><img :src="'//elm.cangdu.org/img/'+$store.state.shopP.image_path" class="y_img">
+          <span class="shangpinName">{{$store.state.shopP.name}}</span></p>
         <!--具体商品的展示-->
         <div class="shopPAllFood">
-          <p v-for="s in $store.state.addShopAll" class="allMax">
+          <div v-for="s in $store.state.newShop" class="allMax">
             <span class="allMax1">{{s.name}}</span>
             <span>{{s.sName}}</span>
             <span  class="allMax2">x{{s.countS}}</span>
             <span  class="allMax3">¥{{s.price}}</span>
-          </p>
+          </div>
           <p class="ps"><span class="allMax1">餐盒</span><span class="allMax3">¥{{canhe1()}}</span></p>
           <p class="ps"><span class="allMax1">配送费</span><span class="allMax3">{{peisong}}</span></p>
         </div>
         <p class="ord"><span class="ord1">订单¥{{money()}}</span> <span class="ord2">待支付</span><span class="ord3">¥{{money()}}</span></p>
       </div>
       <div class="beizhu">
-      <p class="bz">订单备注<span  class="bz1">{{bz()}}11111<span class="glyphicon glyphicon-menu-right"></span></span></p>
+        <router-link to="/beizhu" class="y_a">
+      <p class="bz">订单备注<span  class="bz1">{{bz()}}<span class="glyphicon glyphicon-menu-right"></span></span></p>
+        </router-link>
+        <router-link to="/invoice" class="y_a">
        <p class="bz fp">发票抬头 <span  class="bz1">不需要开发票<span class="glyphicon glyphicon-menu-right"></span></span></p>
+         </router-link>
       </div>
     </div>
     <div class="bottom">
@@ -66,10 +74,10 @@
         name: "YxOrder",
         data(){
             return {
-              shopP:this.$store.state.shopP,
               canhe:0,
               peisong:this.$store.state.shopP.piecewise_agent_fee.tips.slice(4),
-              zaixian:false
+              zaixian:false,
+              beiz:[]
             }
         },
         methods:{
@@ -82,7 +90,7 @@
         },
         money(){
           let mon=0;
-          for(let p of this.$store.state.addShopAll){
+          for(let p of this.$store.state.newShop){
             mon += p.countS * p.price;
           }
           mon=mon+this.canhe+Number(this.peisong.slice(1));
@@ -90,20 +98,30 @@
         },
       //备注信息的显示
         bz(){
-
+          let str='';
+            if(this.beiz.length===0){
+              str='添加备注信息';
+                return str;
+            }else{
+              for(let s of this.beiz){
+                str += s;
+              }
+              return str;
+            }
         },
       // 包装费
        canhe1(){
           let mon1=0;
-          for(let p of this.$store.state.addShopAll){
+          for(let p of this.$store.state.newShop){
             mon1 += p.countS * p.canhe;
           }
           this.canhe=mon1;
           return mon1;
-        }
+        },
       },
       created(){
-        // console.log(this.$store.state.addShopAll);
+          this.beiz=this.$store.state.remarkArr;
+          this.$store.commit("remark",[]);
       }
     }
 </script>
@@ -365,5 +383,9 @@
     right: 1rem;
     top:0.7rem;
     font-size: 0.7rem;
+  }
+  .y_a{
+    color: black;
+    text-decoration: none;
   }
 </style>

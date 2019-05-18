@@ -1,9 +1,9 @@
 <template>
   <div class="max">
     <div class="bottom">
-       <div :class="{'shop':true}" @click="y_show1 = !y_show1" :style="{'backgroundColor':$store.state.addCount>0?'#3190E8':'#666'}">
+       <div :class="{'shop':true}" @click="y_show1 = !y_show1" :style="{'backgroundColor':B>0?'#3190E8':'#666'}">
          <i class="el-icon-shopping-cart-2 shop1"></i>
-         <mt-badge size="large" type="error" class="rightTop" v-if="$store.state.addCount>0?true:false">{{$store.state.addCount}}</mt-badge>
+         <mt-badge size="large" type="error" class="rightTop" v-if="this.sumCount>0?true:false">{{B}}</mt-badge>
        </div>
 
       <div class="pri">
@@ -13,16 +13,18 @@
 
       <!--当购物车商品发生变化时,会变为结算-->
       <router-link to="/order1">
+        <a @click="sendOrder()">
       <div :class="{'jiesuan':yanse1==='1'?true:false,'jiesuan1':yanse1===''?true:false}">
         {{jiesuanFont()}}
       </div>
+        </a>
       </router-link>
     </div>
     <el-collapse-transition>
       <div class="clear" v-if="y_show1">
         <p class="shOne"><span class="shOne1">购物车</span><span class="shOne2" @click="removeAll"><i class="el-icon-delete"></i>清空</span></p>
         <div class="shAll">
-          <div v-for="s in $store.state.addShopAll" id="sAll" v-if="s.countS===0?false:true">
+          <div v-for="s in A" id="sAll" v-if="s.countS===0?false:true">
             <p class="one">
               <span class="name">{{s.name}}</span>
               <span class="price">¥{{s.price}}</span>
@@ -44,6 +46,10 @@
             //$store.state.shopP店铺自身信息
             jiesuan:'还差'+this.$store.state.shopP.float_minimum_order_amount+'元起送',
             y_show1:false,
+            shopC:[],
+            arrlength:'',
+            y_aa:'',
+            sumCount:0
           }
         },
         computed:{
@@ -54,39 +60,67 @@
               return '';
             }
           },
+          //当前购物车要显示的内容
+          A(){
+            if(this.$store.state.addShopAll.length != this.arrlength){
+              this.arrlength=this.$store.state.addShopAll.length;
+                this.shopC=[];
+                for(let s of this.$store.state.addShopAll){
+                  if(s.shopId===this.$store.state.shopP.id){
+                    this.shopC.push(s);
+                  }
+                }
+              }
+           return this.shopC;
+          },
+          //当前商家的购物车的总数
+          B(){
+            if(this.shopC.length > 0){
+              this.sumCount=0;
+              for(let s of this.shopC){
+                if(s.shopId===this.$store.state.shopP.id){
+                  this.sumCount += s.countS;
+                }
+              }
+            }
+            return this.sumCount;
+          }
         },
         methods:{
         removeAll(){
-          this.$store.state.addShopAll=[];
-          this.$store.state.addCount=0;
+          for(let i in this.$store.state.addShopAll){
+            for(let j in this.shopC){
+              if(this.shopC[j].shopId===this.$store.state.addShopAll[i].shopId){
+                this.$store.state.addShopAll.splice(i,1);
+              }
+            }
+          }
         },
         removeOne(s){
+          this.y_aa=s;
           for(let i in this.$store.state.addShopAll){
               if(s.id===this.$store.state.addShopAll[i].id){
                 this.$store.state.addShopAll[i].countS--;
-                this.$store.state.addCount--;
                 if(this.$store.state.addShopAll[i].countS <= 0){
                   this.$store.state.addShopAll.splice(i,1);
                 }
               }
           }
-          console.log(this.$store.state.addShopAll);
         },
         addOne1(s){
           for(let i in this.$store.state.addShopAll){
             if(s.id===this.$store.state.addShopAll[i].id){
               this.$store.state.addShopAll[i].countS++;
-              this.$store.state.addCount++;
             }
           }
           console.log(this.$store.state.addShopAll);
         },
         getMoney(){
           let money=0;
-          if(this.$store.state.addShopAll == []){
+          if(this.shopC === []){
             money=0;
           }else{
-            for(let p of this.$store.state.addShopAll){
+            for(let p of this.shopC){
               money += p.price*p.countS;
               if(Number(money) == 0 || money==''){
                 money=0.00;
@@ -98,7 +132,7 @@
         jiesuanFont(){
           let money=0;
           if(this.$store.state.addShopAll.length>0){
-            for(let p of this.$store.state.addShopAll){
+            for(let p of this.shopC){
               money += p.price*p.countS;
               if(money >= this.$store.state.shopP.float_minimum_order_amount){
                 this.jiesuan='去结算';
@@ -111,7 +145,20 @@
           }
           return this.jiesuan;
           },
+          //点击结算时将对应的商铺的购物车的数据传给vuex,在order页面访问即可
+        sendOrder(){
+            this.$store.commit('newS',this.shopC);
+          }
         },
+        mounted(){
+          //获取初始数组长度
+          this.arrlength=this.$store.state.addShopAll.length;
+          for(let s of this.$store.state.addShopAll){
+            if(s.shopId===this.$store.state.shopP.id){
+              this.shopC.push(s);
+            }
+          }
+      },
     }
 </script>
 

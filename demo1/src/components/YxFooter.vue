@@ -14,13 +14,13 @@
           </router-link>
         </li>
         <li>
-          <router-link to="/home">
+          <router-link to="/order">
             <span :class="{'d':true,'d1':isS==='订单'?true:false}" @click="spanC('订单')"></span>
             <p>订单</p>
           </router-link>
         </li>
         <li>
-          <router-link to="/home">
+          <router-link to="/home/profile">
             <span :class="{'w':true,'w1':isS==='我的'?true:false}"  @click="spanC('我的')"></span>
             <p>我的</p>
           </router-link>
@@ -77,7 +77,7 @@
   border-bottom: 2px solid #e4e4e4;
   height: 2.3rem;
   padding-top: 0.3rem;
-  z-index: 10;
+  z-index: 20;
   background: white;
 }
 .bottomLi li{

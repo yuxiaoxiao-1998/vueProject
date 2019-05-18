@@ -3,13 +3,13 @@
     <router-view></router-view>
     <mt-header title="新增地址" class="add-header">
       <!--登录返回-->
-      <mt-button @click="$router.push({path:'/profile/infor/address'})" icon="back" slot="left"></mt-button>
+      <mt-button @click="$router.push({path:'/infor/address'})" icon="back" slot="left"></mt-button>
     </mt-header>
     <div class="part"></div>
     <div class="add_input">
       <el-input class="input_c" v-model="name" placeholder="请填写你的姓名">
       </el-input>
-      <div @click="$router.push({path:'/profile/infor/address/add/addDetail'})">
+      <div @click="$router.push({path:'/infor/address/add/addDetail'})">
         <el-input class="input_c" v-model="address" placeholder="小区/写字楼/学校等">
         </el-input>
       </div>

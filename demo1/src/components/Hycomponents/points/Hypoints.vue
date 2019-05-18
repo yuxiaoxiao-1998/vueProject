@@ -5,8 +5,8 @@
     <div class="header">
       <mt-header title="我的积分" class="points-header">
         <!--登录返回-->
-        <router-link :to="{path:'profile'}" slot="left">
-          <mt-button icon="back"></mt-button>
+        <router-link :to="{path:'/home/profile'}" slot="left">
+          <span class="glyphicon glyphicon-menu-left"></span>
         </router-link>
       </mt-header>
       <div class="poi_buttom">
@@ -15,7 +15,7 @@
           <!-- 点击跳转 -->
           <span class="el-icon-question">
               <!-- 跳转接口 -->
-              <a @click="$router.push({path:'/points/detailpoi'})">积分说明</a>
+              <a @click="$router.push({path:'/detailpoi'})">积分说明</a>
             </span>
         </div>
         <div class="poibut_middle">

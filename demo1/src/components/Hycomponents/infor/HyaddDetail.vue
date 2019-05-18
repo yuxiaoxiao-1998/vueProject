@@ -5,7 +5,7 @@
                title="搜索地址"
                class="addDetail-header">
       <!--登录返回-->
-      <mt-button @click="$router.push({path:'/profile/infor/address/add'})"
+      <mt-button @click="$router.push({path:'/infor/address/add'})"
                  icon="back"
                  slot="left"></mt-button>
     </mt-header>

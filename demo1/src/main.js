@@ -49,8 +49,8 @@ const store=new Vuex.Store({
       //点击加入购物车时的数组
     //{name:this.geName,price:this.geMoney,sName:this.gName,countS:1,id:this.foodId,wy:this.weiyi}
     addShopAll:[],
-    //点击加入购物车商品的总数量
-    addCount:0,
+    //点击结算时的对应商铺的总购物车商品
+    newShop:[],
     //-------------------------
     //商品页点击图片进入详情页的对象
     detilsOne:{},
@@ -70,6 +70,10 @@ const store=new Vuex.Store({
     xiangQing(state,sps){
       state.detilsOne=sps;
     },
+    //点击结算时传递的对应商铺所加入的购物车的信息
+    newS(state,shop){
+      state.newShop=shop;
+    },
     //------------------------hyy-------------------
     isname(state) {
       if (sessionstroage.username) {
@@ -81,7 +85,6 @@ const store=new Vuex.Store({
     remark(state,pay){
       state.remarkArr = pay;
     },
-
   },
 });
 

@@ -43,6 +43,11 @@ import Hypayment from '../components/Hycomponents/vipcard/Hypayment'
 import Hyusercart from '../components/Hycomponents/vipcard/Hyusercart'
 import HyinvoiceRecord from '../components/Hycomponents/vipcard/HyinvoiceRecord'
 
+//-------------------------yxx
+import Hychooseaddress from '../components/Hychooseaddress'
+import HyaddAddress from '../components/HyaddAddress'
+import Hyinvoice from '../components/Hyinvoice'
+import Hyremark from '../components/Hyremark'
 Vue.use(Router)
 
 export default new Router({
@@ -54,7 +59,10 @@ export default new Router({
         //二级路由重定向
         {path:'',redirect:{path:'onepage'}},
         {path:'onepage',component:YxOnePage},
-        {path:'homeOne',component:YxSearch}
+        {path:'homeOne',component:YxSearch},
+        //从登录开始的路由
+        // 一级路由 我的页面
+        {path:'profile', component:Hyprofile}
       ]},
     {path:'/food',component:YxFoodList,children: [
         //二级路由重定向
@@ -65,41 +73,31 @@ export default new Router({
     {path:'/shopHome',component:YxShopHome,children:[
         {path:'',redirect:{path:'shopone'}},
         {path:'shopone',component:YxShopTopOne},
-        {path:'detailone',component:YxDetailsOne}
+        {path:'detailone',component:YxDetailsOne},
       ]},
     {path:'/proone',component:YxSale},
     {path:'/pro',component:YxDetails},
     {path:'/order1',component:YxOrder},
   //  ------------------------------------------------------
-    // 重定向
-    // {
-    //   path:'/',
-    //   redirect: '/profile',
-    // },
     {
+      //登录界面
       path:'/login',
       component:Hylogin,
     },
-    // 一级路由 我的页面
     {
-      path:'/profile',
-      component:Hyprofile,
-      // 二级路由 账户页面
+      //账户信息页面
+      path:'/infor',
+      component:Hyinfor,
+     // 三级路由 修改
       children:[
-        // infor页面
-        {
-          path:'infor',
-          component:Hyinfor,
-          // 三级路由 修改
-          children:[
-            // 修改用户名
-            {
-              path:'setusername',
-              component:Hysetusername,
-            },
-            // 编辑地址
-            {
-              path: 'address',
+      // 修改用户名
+      {
+        path:'setusername',
+        component:Hysetusername,
+       },
+        // 编辑地址
+         {
+            path: 'address',
               component: Hyaddress,
               // 四级路由
               children:[
@@ -126,8 +124,8 @@ export default new Router({
           ]
         },
 
-      ]
-    },
+      // ]
+    // },
     {
       path: '/balance',
       component: Hybalance,
@@ -163,15 +161,14 @@ export default new Router({
     },
     // 一级 我的积分
     {
-      path:'/points',
-      component:Hypoints,
-      children:[
+      path: '/points',
+      component: Hypoints,
+    },
+    //一级,积分
         {
-          path:'detailpoi',
+          path:'/detailpoi',
           component:Hydetailpoi,
         },
-      ]
-    },
     // 一级 我的订单
     {
       path:'/order',
@@ -214,6 +211,23 @@ export default new Router({
     {
       path: '/download',
       component: Hydownload,
+    },
+    //订单页面进入添加一个收货地址---yxx
+    {
+    path:'/order2',
+      component:Hychooseaddress
+    },
+    {
+      path:'/order3',
+      component:HyaddAddress
+    },
+    {
+      path:'/invoice',
+      component:Hyinvoice
+    },
+    {
+      path:'/beizhu',
+      component:Hyremark
     },
   ]
 })

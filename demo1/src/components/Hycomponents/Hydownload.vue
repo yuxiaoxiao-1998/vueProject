@@ -2,8 +2,8 @@
   <div class="download">
     <mt-header title="下载" class="download-header">
       <!--登录返回-->
-      <router-link :to="{path:'profile'}" slot="left">
-        <mt-button icon="back"></mt-button>
+      <router-link :to="{path:'/home/profile'}" slot="left">
+        <span class="glyphicon glyphicon-menu-left"></span>
       </router-link>
     </mt-header>
     <div class="banner">

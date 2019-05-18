@@ -4,7 +4,7 @@
     <div class="header">
       <mt-header title="重置密码" class="forget-header">
         <!--登录返回-->
-        <mt-button @click="$router.push({path:'/profile'})" icon="back" slot="left"></mt-button>
+        <span @click="$router.push({path:'/home/profile'})" class="glyphicon glyphicon-menu-left" slot="left"></span>
       </mt-header>
     </div>
     <!--重置密码区域-->

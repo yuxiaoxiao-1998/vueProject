@@ -5,9 +5,7 @@
     <div class="header">
       <mt-header title="我的" class="profile-header1">
         <!--登录返回 搜索页面-->
-        <router-link :to="{path:'/home'}" slot="left">
-          <mt-button icon="back"></mt-button>
-        </router-link>
+            <span class="glyphicon glyphicon-menu-left" slot="left" @click="$router.back(-1)"></span>
       </mt-header>
       <mt-header @click="infor" class="profile-header2">
         <!--登录跳转到info-->
@@ -22,7 +20,7 @@
             <span class="el-icon-mobile-phone"></span>
             <span class="profile_span3">暂无绑定手机号</span>
           </div>
-          <span class="profile_right el-icon-arrow-right" @click="$router.push({path:'/profile/infor'})"></span>
+          <span class="profile_right el-icon-arrow-right" @click="$router.push({path:'/infor'})"></span>
         </a>
       </mt-header>
       <!-- 跳转到infor -->
@@ -180,6 +178,7 @@
     top: 0;
     bottom:0;
     z-index: 20;
+    margin-bottom: 4rem;
   }
   /* 头部 */
   .header{

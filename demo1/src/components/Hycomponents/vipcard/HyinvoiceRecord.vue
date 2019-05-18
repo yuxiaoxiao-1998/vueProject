@@ -4,7 +4,7 @@
     <div class="header">
       <mt-header title="购买记录" class="invoiceRecord-header">
         <!--登录返回-->
-        <mt-button icon="back" slot="left" @click="$router.push({path:'/vipCard'})"></mt-button>
+        <span class="glyphicon glyphicon-menu-left" slot="left" @click="$router.push({path:'/vipCard'})"></span>
       </mt-header>
     </div>
     <div class="inv_pic">
