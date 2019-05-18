@@ -10,7 +10,7 @@
         </span>
         </router-link>
         <!--登录跳转-->
-        <router-link to="/dl" class="right11">
+        <router-link to="/login" class="right11">
           登录|注册
         </router-link>
       </div>

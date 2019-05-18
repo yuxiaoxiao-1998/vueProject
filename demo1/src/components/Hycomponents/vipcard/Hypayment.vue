@@ -39,7 +39,8 @@
     <!-- 弹框 -->
     <div class="pop_up animation bounceIn"
          v-if="ispart">
-      <p class="el-icon-warning"></p>
+      <!--<p class="el-icon-warning"></p>-->
+      <img src="../../../imgages/images/警告.png" alt="" style="width:40%;">
       <br>
       <span>暂未开通支付功能</span>
       <mt-button type="default" size="large"
@@ -48,7 +49,8 @@
     <!-- 弹框1 -->
     <div class="pop_up1 animation bounceIn"
          v-if="ispart1">
-      <p class="el-icon-warning"></p>
+      <!--<p class="el-icon-warning"></p>-->
+      <img src="../../../imgages/images/警告.png" alt="" style="width:40%;">
       <br>
       <span>当前环境无法支付,请打开官方APP进行付款</span>
       <mt-button type="default" size="large"

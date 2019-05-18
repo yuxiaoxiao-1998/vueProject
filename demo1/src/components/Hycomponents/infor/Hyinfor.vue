@@ -58,7 +58,8 @@
     <!-- 弹框 -->
     <div class="pop_up animation bounceIn"
          v-if="isShow">
-      <p class="el-icon-warning"></p>
+      <!--<p class="el-icon-warning"></p>-->
+      <img src="../../../imgages/images/警告.png" alt="" style="width:40%;">
       <br>
       <span>请在手机APP中打开设置</span>
       <mt-button type="default" size="large"
@@ -67,7 +68,8 @@
     <!-- 退出登录弹框 -->
     <div class="leave_pop_up animation bounceIn"
          v-if="isShow1">
-      <p class="el-icon-warning"></p>
+      <!--<p class="el-icon-warning"></p>-->
+      <img src="../../../imgages/images/警告.png" alt="" style="width:30%;">
       <br>
       <span>是否退出登录</span>
       <br>

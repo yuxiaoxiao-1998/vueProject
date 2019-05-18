@@ -9,12 +9,14 @@
     <!-- banner 客服区域 -->
     <div class="banner">
       <router-link :to="{path:''}" href="###">
-        <p class="el-icon-user-solid"></p>
+        <!--<p class="el-icon-user-solid"></p>-->
+        <img src="../../imgages/images/客服.png" alt="" style="width:25%;">
         <br>
         <span>在线客服</span>
       </router-link>
       <router-link :to="{path:''}" href="###">
-        <p class="el-icon-phone"></p>
+        <!--<p class="el-icon-phone"></p>-->
+        <img src="../../imgages/images/电话.png" alt="" style="width:25%;">
         <br>
         <span>在线客服</span>
       </router-link>
@@ -208,7 +210,7 @@
     float: left;
     border: 1px solid #f5f5f5;
     text-align: center;
-    padding-top: 5%;
+    padding-top: 1%;
     color: black;
     font-size: 1.1rem;
   }

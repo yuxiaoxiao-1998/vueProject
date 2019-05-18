@@ -2,11 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93b9e32e-ce3b-4346-8a61-27026cf359ff" name="默认的" comment="">
-      <change afterPath="$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/Hyadd.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/HyaddDetail.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/Hyaddress.vue" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/Hyaddress.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo1/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo1/src/components/Hycomponents/Hydownload.vue" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/src/components/Hycomponents/Hydownload.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo1/src/components/Hycomponents/Hyforget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/src/components/Hycomponents/Hyforget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo1/src/components/Hycomponents/Hylogin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/src/components/Hycomponents/Hylogin.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo1/src/components/Hycomponents/Hyservice.vue" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/src/components/Hycomponents/Hyservice.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo1/src/components/Hycomponents/benefit/Hycommend.vue" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/src/components/Hycomponents/benefit/Hycommend.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/Hyadd.vue" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/Hyadd.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/Hyinfor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/Hyinfor.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo1/src/components/Hycomponents/vipcard/Hypayment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/src/components/Hycomponents/vipcard/Hypayment.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo1/src/components/Hycomponents/vipcard/Hyusercart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/src/components/Hycomponents/vipcard/Hyusercart.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo1/src/components/Hycomponents/vipcard/Hyvipcard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/src/components/Hycomponents/vipcard/Hyvipcard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo1/src/components/YxOnePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/src/components/YxOnePage.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -68,105 +75,157 @@
         <counts>
           <entry key="js" value="3" />
           <entry key="json" value="6" />
-          <entry key="vue" value="20" />
+          <entry key="png" value="1" />
+          <entry key="vue" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="Image" value="1" />
           <entry key="JSON" value="6" />
           <entry key="JavaScript" value="3" />
-          <entry key="Vue.js" value="20" />
+          <entry key="Vue.js" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="vue" value="199" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Vue.js" value="199" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/Hychome.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="8" column="8" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/Hyadd.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="194" lean-forward="true" selection-start-line="194" selection-end-line="194" />
+            <state relative-caret-position="417">
+              <caret line="35" column="8" lean-forward="true" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/HyaddDetail.vue">
+        <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/vipcard/Hypayment.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
+            <state relative-caret-position="165">
+              <caret line="42" selection-start-line="42" selection-end-line="42" selection-end-column="74" />
               <folding>
-                <element signature="e#1070#1091#0" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#1953#1974#0" expanded="true" />
+                <element signature="e#2066#2101#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/Hydownload.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="16" selection-start-line="16" selection-end-line="16" selection-end-column="71" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/vipcard/Hyusercart.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="35" column="74" selection-start-line="35" selection-start-column="74" selection-end-line="35" selection-end-column="74" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#5;n#div#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/Hyservice.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="207" column="26" lean-forward="true" selection-start-line="207" selection-start-column="26" selection-end-line="207" selection-end-column="26" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#router-link#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#router-link#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/demo1/src/router/index.js">
+        <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/benefit/Hycommend.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="186" column="22" lean-forward="true" selection-start-line="186" selection-start-column="22" selection-end-line="186" selection-end-column="22" />
+            <state relative-caret-position="297">
+              <caret line="50" column="74" lean-forward="true" selection-start-line="50" selection-start-column="74" selection-end-line="50" selection-end-column="74" />
               <folding>
-                <element signature="e#0#21#0" expanded="true" />
-                <element signature="e#799#859#0" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/Hyaddress.vue">
+        <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/vipcard/Hyvipcard.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="154" column="30" lean-forward="true" selection-start-line="154" selection-start-column="30" selection-end-line="154" selection-end-column="30" />
+            <state relative-caret-position="879">
+              <caret line="171" selection-start-line="171" selection-end-line="171" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/Hyinfor.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="72" column="10" lean-forward="true" selection-start-line="72" selection-start-column="10" selection-end-line="72" selection-end-column="10" />
               <folding>
-                <element signature="e#1076#1097#0" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/Hylogin.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="53" column="6" selection-start-line="53" selection-start-column="6" selection-end-line="53" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/Hyforget.vue">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/Hydownload.vue">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/Hylogin.vue">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/Hyprofile.vue">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/Hyorder.vue">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -203,12 +262,20 @@
         <option value="$PROJECT_DIR$/demo1/src/components/YxShopBottom.vue" />
         <option value="$PROJECT_DIR$/demo1/src/components/YxOrder.vue" />
         <option value="$PROJECT_DIR$/demo1/src/components/SearchCity.vue" />
-        <option value="$PROJECT_DIR$/demo1/src/components/YxOnePage.vue" />
-        <option value="$PROJECT_DIR$/demo1/src/components/Hycomponents/vipcard/Hypayment.vue" />
-        <option value="$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/Hyadd.vue" />
         <option value="$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/HyaddDetail.vue" />
         <option value="$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/Hyaddress.vue" />
         <option value="$PROJECT_DIR$/demo1/src/router/index.js" />
+        <option value="$PROJECT_DIR$/demo1/src/components/YxOnePage.vue" />
+        <option value="$PROJECT_DIR$/demo1/src/components/Hycomponents/Hylogin.vue" />
+        <option value="$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/Hyinfor.vue" />
+        <option value="$PROJECT_DIR$/demo1/src/components/Hycomponents/Hyforget.vue" />
+        <option value="$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/Hyadd.vue" />
+        <option value="$PROJECT_DIR$/demo1/src/components/Hycomponents/vipcard/Hypayment.vue" />
+        <option value="$PROJECT_DIR$/demo1/src/components/Hycomponents/vipcard/Hyvipcard.vue" />
+        <option value="$PROJECT_DIR$/demo1/src/components/Hycomponents/Hydownload.vue" />
+        <option value="$PROJECT_DIR$/demo1/src/components/Hycomponents/vipcard/Hyusercart.vue" />
+        <option value="$PROJECT_DIR$/demo1/src/components/Hycomponents/Hyservice.vue" />
+        <option value="$PROJECT_DIR$/demo1/src/components/Hycomponents/benefit/Hycommend.vue" />
       </list>
     </option>
   </component>
@@ -226,9 +293,9 @@
       <path value="$PROJECT_DIR$/demo1/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="542" />
-    <option name="width" value="1038" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="543" />
+    <option name="width" value="1052" />
     <option name="height" value="887" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -239,42 +306,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="yxPro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yxPro" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxPro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yxPro" type="462c0819:PsiDirectoryNode" />
-              <item name="demo1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxPro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yxPro" type="462c0819:PsiDirectoryNode" />
-              <item name="demo1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxPro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yxPro" type="462c0819:PsiDirectoryNode" />
-              <item name="demo1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yxPro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yxPro" type="462c0819:PsiDirectoryNode" />
-              <item name="demo1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="router" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -313,7 +344,70 @@
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="demo1" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="components" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Hycomponents" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="benefit" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="MyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="demo1" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="components" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Hycomponents" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="infor" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="MyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="demo1" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="components" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Hycomponents" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="vipcard" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="MyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="demo1" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="router" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="yxPro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yxPro" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yxPro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yxPro" type="462c0819:PsiDirectoryNode" />
+              <item name="demo1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yxPro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yxPro" type="462c0819:PsiDirectoryNode" />
+              <item name="demo1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yxPro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yxPro" type="462c0819:PsiDirectoryNode" />
+              <item name="demo1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yxPro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yxPro" type="462c0819:PsiDirectoryNode" />
+              <item name="demo1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="router" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -369,18 +463,19 @@
       <workItem from="1557968135415" duration="24000" />
       <workItem from="1557968509989" duration="29489000" />
       <workItem from="1558054454885" duration="12326000" />
-      <workItem from="1558074684779" duration="5717000" />
+      <workItem from="1558074684779" duration="7843000" />
+      <workItem from="1558148401477" duration="3628000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="328446000" />
+    <option name="totallyTimeSpent" value="334200000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="542" y="0" width="1038" height="887" extended-state="0" />
+    <frame x="543" y="0" width="1052" height="887" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.271" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28698224" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -393,13 +488,34 @@
       <window_info anchor="bottom" id="运行" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2526596" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.20345744" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32840723" />
       <window_info anchor="bottom" id="调试" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17173637" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="运行" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.19590269" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32840723" />
+      <window_info anchor="bottom" id="调试" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -408,25 +524,12 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/demo1/src/js/resize.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/demo1/node_modules/iview/src/components/transfer/list.vue" />
     <entry file="file://$PROJECT_DIR$/demo1/src/iconfont.js" />
     <entry file="file://$PROJECT_DIR$/demo1/src/components/MyHeader.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/components/YxHome.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -535,13 +638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/components/YxOnePage.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="255" column="22" lean-forward="true" selection-start-line="255" selection-start-column="22" selection-end-line="255" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/demo1/src/components/YxDetailsOne.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
@@ -549,13 +645,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json" />
     <entry file="file://$PROJECT_DIR$/demo1/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -568,25 +658,10 @@
         <state relative-caret-position="-99" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/vipcard/Hypayment.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-825">
-          <caret line="35" column="10" lean-forward="true" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
-          <folding>
-            <element signature="e#1953#1974#0" expanded="true" />
-            <element signature="e#2066#2101#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/demo1/src/components/YxShopTopOne.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-428">
           <caret line="437" column="11" selection-start-line="437" selection-start-column="11" selection-end-line="437" selection-end-column="11" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#p#0;n#div#1;n#div#0;n#template#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -597,15 +672,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/Hyinfor.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-990" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/Hysetusername.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/points/Hydetailpoi.vue">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/benefit/HyhbHistory.vue">
@@ -617,10 +684,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="334">
           <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
-          <folding>
-            <element signature="n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#src#0;n#img#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -636,67 +699,171 @@
         <state relative-caret-position="-1637" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/Hyservice.vue">
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/Hyaddress.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7808" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/Hyprofile.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/Hyorder.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/Hylogin.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/Hyforget.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/Hydownload.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/Hychome.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="8" column="8" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+        <state relative-caret-position="116">
+          <caret line="154" column="30" lean-forward="true" selection-start-line="154" selection-start-column="30" selection-end-line="154" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/Hyadd.vue">
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/points/Hydetailpoi.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="194" lean-forward="true" selection-start-line="194" selection-end-line="194" />
+        <state relative-caret-position="165">
+          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/HyaddDetail.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
-          <folding>
-            <element signature="e#1070#1091#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="99">
+          <caret line="3" column="20" lean-forward="true" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/Hyaddress.vue">
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/Hychome.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="154" column="30" lean-forward="true" selection-start-line="154" selection-start-column="30" selection-end-line="154" selection-end-column="30" />
-          <folding>
-            <element signature="e#1076#1097#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="264">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/YxOnePage.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="12" column="49" lean-forward="true" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/demo1/src/router/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="186" column="22" lean-forward="true" selection-start-line="186" selection-start-column="22" selection-end-line="186" selection-end-column="22" />
+        <state relative-caret-position="4752">
+          <caret line="185" column="5" lean-forward="true" selection-start-line="185" selection-start-column="5" selection-end-line="185" selection-end-column="5" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
             <element signature="e#799#859#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/Hyprofile.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="119" column="19" lean-forward="true" selection-start-line="119" selection-start-column="19" selection-end-line="119" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo1/src/imgages/images/警告.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/YxHome.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/Hyorder.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="12" column="11" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/Hyinfor.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="72" column="10" lean-forward="true" selection-start-line="72" selection-start-column="10" selection-end-line="72" selection-end-column="10" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/Hylogin.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="53" column="6" selection-start-line="53" selection-start-column="6" selection-end-line="53" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/Hyforget.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/infor/Hyadd.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="35" column="8" lean-forward="true" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/vipcard/Hyvipcard.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="879">
+          <caret line="171" selection-start-line="171" selection-end-line="171" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/vipcard/Hypayment.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="42" selection-start-line="42" selection-end-line="42" selection-end-column="74" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#1953#1974#0" expanded="true" />
+            <element signature="e#2066#2101#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/vipcard/Hyusercart.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="35" column="74" selection-start-line="35" selection-start-column="74" selection-end-line="35" selection-end-column="74" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#5;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/Hyservice.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="207" column="26" lean-forward="true" selection-start-line="207" selection-start-column="26" selection-end-line="207" selection-end-column="26" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#router-link#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#router-link#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/Hydownload.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="16" selection-start-line="16" selection-end-line="16" selection-end-column="71" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo1/src/components/Hycomponents/benefit/Hycommend.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="50" column="74" lean-forward="true" selection-start-line="50" selection-start-column="74" selection-end-line="50" selection-end-column="74" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

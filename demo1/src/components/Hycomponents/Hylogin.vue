@@ -50,7 +50,8 @@
     </div>
     <!--弹框-->
     <div class="pop animation bounceIn" v-if="isShow" >
-      <p class="el-icon-warning"></p>
+      <!--<p class="el-icon-warning"></p>-->
+      <img src="../../imgages/images/警告.png" alt="">
       <p>{{alertText}}</p>
       <mt-button @click="clickchangebtn">确认</mt-button>
     </div>

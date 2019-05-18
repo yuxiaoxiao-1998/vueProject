@@ -47,7 +47,8 @@
     </div>
     <!-- 弹框 -->
     <div class="part animation bounceIn" v-if="isShow">
-      <p class="el-icon-warning"></p>
+      <!--<p class="el-icon-warning"></p>-->
+      <img src="../../../imgages/images/警告.png" alt="" style="width:30%;">
       <br>
       <span>请在饿了么APP中打开</span>
       <mt-button type="default" size="large" @click="isShow=false">确认</mt-button>

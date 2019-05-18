@@ -53,9 +53,9 @@
         <span>1个月</span>
         <span class="buy_span">¥20</span>
       </div>
-    </div>
-    <div class="buy_div" @click="$router.push({path:'/vipCard/payment'})">
-      购买
+      <div class="buy_div" @click="$router.push({path:'/vipCard/payment'})">
+        <p>购买</p>
+      </div>
     </div>
     <!-- 兑换会员 -->
     <div class="member buy_me">
@@ -176,13 +176,18 @@
   }
   .buy_div{
     width: 3rem;
+    position: relative;
+
+  }
+  .buy_div p:nth-child(1){
+    width: 3rem;
     border: 1px solid#f60;
     color: #f60;
     border-radius: 10%;
     text-align: center;
     position: absolute;
     right: 1rem;
-    top: 61%;
+    top: -0.7rem;
   }
   .buy_me{
     margin-top: .5rem;
