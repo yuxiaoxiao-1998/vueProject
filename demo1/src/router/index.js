@@ -49,6 +49,8 @@ import HyaddAddress from '../components/HyaddAddress'
 import Hyinvoice from '../components/Hyinvoice'
 import Hyremark from '../components/Hyremark'
 Vue.use(Router)
+//---------jack-------
+import HyorderDetail from '../components/Hycomponents/HyorderDetail'
 
 export default new Router({
   routes: [
@@ -64,7 +66,7 @@ export default new Router({
         // 一级路由 我的页面
         {path:'profile', component:Hyprofile},
         // 一级 我的订单
-        {path:'/order', component:Hyorder},
+        {path:'order', component:Hyorder},
       ]},
     {path:'/food',component:YxFoodList,children: [
         //二级路由重定向
@@ -226,6 +228,12 @@ export default new Router({
     {
       path:'/beizhu',
       component:Hyremark
+    },
+    //------jack---
+    //一级  我的详细订单
+    {
+      path:'/orderDetail',
+      component:HyorderDetail
     },
   ]
 })

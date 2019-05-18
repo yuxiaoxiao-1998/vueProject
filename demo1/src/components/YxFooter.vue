@@ -14,7 +14,7 @@
           </router-link>
         </li>
         <li>
-          <router-link to="/order">
+          <router-link to="/home/order">
             <span :class="{'d':true,'d1':isS==='订单'?true:false}" @click="spanC('订单')"></span>
             <p>订单</p>
           </router-link>
