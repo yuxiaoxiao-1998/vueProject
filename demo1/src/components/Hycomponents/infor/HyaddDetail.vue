@@ -63,7 +63,7 @@
         } else {
           // 显隐
           this.isShow = false;
-          Vue.axios.get('https://elm.cangdu.org/v1/pois?keyword=' + this.searchV).then((res) => {
+          Vue.axios.get('https://elm.cangdu.org/v1/pois?city_id='+this.$store.state.cityIn.id+'&keyword='+this.searchV+'&type=search').then((res) => {
             this.seaSiteArr = res.data;
           }).catch((error) => {
             console.log('请求错误', error);
