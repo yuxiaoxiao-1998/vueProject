@@ -96,6 +96,9 @@
       // }).catch((error)=>{
       //   console.log('请求错误111',error)
       // });
+
+      //
+      console.log(this.$store.state.allS,1111111);
     },
     mounted(){
       clearInterval(this.timer);

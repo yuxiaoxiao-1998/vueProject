@@ -55,7 +55,9 @@
     </div>
     <div class="bottom">
       <span class="orderbot1">待支付¥{{money()}}</span>
-      <span class="orderbot">确认下单</span>
+      <router-link to="/home/order">
+      <span class="orderbot" @click="xiadan()">确认下单</span>
+      </router-link>
     </div>
 
     <!--在线支付的下弹框-->
@@ -77,7 +79,11 @@
               canhe:0,
               peisong:this.$store.state.shopP.piecewise_agent_fee.tips.slice(4),
               zaixian:false,
-              beiz:[]
+              beiz:[],
+              //对应的购物车的信息
+              mineShop:this.$store.state.newShop,
+              //当前点进的商铺的信息
+              shopNow:this.$store.state.shopP
             }
         },
         methods:{
@@ -118,6 +124,11 @@
           this.canhe=mon1;
           return mon1;
         },
+          //下单时,将数据添加到所有的购物车的数组中
+          xiadan(){
+            // shp:商铺自身信息  shp1:商铺对应的购物车信息
+                this.$store.commit('allMineShop',{shp:this.shopNow,shp1:this.mineShop});
+          }
       },
       created(){
           this.beiz=this.$store.state.remarkArr;

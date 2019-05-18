@@ -54,6 +54,8 @@ const store=new Vuex.Store({
     //-------------------------
     //商品页点击图片进入详情页的对象
     detilsOne:{},
+    //所有被加入购物车的的商品的信息
+    allS:[],
   //  -----------------------hyy-------------------------
     //
     packNum: [],
@@ -73,6 +75,9 @@ const store=new Vuex.Store({
     //点击结算时传递的对应商铺所加入的购物车的信息
     newS(state,shop){
       state.newShop=shop;
+    },
+    allMineShop(state,shop){
+        state.allS.push(shop);
     },
     //------------------------hyy-------------------
     isname(state) {
