@@ -1,20 +1,20 @@
 <template>
   <div>
-   <mt-header title="确认订单" class="order">
-     <router-link to="/shopHome/shopone"  slot="left">
-     <span class="glyphicon glyphicon-menu-left"></span>
-     </router-link>
-     <span slot="right" class="el-icon-user-solid"></span>
-   </mt-header>
+    <mt-header title="确认订单" class="order">
+      <router-link to="/shopHome/shopone"  slot="left">
+        <span class="glyphicon glyphicon-menu-left"></span>
+      </router-link>
+      <span slot="right" class="el-icon-user-solid"></span>
+    </mt-header>
     <div class="content">
       <router-link to="/order2">
-      <div class="adress">
-        <!--需判断是否有地址,当有地址时,地址显示,否则默认显示-->
-        <span class="el-icon-location-outline dizhi"></span>
-        <p class="dizhi1">添加一个收货地址 <span class="glyphicon glyphicon-menu-right jian"></span></p>
-        <p></p>
-        <p class="bg"></p>
-      </div>
+        <div class="adress">
+          <!--需判断是否有地址,当有地址时,地址显示,否则默认显示-->
+          <span class="el-icon-location-outline dizhi"></span>
+          <p class="dizhi1">添加一个收货地址 <span class="glyphicon glyphicon-menu-right jian"></span></p>
+          <p></p>
+          <p class="bg"></p>
+        </div>
       </router-link>
       <!--送达时间-->
       <div class="time">
@@ -46,110 +46,111 @@
       </div>
       <div class="beizhu">
         <router-link to="/beizhu" class="y_a">
-      <p class="bz">订单备注<span  class="bz1">{{bz()}}<span class="glyphicon glyphicon-menu-right"></span></span></p>
+          <p class="bz">订单备注<span  class="bz1">{{bz()}}<span class="glyphicon glyphicon-menu-right"></span></span></p>
         </router-link>
         <router-link to="/invoice" class="y_a">
-       <p class="bz fp">发票抬头 <span  class="bz1">不需要开发票<span class="glyphicon glyphicon-menu-right"></span></span></p>
-         </router-link>
+          <p class="bz fp">发票抬头 <span  class="bz1">不需要开发票<span class="glyphicon glyphicon-menu-right"></span></span></p>
+        </router-link>
       </div>
     </div>
     <div class="bottom">
       <span class="orderbot1">待支付¥{{money()}}</span>
       <router-link to="/home/order">
-      <span class="orderbot" @click="xiadan()">确认下单</span>
+        <span class="orderbot" @click="xiadan()">确认下单</span>
       </router-link>
     </div>
 
     <!--在线支付的下弹框-->
     <el-collapse-transition>
-    <div class="tan" v-if="zaixian">
-      <p class="tan1">支付方式</p>
-      <div class="tan2">货到付款(商家不支持货到付款)<i class="el-icon-success tb"></i></div>
-      <p class="tan3" @click="zaixian = !zaixian">在线支付 <i class="el-icon-success tb1"></i></p>
-    </div>
-      </el-collapse-transition>
+      <div class="tan" v-if="zaixian">
+        <p class="tan1">支付方式</p>
+        <div class="tan2">货到付款(商家不支持货到付款)<i class="el-icon-success tb"></i></div>
+        <p class="tan3" @click="zaixian = !zaixian">在线支付 <i class="el-icon-success tb1"></i></p>
+      </div>
+    </el-collapse-transition>
   </div>
 </template>
 
 <script>
-    export default {
-        name: "YxOrder",
-        data(){
-            return {
-              canhe:0,
-              peisong:this.$store.state.shopP.piecewise_agent_fee.tips.slice(4),
-              zaixian:false,
-              beiz:[],
-              //对应的购物车的信息
-              mineShop:this.$store.state.newShop,
-              //当前点进的商铺的信息
-              shopNow:this.$store.state.shopP
-            }
-        },
-        methods:{
-        getTime(){
-          let nowTime;
-          let hh =new Date().getHours() < 10? "0" + new Date().getHours(): new Date().getHours();
-          let mm =new Date().getMinutes();
-          nowTime=hh+':'+mm;
-          return nowTime;
-        },
-        money(){
-          let mon=0;
-          for(let p of this.$store.state.newShop){
-            mon += p.countS * p.price;
-          }
-          mon=mon+this.canhe+Number(this.peisong.slice(1));
-          return mon;
-        },
-      //备注信息的显示
-        bz(){
-          let str='';
-            if(this.beiz.length===0){
-              str='添加备注信息';
-                return str;
-            }else{
-              for(let s of this.beiz){
-                str += s;
-              }
-              return str;
-            }
-        },
-      // 包装费
-       canhe1(){
-          let mon1=0;
-          for(let p of this.$store.state.newShop){
-            mon1 += p.countS * p.canhe;
-          }
-          this.canhe=mon1;
-          return mon1;
-        },
-          //下单时,将数据添加到所有的购物车的数组中
-          xiadan(){
-            // shp:商铺自身信息  shp1:商铺对应的购物车信息
-                this.$store.commit('allMineShop',{shp:this.shopNow,shp1:this.mineShop});
-          }
-      },
-      created(){
-          this.beiz=this.$store.state.remarkArr;
-          this.$store.commit("remark",[]);
+  export default {
+    name: "YxOrder",
+    data(){
+      return {
+        canhe:0,
+        peisong:this.$store.state.shopP.piecewise_agent_fee.tips.slice(4),
+        zaixian:false,
+        beiz:[],
+        //对应的购物车的信息
+        mineShop:this.$store.state.newShop,
+        //当前点进的商铺的信息
+        shopNow:this.$store.state.shopP
       }
+    },
+    methods:{
+      getTime(){
+        let nowTime;
+        let hh =new Date().getHours() < 10? "0" + new Date().getHours(): new Date().getHours();
+        let mm =new Date().getMinutes();
+        nowTime=hh+':'+mm;
+        return nowTime;
+      },
+      money(){
+        let mon=0;
+        for(let p of this.$store.state.newShop){
+          mon += p.countS * p.price;
+        }
+        mon=mon+this.canhe+Number(this.peisong.slice(1));
+        return mon;
+      },
+      //备注信息的显示
+      bz(){
+        let str='';
+        if(this.beiz.length===0){
+          str='添加备注信息';
+          return str;
+        }else{
+          for(let s of this.beiz){
+            str += s;
+          }
+          return str;
+        }
+      },
+      // 包装费
+      canhe1(){
+        let mon1=0;
+        for(let p of this.$store.state.newShop){
+          mon1 += p.countS * p.canhe;
+        }
+        this.canhe=mon1;
+        return mon1;
+      },
+      //下单时,将数据添加到所有的购物车的数组中
+      xiadan(){
+        this.$store.commit('timeFormate',new Date())
+        // shp:商铺自身信息  shp1:商铺对应的购物车信息
+        this.$store.commit('allMineShop',{shp:this.shopNow,shp1:this.mineShop});
+      }
+    },
+    created(){
+      this.beiz=this.$store.state.remarkArr;
+      this.$store.commit("remark",[]);
     }
+  }
 </script>
 
 <style scoped>
-.order{
-  height: 2rem;
-  font-size: 0.7rem;
-}
-.bottom{
-  width: 100%;
-  height: 2rem;
-  background:#3C3C3C;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-}
+  .order{
+    height: 2rem;
+    font-size: 0.7rem;
+  }
+  .bottom{
+    width: 100%;
+    height: 2rem;
+    background:#3C3C3C;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
   .orderbot{
     color: white;
     font-size: 0.7rem;
@@ -171,10 +172,10 @@
     padding-left: 1rem;
   }
   .adress{
-  height: 3rem;
-  line-height: 3rem;
-  position: relative;
-   background: white;
+    height: 3rem;
+    line-height: 3rem;
+    position: relative;
+    background: white;
   }
   .dizhi{
     color:#26A2FF;
@@ -218,11 +219,11 @@
     margin-left: 1rem;
   }
   .time2{
-      font-size: 0.7rem;
-      color: #3190E8;
-      position: absolute;
-      right: 0.5rem;
-      top:-0.5rem;
+    font-size: 0.7rem;
+    color: #3190E8;
+    position: absolute;
+    right: 0.5rem;
+    top:-0.5rem;
   }
   .time3{
     font-size: 0.5rem;
@@ -238,8 +239,8 @@
   }
   /*支付*/
   .zf{
-      margin-top: 0.5rem;
-      background: white;
+    margin-top: 0.5rem;
+    background: white;
   }
   .zhifu{
     font-size: 0.6rem;
@@ -293,10 +294,10 @@
     padding-left: 1rem;
   }
   .allMax2{
-      position: absolute;
-      right: 3rem;
-      font-size:0.6rem;
-      color:#FF6663;
+    position: absolute;
+    right: 3rem;
+    font-size:0.6rem;
+    color:#FF6663;
   }
   .allMax3{
     position: absolute;

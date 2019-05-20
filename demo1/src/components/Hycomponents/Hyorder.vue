@@ -11,23 +11,23 @@
 
     </div>
     <!--路由跳转-->
-    <router-link :to="{path:'/orderDetail'}">
+    <router-link  v-for="item in $store.state.allS" :to="{path:'/orderDetail',query:item}">
       <div class="myOrderList">
         <section class="leftS">
-          <img src="../../image/shop.png" alt="">
+          <img :src="'//elm.cangdu.org/img/'+item.shp.image_path" alt="">
         </section>
         <section class="rightS">
           <header class="header1">
             <div class="top1">
-              <div class="leftH">效果演示 <span class="el-icon-arrow-right"></span></div>
+              <div class="leftH"><span class="shopName">{{item.shp.name}}</span> <span class="el-icon-arrow-right"></span></div>
               <div class="rightH">等待支付</div>
               <div class="empty"></div>
             </div>
-            <div class="top2">{{nowTime}}</div>
+            <div class="top2">{{nowTime01}}</div>
           </header>
           <section class="middle1">
-            <div class="leftM">鸡腿等3件商品</div>
-            <div class="rightM">￥20.00</div>
+            <div class="leftM">{{item.shp1[0].name}}等{{item.shp1[0].countS}}件商品</div>
+            <div class="rightM">￥{{item.shp.float_delivery_fee+item.shp1[0].canhe+(item.shp1[0].countS)*(item.shp1[0].price)}}</div>
             <div class="empty"></div>
           </section>
           <time class="bottom1">
@@ -63,31 +63,29 @@
         timer:null,
         //定义一个时间变量
         time:0,
-        //定义加入订单列表时的时间
-        nowTime:''
+        // //定义加入订单列表时的时间
+        nowTime01:JSON.parse(JSON.stringify(this.$store.state.nowTime))
       }
     },
     methods: {
 // 获取当前时间函数
-      timeFormate(timeStamp) {
-        let year = new Date(timeStamp).getFullYear();
-        let month =new Date(timeStamp).getMonth() + 1 < 10? "0" + (new Date(timeStamp).getMonth() + 1): new Date(timeStamp).getMonth() + 1;
-        let date =new Date(timeStamp).getDate() < 10? "0" + new Date(timeStamp).getDate(): new Date(timeStamp).getDate();
-        let hh =new Date(timeStamp).getHours() < 10? "0" + new Date(timeStamp).getHours(): new Date(timeStamp).getHours();
-        let mm =new Date(timeStamp).getMinutes() < 10? "0" + new Date(timeStamp).getMinutes(): new Date(timeStamp).getMinutes();
-        // let ss =new Date(timeStamp).getSeconds() < 10? "0" + new Date(timeStamp).getSeconds(): new Date(timeStamp).getSeconds();
-        // return year + "年" + month + "月" + date +"日"+" "+hh+":"+mm ;
-        this.nowTime = year + "-" + month + "-" + date +"-"+" "+hh+":"+mm ;
-        // console.log(this.nowTime);
-      },
+
 // // 定时器函数
 //       nowTimes(){
 //         this.timeFormate(new Date());
 //         setInterval(this.nowTimes,30*1000);
 //       },
+      //时间
+      // time01(){
+      //   let timenow='';
+      //   timenow=JSON.parse(JSON.stringify(this.$store.state.nowTime))
+      //   this.nowTime01=timenow;
+      //   console.log(this.nowTime01)
+      // }
     },
     created(){
-      this.timeFormate(new Date());//调用时间函数//注意在整个项目中何时调用该函数?!!
+      // this.time01();
+      // this.timeFormate(new Date());//调用时间函数//注意在整个项目中何时调用该函数?!!
       // console.log('here',this.$store.state.userId)
       //获取订单列表
       // Vue.axios.get('https://elm.cangdu.org/bos/v2/users/'+this.$store.state.userId+'/orders?limit=10&offset=0').then((res)=>{
@@ -98,7 +96,7 @@
       // });
 
       //
-      console.log(this.$store.state.allS,1111111);
+      // console.log(this.$store.state.allS,1111111);
     },
     mounted(){
       clearInterval(this.timer);
@@ -136,6 +134,7 @@
     width: 100%;
     height: 100%;
     background-color: #f5f5f5;
+    margin-bottom: 3rem;
   }
   .order-header{
     width: 100%;
@@ -170,18 +169,29 @@
     line-height: 2rem;
   }
   .leftH{
-    width:50%;
-    font-size: 1rem;
+    width:70%;
+    /*line-height: 0.8rem;*/
+    font-size: .8rem;
     float: left;
     font-weight: 500;
     box-sizing: border-box;
   }
+  .shopName{
+    /*width: 90%;*/
+    display: inline-block;
+    /*overflow: hidden;*/
+    /*overflow:hidden;*/
+    /*text-overflow:ellipsis;*/
+    /*white-space:nowrap*/
+  }
   .el-icon-arrow-right{
+    display: inline-block;
+    /*width: 10%;*/
     margin-left: -0.4rem;
     font-size: .8rem;
   }
   .rightH{
-    width: 50%;
+    width: 30%;
     float: right;
     text-align: right;
     font-size: 0.8rem;
@@ -199,14 +209,14 @@
     border-bottom: .01rem solid #e4e4e4 ;
   }
   .leftM{
-    width: 50%;
+    width: 70%;
     font-size:.8rem;
     float: left;
     color: #000;
     box-sizing: border-box;
   }
   .rightM{
-    width: 50%;
+    width: 30%;
     font-size:.8rem;
     float: right;
     text-align: right;

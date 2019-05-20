@@ -4,6 +4,7 @@
       <div :class="{'shop':true}" @click="y_show1 = !y_show1" :style="{'backgroundColor':shopI()>0?'#3190E8':'#666'}">
         <i class="el-icon-shopping-cart-2 shop1"></i>
         <mt-badge size="large" type="error" class="rightTop" v-if="shopI()>0?true:false">{{shopI()}}</mt-badge>
+        <span class="dis">{{A}}</span>
       </div>
 
       <div class="pri">
@@ -71,6 +72,7 @@
             }
           }
         }
+        // console.log(this.shopC,'这是shopC')
         return this.shopC;
       },
     },
@@ -130,6 +132,7 @@
       },
       //点击结算时将对应的商铺的购物车的数据传给vuex,在order页面访问即可
       sendOrder(){
+        // console.log(this.shopC,'shopC');
         this.$store.commit('newS',this.shopC);
       },
       //点进来的商铺的购物车中的总数量
@@ -151,6 +154,7 @@
           this.shopC.push(s);
         }
       }
+      // console.log(this.shopC,'这是shopC')
     },
   }
 </script>
@@ -286,5 +290,8 @@
     position: absolute;
     left:3.1rem;
     padding-left: 0.3rem;
+  }
+  .dis{
+    display: none;
   }
 </style>
