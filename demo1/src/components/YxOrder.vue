@@ -20,7 +20,7 @@
             <span>{{this.$store.state.address.phone}}</span>
             <br>
             <span class="choose_span">{{this.$store.state.address.tag}}</span>
-            <span class="sear">{{this.$store.state.search}}</span>
+            <span class="sear">{{this.$store.state.address.address}}</span>
           </div>
           <p class="bg"></p>
         </div>
@@ -94,7 +94,7 @@
         //当前点进的商铺的信息
         shopNow:this.$store.state.shopP,
         //当前显示的地址
-        nowAdress:this.$store.state.search
+        nowAdress:this.$store.state.address.address
       }
     },
     methods:{
@@ -142,6 +142,8 @@
         }else{
           this.$store.commit('timeFormate',new Date())
           // shp:商铺自身信息  shp1:商铺对应的购物车信息  nowA:当前订单所选择的订单地址
+          // console.log(this.nowAdress,'12345');
+          // console.log(this.$store.state.address.address,'address')
           this.$store.commit('allMineShop',{shp:this.shopNow,shp1:this.mineShop,nowA:this.nowAdress});
         }
       }

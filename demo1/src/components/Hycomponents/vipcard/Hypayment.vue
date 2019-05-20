@@ -4,7 +4,7 @@
     <div class="header">
       <mt-header title="在线支付" class="payment-header">
         <!--登录返回-->
-        <span class="glyphicon glyphicon-menu-left" slot="left" @click="$router.push({path:'/vipCard'})"></span>
+        <span class="glyphicon glyphicon-menu-left" slot="left" @click="$router.push({path:'/home/order'})"></span>
       </mt-header>
     </div>
     <!-- 倒计时 -->

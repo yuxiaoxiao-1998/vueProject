@@ -52,7 +52,7 @@
         </li>
         <li>
           "送货地址:"
-          <span>爱尔兰</span>
+          <span>{{item.nowA}}</span>
         </li>
         <li>
           "配送方式:"

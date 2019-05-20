@@ -73,7 +73,7 @@
         },
       methods:{
         addresslist(item){
-          console.log(item);
+          // console.log(item);
           this.$store.state.address = item;
           this.$router.push({path:'/order1'});
         }
