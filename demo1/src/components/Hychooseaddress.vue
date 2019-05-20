@@ -20,17 +20,18 @@
       </router-link>
       <!-- 地址列表 -->
       <ul>
-        <li>
+        <li  v-for="(item,index) in addEdit" :key="index" @click="addresslist">
           <div class="choose_list">
             <div class="choose_left">
-              <img src="../imgages/images/选中.png" alt="">
+              <i @click="i=index" :class="{isSelected: i==index}" class=" el-icon-circle-check" style="fontSize:1rem"></i>
             </div>
             <div class="choose_right">
-              <span>姓名</span>
-              <span>性别</span>
-              <span>电话</span>
+              <span>{{item.name}}</span>
+              <span v-if="item.sex == 1">先生</span>
+              <span v-else>女士</span>
+              <span>{{item.phone}}</span>
               <br>
-              <span>标签</span>
+              <span>{{item.tag}}</span>
             </div>
             <div class="empty"></div>
           </div>
@@ -49,7 +50,32 @@
   import 'element-ui/lib/theme-chalk/index.css';
   Vue.use(ElementUI);
     export default {
-        name: "Hyorder",
+        name: "Hychooseaddress",
+        data(){
+          return{
+            i:0,
+            isShow:true,
+            user_id:'',
+            addEdit:[],
+          }
+        },
+        created(){
+          Vue.axios.get('https://elm.cangdu.org/v1/user').then(res=>{
+            Vue.axios.get("https://elm.cangdu.org/v1/users/"+res.data.user_id+"/addresses").then((res)=>{
+              // console.log(res.data);
+              this.addEdit = res.data.reverse();
+            }).catch((error) => {
+              console.log('请求错误', error);
+            });
+          }).catch(err=>{
+            console.log("请求错误",err);
+          });
+        },
+      methods:{
+        addresslist(){
+
+        }
+      }
     }
 </script>
 
@@ -112,7 +138,7 @@ ul li{
    width: 70%;
 }
 .choose_left{
-  width: 15%;
+  width: 10%;
   float: left;
   margin-left: 1rem;
 }
@@ -121,6 +147,7 @@ ul li{
 }
 .choose_right span:nth-child(1){
   font-size: .8rem;
+  font-weight: 600;
 }
 .choose_right span:nth-child(5){
   display: inline-block;
@@ -135,5 +162,8 @@ ul li{
   }
   .xinzeng{
     font-size: 0.6rem;
+  }
+  .isSelected{
+    color:#4cd964;
   }
 </style>

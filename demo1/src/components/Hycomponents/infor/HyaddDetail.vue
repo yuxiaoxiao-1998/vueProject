@@ -74,9 +74,9 @@
       },
       // 获取地址
       getSite (item) {
-        localStorage.setItem('item', JSON.stringify(item));
+        localStorage.setItem('item',JSON.stringify(item));
         // console.log(JSON.parse(localStorage.getItem("item")))
-        this.$router.push('/profile/infor/address/add');
+        this.$router.push('/infor/address/add');
       }
     },
     created () {

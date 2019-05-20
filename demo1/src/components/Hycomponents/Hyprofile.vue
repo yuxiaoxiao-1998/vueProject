@@ -20,7 +20,7 @@
             <span class="el-icon-mobile-phone"></span>
             <span class="profile_span3">暂无绑定手机号</span>
           </div>
-          <span class="profile_right el-icon-arrow-right" @click="$router.push({path:'/infor'})"></span>
+          <span  class="profile_right el-icon-arrow-right" @click="isToLog"></span>
         </a>
       </mt-header>
       <!-- 跳转到infor -->
@@ -130,29 +130,35 @@
           this.$router.push({path:'/login'});
         }
       },
-      //  isLogin(){
-      //    if (sessionStorage.uesrname) {
-      //      this.isShow = false;
-      //    } else {
-      //      this.isShow = true;
-      //    }
-      //  },
+      isToLog(){
+        if (this.isShow) {
+          this.$router.push({path:'/login'})
+        }else{
+          this.$router.push({path:'/infor'})
+        }
+      },
+       isLogin(){
+         if (sessionStorage.getItem('username')) {
+           this.isShow=false;
+           this.username = sessionStorage.username;
+           this.user_id = sessionStorage.user_id;
+           // 修改infor里的用户名
+           this.$store.state.setUserName = this.username;
+         } else {
+           this.isShow = true;
+         }
+       },
       //  点击跳转login
       skipLogin(){
         this.$router.push({path:'/login'})
       }
     },
     created(){
-      this.isShow=false;
-      this.username = sessionStorage.username;
-      this.user_id = sessionStorage.user_id;
-      // 修改infor里的用户名
-      this.$store.state.setUserName = this.username;
-      // this.isLogin();
+      this.isLogin();
     },
     beforeRouteUpdate (to, from, next) {
+      this.islogin();
       next();
-      // this.islogin();
 
     }
   }

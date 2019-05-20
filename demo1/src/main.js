@@ -65,6 +65,10 @@ const store=new Vuex.Store({
     remarkArr:[],
     // 存储id
     getUserId:'',
+  //  搜索地址
+    search:'',
+  //  经纬度
+    geohash:'',
   },
   mutations:{
     xiangQing(state,sps){

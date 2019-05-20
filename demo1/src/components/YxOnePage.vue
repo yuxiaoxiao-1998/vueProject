@@ -11,8 +11,11 @@
         </span>
          </router-link>
          <!--登录跳转-->
-         <router-link to="/login" class="right11">
+         <router-link v-if="isLogin" to="/login" class="right11">
            登录|注册
+         </router-link>
+         <router-link v-else to="/home/profile" style="transform:translateX(60px)" class="right11">
+           <i class="el-icon-user"></i>
          </router-link>
        </div>
        <div class="homeOneMax">
@@ -126,6 +129,7 @@
               allShop:[],
               //预加载标识
               loadingMark:true,
+              isLogin:true,
             }
         },
       computed:{
@@ -139,6 +143,9 @@
         }
       },
       created(){
+          if (sessionStorage.getItem('username')){
+            this.isLogin = false
+          }
         //获取轮播图上的信息
         Vue.axios.get('https://elm.cangdu.org/v2/index_entry').then((res) => {
           this.allFood=res.data;

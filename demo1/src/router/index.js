@@ -42,7 +42,7 @@ import HyhbHistory from '../components/Hycomponents/benefit/HyhbHistory.vue'
 import Hypayment from '../components/Hycomponents/vipcard/Hypayment'
 import Hyusercart from '../components/Hycomponents/vipcard/Hyusercart'
 import HyinvoiceRecord from '../components/Hycomponents/vipcard/HyinvoiceRecord'
-
+import Hysearchaddress from '../components/Hycomponents/Hysearchaddress'
 //-------------------------yxx
 import Hychooseaddress from '../components/Hychooseaddress'
 import HyaddAddress from '../components/HyaddAddress'
@@ -214,12 +214,16 @@ export default new Router({
     },
     //订单页面进入添加一个收货地址---yxx
     {
-    path:'/order2',
-      component:Hychooseaddress
+      path:'/order2',
+      component:Hychooseaddress,
     },
     {
       path:'/order3',
-      component:HyaddAddress
+      component:HyaddAddress,
+    },
+    {
+      path:'/searchaddress',
+      component:Hysearchaddress,
     },
     {
       path:'/invoice',

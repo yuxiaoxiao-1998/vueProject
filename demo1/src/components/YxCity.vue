@@ -6,8 +6,11 @@
           ele.me
         </router-link>
         <!--路由跳转页面2(右侧登录注册)-->
-        <router-link to="/" slot="right">
+        <router-link v-if="isLogin" to="/login" slot="right">
           登录|注册
+        </router-link>
+        <router-link v-else to="/home/profile" slot="right">
+          <i class="el-icon-user"></i>
         </router-link>
       </mt-header>
     <!--内容-->
@@ -31,7 +34,7 @@
   </mt-header>
     <p class="content content3">
       <!--路由跳转,进入页面-->
-      <router-link to='/search' v-for="h in hotC" class="hc">
+      <router-link to='/search' v-for="(h,index) in hotC" :key="index" class="hc">
         <a @click="sendVueX(h.name,h.id)">
         {{h.name}}
         </a>
@@ -44,7 +47,7 @@
             <span slot="left">{{k}}</span>
           </mt-header>
           <!--所有城市路由跳转4-->
-            <router-link to='/search' v-for="item in v">
+            <router-link to='/search'  v-for="(item,index) in v" :key="index">
               <a @click="sendVueX(item.name,item.id)">
               {{item.name}}
               </a>
@@ -67,7 +70,8 @@
           hotC: [],
           allValues:{},
           allKey: [],
-          allValue: {}
+          allValue: {},
+          isLogin:true
         }
       },
       computed: {
@@ -88,6 +92,9 @@
         }
       },
         created() {
+          if (sessionStorage.getItem("username")){
+          this.isLogin = false
+        }
           //  请求定位
           Vue.axios.get('https://elm.cangdu.org/v1/cities?type=guess').then((res) => {
             this.local = res.data.name;

@@ -99,7 +99,7 @@
               }
             ).then((res) => {
               if (res.data.success === "添加地址成功") {
-                this.$router.push({path:'/profile/infor/address'});
+                this.$router.push({path:'/infor/address'});
               }
             }).catch((err) => {
               console.log("请求错误",err);

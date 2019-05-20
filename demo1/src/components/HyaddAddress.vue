@@ -3,7 +3,7 @@
       <!--头部-->
       <div class="header">
         <mt-header title="添加地址" class="addAddress-header">
-            <span class="glyphicon glyphicon-menu-left fh" slot="left" @click="$router.back(-1)"></span>
+            <span class="glyphicon glyphicon-menu-left fh" slot="left" @click="$router.push({path:'/order2'})"></span>
         </mt-header>
       </div>
       <!-- 地址信息 -->
@@ -19,6 +19,12 @@
             <el-radio v-model="radio" label="1">先生</el-radio>
             <el-radio v-model="radio" label="2">女士</el-radio>
           </section>
+          <!--<section>-->
+            <!--<input v-model="sex" value="1" checked="checked" id="sir" type="radio">-->
+            <!--<label for="sir">先生</label>-->
+            <!--<input v-model="sex" value="2" id="girl" type="radio">-->
+            <!--<label for="girl">女士</label>-->
+          <!--</section>-->
           <div class="empty"></div>
         </div>
         <div class="phone one">
@@ -35,7 +41,7 @@
         <div class="sendAddress one">
           <p>送餐地址</p>
           <!-- 点击跳到搜索地址 -->
-          <input @click="$router.push({path:''})" type="text" v-model="sendAddress"  placeholder="  小区/写字楼/学校等">
+          <input @click="$router.push({path:'/searchaddress'})" type="text" v-model="sendAddress"  placeholder="  小区/写字楼/学校等">
           <div class="empty"></div>
         </div>
         <div class="address_detail one">
@@ -79,6 +85,7 @@
         name: "HyaddAddress",
         data () {
           return {
+            user_id:'',//id
             name:'',//姓名
             radio:'1',//性别
             phone:'',//电话
@@ -92,15 +99,23 @@
             alertText:'',//弹框
             user_id:'',//用户id
             geohash:'',//经纬度
+            list:'',
           }
         },
         // 路由守卫 子路由调到父路由
-        beforeRouteUpdate (to, from, next) {
-          if (JSON.parse(localStorage.getItem("item"))) {
-            this.item = JSON.parse(localStorage.getItem("item"));
-            // this.address = this.item.name + "*" + this.item.address;
-          }
-          next();
+        // beforeRouteUpdate (to, from, next) {
+      //   if (JSON.parse(localStorage.getItem("list"))) {
+      //     console.log('1');
+      //     this.list = JSON.parse(localStorage.getItem("list"));
+      //     console.log(JSON.parse(localStorage.getItem("list")));
+      //     this.sendAddress = this.list.address;
+      //     console.log(this.list.address);
+      //   }
+      //   next();
+      // },
+        created(){
+          this.sendAddress = this.$store.state.search;
+          this.geohash = this.$store.state.geohash;
         },
         methods: {
           // 显示备选电话
@@ -119,21 +134,26 @@
               this.alertText = '请输入姓名/手机号/送餐地址/详细地址/标签';
             } else {
               Vue.axios.get('https://elm.cangdu.org/v1/user').then((res) => {
+                console.log(res.data.user_id);
                 Vue.axios.post('https://elm.cangdu.org/v1/users/'+res.data.user_id+'/addresses',
                 {
-                  user_id:this.user_id,//用户id
+                  // user_id:this.user_id,//用户id
                   address:this.sendAddress,//地址
                   address_detail:this.address_detail ,//详细地址
-                  geohash:this.item.geohash,//经纬度
+                  geohash:this.geohash,//经纬度
                   name:this.name,//收货人姓名
                   phone:this.phone,//手机号
                   tag:this.tag,//标签
                   sex:this.radio,//性别
                   phone_bk:this.phone_bk,//备用电话
-                  tag_type:this.tag_type,//标签类型        
+                  tag_type:2,//标签类型
                 }
                 ).then(res=>{
-                  console.log(res.data);
+                    console.log(res.data);
+                  if (res.data.success === "添加地址成功") {
+                    // console.log(res.data.success);
+                    this.$router.push({path:'/order2'});
+                  }
                 }).catch((err) => {
                 console.log('请求错误',err);
                 });
@@ -215,7 +235,13 @@ input{
   color: #ffffff;
   background-color: #4cd964;
 }
-
+.add_sex{
+  height: 1.3rem;
+  font-size: .5rem;
+}
+.add_sex>section>input{
+  width:6%;
+}
 /* 弹框 */
 .pop_up {
   width: 70%;
