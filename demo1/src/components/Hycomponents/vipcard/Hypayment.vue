@@ -54,7 +54,7 @@
       <br>
       <span>当前环境无法支付,请打开官方APP进行付款</span>
       <mt-button type="default" size="large"
-                 @click="$router.push({path:'/order'})" >确认</mt-button>
+                 @click="$router.push({path:'/home/order'})" >确认</mt-button>
     </div>
   </div>
 </template>

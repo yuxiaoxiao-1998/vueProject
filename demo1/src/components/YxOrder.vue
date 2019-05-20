@@ -4,7 +4,7 @@
       <router-link to="/shopHome/shopone"  slot="left">
         <span class="glyphicon glyphicon-menu-left"></span>
       </router-link>
-      <span slot="right" class="el-icon-user-solid"></span>
+      <span slot="right" class="el-icon-user-solid" @click="$router.push({path:'/home/profile'})"></span>
     </mt-header>
     <div class="content">
       <router-link to="/order2">
@@ -64,7 +64,7 @@
     </div>
     <div class="bottom">
       <span class="orderbot1">待支付¥{{money()}}</span>
-      <router-link to="/home/order">
+      <router-link to="/vipCard/payment">
         <span class="orderbot" @click="xiadan()">确认下单</span>
       </router-link>
     </div>

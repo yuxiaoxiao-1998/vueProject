@@ -446,11 +446,11 @@
           this.isImg = true;
         }
       }
-      //初始进入的右侧显示
-      // for(let i in this.$store.state.shopAll){
-      //     this.sendLiRight(this.$store.state.shopAll[0]);
-      // console.log(111);
-      // }
+      //初始进入的右侧显示(有些问题)
+      for(let i in this.$store.state.shopAll){
+          this.sendLiRight(this.$store.state.shopAll[0]);
+      }
+
       //shopAll存有点击商铺列表所存储的该商铺内所有信息,数组对象,每一个数组对象都含有restaurant_id并且值都相同
       this.resId=this.$store.state.shopP.id;
       //发起get请求,获取评价分数
