@@ -56,6 +56,8 @@ const store=new Vuex.Store({
     detilsOne:{},
     //所有被加入购物车的的商品的信息
     allS:[],
+    //对应商铺的总购物车数量---------------3
+    mineAllSum:[],
   //  -----------------------hyy-------------------------
     //
     packNum: [],
@@ -82,6 +84,57 @@ const store=new Vuex.Store({
     },
     allMineShop(state,shop){
         state.allS.push(shop);
+    },
+    //每一个商铺总数量的过滤-------------2
+    mineAllCount(state,shopId){
+      //过滤出id相同的返回给一个新的变量(存储对应商铺购物车的总数量sumCount1)
+      let sumCount1=0;
+      //定义变量sumMoneyAll(存储对应购物车的总钱数)
+      let sumMoneyAll=0;
+      //定义数组(存储对应商品的foodId和价格)
+      let arrFood=[];
+      for(let s of state.addShopAll){
+        if(s.shopId===shopId){
+          sumCount1 += s.countS;
+          sumMoneyAll += s.countS*s.price;
+          arrFood.push({foodid:s.id,foodPrice:s.price})
+        }
+      }
+      state.mineAllSum.push({id:shopId,count:sumCount1,allMoney:sumMoneyAll,food:arrFood});
+    },
+    //每一个商铺总数量的过滤,点击减号时总数量发生改变
+    updateMineAll1(state,payload){
+      for(let s of state.mineAllSum){
+        if(s.id===payload.id){
+          s.count--;
+          for(let s1 of s.food){
+            if(s1.foodid===payload.foodId){
+              s.allMoney -= s1.foodPrice;
+            }
+          }
+        }
+      }
+    },
+    //每一个商铺总数量的过滤,点击加号时总数量发生改变
+    updateMineAll2(state,payload){
+      for(let s of state.mineAllSum){
+        if(s.id===payload.id){
+          s.count++;
+          for(let s1 of s.food){
+            if(s1.foodid===payload.foodId){
+              s.allMoney += s1.foodPrice;
+            }
+          }
+        }
+      }
+    },
+    //清空购物车的方法
+    removeAllShop(state,id){
+      for(let s of state.mineAllSum){
+        if(s.id===id){
+          s.count=0;
+        }
+      }
     },
     //------------------------hyy-------------------
     isname(state) {
