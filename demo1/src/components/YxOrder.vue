@@ -64,9 +64,7 @@
     </div>
     <div class="bottom">
       <span class="orderbot1">待支付¥{{money()}}</span>
-      <router-link to="/vipCard/payment">
         <span class="orderbot" @click="xiadan()">确认下单</span>
-      </router-link>
     </div>
 
     <!--在线支付的下弹框-->
@@ -145,6 +143,7 @@
           // console.log(this.nowAdress,'12345');
           // console.log(this.$store.state.address.address,'address')
           this.$store.commit('allMineShop',{shp:this.shopNow,shp1:this.mineShop,nowA:this.nowAdress});
+          this.$router.push({path:'/vipCard/payment'})
         }
       }
     },
