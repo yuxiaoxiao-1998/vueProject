@@ -20,6 +20,7 @@
             <span>{{this.$store.state.address.phone}}</span>
             <br>
             <span class="choose_span">{{this.$store.state.address.tag}}</span>
+            <span class="sear">{{this.$store.state.search}}</span>
           </div>
           <p class="bg"></p>
         </div>
@@ -91,7 +92,9 @@
         //对应的购物车的信息
         mineShop:this.$store.state.newShop,
         //当前点进的商铺的信息
-        shopNow:this.$store.state.shopP
+        shopNow:this.$store.state.shopP,
+        //当前显示的地址
+        nowAdress:this.$store.state.search
       }
     },
     methods:{
@@ -134,9 +137,13 @@
       },
       //下单时,将数据添加到所有的购物车的数组中
       xiadan(){
-        this.$store.commit('timeFormate',new Date())
-        // shp:商铺自身信息  shp1:商铺对应的购物车信息
-        this.$store.commit('allMineShop',{shp:this.shopNow,shp1:this.mineShop});
+        if(this.$store.state.address == ''){
+          alert('请添加一个收货地址');
+        }else{
+          this.$store.commit('timeFormate',new Date())
+          // shp:商铺自身信息  shp1:商铺对应的购物车信息  nowA:当前订单所选择的订单地址
+          this.$store.commit('allMineShop',{shp:this.shopNow,shp1:this.mineShop,nowA:this.nowAdress});
+        }
       }
     },
     created(){
@@ -411,7 +418,7 @@
 
   /* 收货地址 */
   .choose_right{
-    width: 50%;
+    width: 80%;
     height: 2rem;
     line-height: .7rem;
     font-size: .6rem;
@@ -438,5 +445,15 @@
     background-color: #ff5722;
     border-radius: 10%;
     text-align: center;
+  }
+  .sear{
+    display: inline-block;
+    width: 10rem;
+    height: .7rem;
+    font-size: .5rem;
+    line-height: .7rem;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
   }
 </style>
