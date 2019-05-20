@@ -11,8 +11,16 @@
         <div class="adress">
           <!--需判断是否有地址,当有地址时,地址显示,否则默认显示-->
           <span class="el-icon-location-outline dizhi"></span>
-          <p class="dizhi1">添加一个收货地址 <span class="glyphicon glyphicon-menu-right jian"></span></p>
-          <p></p>
+          <p v-if="this.$store.state.address == ''" class="dizhi1">添加一个收货地址 <span class="glyphicon glyphicon-menu-right jian"></span></p>
+
+          <div class="choose_right" v-else>
+            <span v-text="this.$store.state.address.name"></span>
+            <span v-if="this.$store.state.address.sex == 1">先生</span>
+            <span v-else>女士</span>
+            <span>{{this.$store.state.address.phone}}</span>
+            <br>
+            <span class="choose_span">{{this.$store.state.address.tag}}</span>
+          </div>
           <p class="bg"></p>
         </div>
       </router-link>
@@ -399,5 +407,36 @@
   .y_a{
     color: black;
     text-decoration: none;
+  }
+
+  /* 收货地址 */
+  .choose_right{
+    width: 50%;
+    height: 2rem;
+    line-height: .7rem;
+    font-size: .6rem;
+    /* background-color: yellow; */
+    padding-top:1rem;
+    z-index: 10;
+    color: #666;
+    position: absolute;
+    left: 15%;
+    top:0;
+  }
+  .choose_right span:nth-child(1){
+    font-size: .7rem;
+    font-weight: 600;
+
+  }
+  /*地址*/
+  .choose_span{
+    display: inline-block;
+    width: 1.5rem;
+    height: .7rem;
+    font-size: .2rem;
+    color: #fff;
+    background-color: #ff5722;
+    border-radius: 10%;
+    text-align: center;
   }
 </style>

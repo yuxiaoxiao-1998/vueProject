@@ -73,6 +73,8 @@ const store=new Vuex.Store({
     search:'',
   //  经纬度
     geohash:'',
+    //地址
+    address:'',
     //--------jack--
     nowTime:'',
   },

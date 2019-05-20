@@ -27,7 +27,7 @@
     methods:{
       setUserName(){
         this.$store.state.setUserName = this.usernameV;
-        this.$router.back(-1);
+        this.$router.push({path:'/infor'});
       }
 
     },

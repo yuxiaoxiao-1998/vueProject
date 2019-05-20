@@ -20,7 +20,7 @@
       </router-link>
       <!-- 地址列表 -->
       <ul>
-        <li  v-for="(item,index) in addEdit" :key="index" @click="addresslist">
+        <li  v-for="(item,index) in addEdit" :key="index" @click="addresslist(item)">
           <div class="choose_list">
             <div class="choose_left">
               <i @click="i=index" :class="{isSelected: i==index}" class=" el-icon-circle-check" style="fontSize:1rem"></i>
@@ -72,8 +72,10 @@
           });
         },
       methods:{
-        addresslist(){
-
+        addresslist(item){
+          console.log(item);
+          this.$store.state.address = item;
+          this.$router.go(-1);
         }
       }
     }
