@@ -75,7 +75,7 @@
         addresslist(item){
           console.log(item);
           this.$store.state.address = item;
-          this.$router.go(-1);
+          this.$router.push({path:'/order1'});
         }
       }
     }
