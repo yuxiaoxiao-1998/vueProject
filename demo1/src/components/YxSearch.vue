@@ -78,7 +78,7 @@
                   }
             }).catch((error)=>{console.log('请求错误',error)});
             //当点击时将该条数据存到vuex中,以便历史记录的显示-1
-            this.$store.state.shopHistory.push(this.inputData);
+            this.$store.commit('history1',this.inputData);
           }
         },
         remoone(){
@@ -102,11 +102,11 @@
         },
         //清除所有历史记录
         remoHiss(){
-          this.$store.state.shopHistory=[];
+          this.$store.commit('remoHisAll');
         },
         //通过x删除一条历史记录
         remotwo(i){
-          this.$store.state.shopHistory.splice(i,1);
+          this.$store.commit('remoHis',i);
         },
         //点击搜索出来的每一条数据之后,传入对应id发起请求,将数据存放到 shopAll中,在YxshopTop页面将页面进行渲染,数据进行遍历
         sendAll(id,p){

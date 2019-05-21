@@ -34,6 +34,7 @@ const store=new Vuex.Store({
     cityHistory:[],
     //搜索店铺或商家的历史记录
     shopHistory:[],
+    shopHistory1:[],
     //传递过来的地址名字,经度纬度,经纬度数组
     cityall:{},
   //  存储甜品饮品等点击过来的名字,及下列商铺所有信息(初始页面的显示)
@@ -94,6 +95,21 @@ const store=new Vuex.Store({
       // console.log(this.nowTime);
       // }
     },
+    //
+    history1(state,payload){
+      state.shopHistory1.push(payload);
+      let his=Array.from(new Set(state.shopHistory1));
+      state.shopHistory=his;
+    },
+    //点击删除一条历史记录
+    remoHis(state,i){
+        state.shopHistory.splice(i,1);
+    },
+    //清空所有历史记录
+    remoHisAll(state){
+      state.shopHistory=[];
+    },
+    //详情页的数据存储
     xiangQing(state,sps){
       state.detilsOne=sps;
     },
