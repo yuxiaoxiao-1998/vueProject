@@ -220,10 +220,12 @@ export default new Router({
     {
       path:'/order3',
       component:HyaddAddress,
-    },
-    {
-      path:'/searchaddress',
-      component:Hysearchaddress,
+      children:[
+        {
+          path:'searchaddress',
+          component:Hysearchaddress,
+        },
+      ]
     },
     {
       path:'/invoice',

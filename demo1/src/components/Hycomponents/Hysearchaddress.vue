@@ -23,15 +23,15 @@
     </div>
     <!-- 搜索列表-->
     <ul>
-      <router-link to="/searchaddress">
-        <li class="detail_li"
-            v-for="(list,index) in seaSiteArr"
-            :key="index"
-            @click="getSite(list)">
-          <p>{{list.name}}</p>
-          <p>{{list.address}}</p>
-        </li>
-      </router-link>
+      <!-- <router-link to="/searchaddress"> -->
+      <li class="detail_li"
+          v-for="(list,index) in seaSiteArr"
+          :key="index"
+          @click="getSite(list)">
+        <p>{{list.name}}</p>
+        <p>{{list.address}}</p>
+      </li>
+      <!-- </router-link> -->
     </ul>
     <!-- 提醒 -->
     <div class="foot"
@@ -65,7 +65,7 @@
         } else {
           // 显隐
           this.isShow = false;
-          Vue.axios.get('https://elm.cangdu.org/v1/pois?city_id='+this.$store.state.cityIn.id+'&keyword='+this.searchV+'&type=search').then((res) => {
+          Vue.axios.get('https://elm.cangdu.org/v1/pois?city_id=' + this.$store.state.cityIn.id + '&keyword=' + this.searchV + '&type=search').then((res) => {
             this.seaSiteArr = res.data;
           }).catch((error) => {
             console.log('请求错误', error);
@@ -80,6 +80,7 @@
         this.$store.state.search = JSON.parse(localStorage.getItem("list")).address;
         this.$store.state.geohash = JSON.parse(localStorage.getItem("list")).geohash;
         this.$router.go(-1);
+        // console.log(list);
       }
     },
     created () {
@@ -126,9 +127,11 @@
   .banner input {
     width: 80%;
     height: 1.5rem;
-    border-radius: 5%;
-    background-color: #ccc;
+    border-radius: 3%;
+    background-color: #e4e4e4;
     margin: 5% 0 0 2%;
+    border: 0;
+    outline: none;
   }
   .banner button {
     width: 15%;
