@@ -2,7 +2,7 @@
   <!--该页有小bug-->
     <div>
       <mt-header fixed title="搜索" class="yx_sousuo">
-          <a slot="left" @click="$router.back(-1)">
+          <a slot="left" @click="waimai()">
             <span class="glyphicon glyphicon-menu-left"></span>
           </a>
       </mt-header>
@@ -118,8 +118,11 @@
           }).catch((error) => {
             console.log('请求错误', error)
           });
+        },
+        waimai(){
+          this.$router.push({path:'/home/onepage'});
+            this.$store.commit('xiugai','外卖');
         }
-
       }
     }
 </script>

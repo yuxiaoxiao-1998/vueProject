@@ -50,7 +50,7 @@
         shopC:[],
         arrlength:'',
         y_aa:'',
-        sumCount:0
+        sumCount:0,
       }
     },
     computed:{
@@ -63,16 +63,19 @@
       },
       //当前购物车要显示的内容
       A(){
+        // console.log('a调用')
         if(this.$store.state.addShopAll.length != this.arrlength){
           this.arrlength=this.$store.state.addShopAll.length;
           this.shopC=[];
+          // console.log(this.shopC,'当前的shopC值');
+          // console.log(this.$store.state.addShopAll,'bottom中addShopAll');
           for(let s of this.$store.state.addShopAll){
             if(s.shopId===this.$store.state.shopP.id){
               this.shopC.push(s);
             }
           }
         }
-        // console.log(this.shopC,'这是shopC')
+        // console.log(this.shopC,'shopC数组');
         return this.shopC;
       },
     },
@@ -149,12 +152,12 @@
     mounted(){
       //获取初始数组长度
       this.arrlength=this.$store.state.addShopAll.length;
+      this.shopC=[];
       for(let s of this.$store.state.addShopAll){
         if(s.shopId===this.$store.state.shopP.id){
           this.shopC.push(s);
         }
       }
-      // console.log(this.shopC,'这是shopC')
     },
   }
 </script>

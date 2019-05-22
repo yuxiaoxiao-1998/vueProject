@@ -3,25 +3,25 @@
       <ul class="bottomLi">
         <li>
           <router-link to="/home">
-            <span :class="{'e':true,'e1':isS==='外卖'?true:false}" @click="spanC('外卖')"></span>
+            <span :class="{'e':true,'e1':$store.state.isS==='外卖'?true:false}" @click="spanC('外卖')"></span>
             <p>外卖</p>
           </router-link>
         </li>
         <li>
           <router-link to="/home/homeOne">
-            <span :class="{'s':true,'s1':isS==='搜索'?true:false}"  @click="spanC('搜索')"></span>
+            <span :class="{'s':true,'s1':$store.state.isS==='搜索'?true:false}"  @click="spanC('搜索')"></span>
             <p>搜索</p>
           </router-link>
         </li>
         <li>
           <router-link to="/home/order">
-            <span :class="{'d':true,'d1':isS==='订单'?true:false}" @click="spanC('订单')"></span>
+            <span :class="{'d':true,'d1':$store.state.isS==='订单'?true:false}" @click="spanC('订单')"></span>
             <p>订单</p>
           </router-link>
         </li>
         <li>
           <router-link to="/home/profile">
-            <span :class="{'w':true,'w1':isS==='我的'?true:false}"  @click="spanC('我的')"></span>
+            <span :class="{'w':true,'w1':$store.state.isS==='我的'?true:false}"  @click="spanC('我的')"></span>
             <p>我的</p>
           </router-link>
         </li>
@@ -35,7 +35,7 @@
         name: "YxFooter",
         data(){
           return {
-            isS:'外卖'
+            // isS:'外卖'
           }
         },
       methods:{
@@ -43,19 +43,19 @@
         spanC(txt){
          switch (txt) {
            case '外卖':{
-             this.isS='外卖';
+             this.$store.commit('xiugai','外卖');
              break;
            }
            case '搜索':{
-             this.isS='搜索';
+             this.$store.commit('xiugai','搜索');
              break;
            }
            case '订单':{
-             this.isS='订单';
+             this.$store.commit('xiugai','订单');
              break;
            }
            case '我的': {
-             this.isS='我的';
+             this.$store.commit('xiugai','我的');
              break;
            }
          }

@@ -32,7 +32,9 @@
       <div class="shop12">
         <p class="sShop11">
           <router-link to="/home/onepage" class="jiantou">
+            <a @click="$store.commit('xiugai','外卖')">
             <span class="glyphicon glyphicon-menu-left"></span>
+            </a>
           </router-link>
           <span :class="{'shangpin':true,'sele':sele==='商品'?true:false}" @click="sele='商品'">
           商品

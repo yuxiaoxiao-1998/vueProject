@@ -144,6 +144,7 @@
           // console.log(this.$store.state.address.address,'address')
           this.$store.commit('allMineShop',{shp:this.shopNow,shp1:this.mineShop,nowA:this.nowAdress});
           this.$router.push({path:'/vipCard/payment'})
+          this.$store.commit('xiugai','订单');
         }
       }
     },

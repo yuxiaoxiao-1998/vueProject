@@ -113,6 +113,7 @@
           clearInterval(this)
         }
       },1000)
+      // console.log(this.$store.state.allS,'总的大购物车所有商品');
     }
 
   }

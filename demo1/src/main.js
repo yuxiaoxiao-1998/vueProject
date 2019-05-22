@@ -59,6 +59,8 @@ const store=new Vuex.Store({
     allS:[],
     //对应商铺的总购物车数量---------------3
     mineAllSum:[],
+    //footer的图标切换变量
+    isS:'外卖',
   //  -----------------------hyy-------------------------
     //
     packNum: [],
@@ -171,6 +173,10 @@ const store=new Vuex.Store({
           s.allMoney=0;
         }
       }
+    },
+    //修改footer小图标的选中状态
+    xiugai(state,zt){
+          state.isS=zt;
     },
     //------------------------hyy-------------------
     isname(state) {
