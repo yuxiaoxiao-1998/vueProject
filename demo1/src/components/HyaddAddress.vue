@@ -106,7 +106,7 @@
     // 路由守卫 子路由调到父路由
     beforeRouteUpdate (to, from, next){
       this.sendAddress = this.$store.state.search;
-      console.log(this.$store.state.search);
+      // console.log(this.$store.state.search);
       this.geohash = this.$store.state.geohash;
       next();
     },

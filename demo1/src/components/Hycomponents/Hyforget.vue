@@ -82,7 +82,7 @@
         } else if (this.confirmpassword == "") {
           this.isShow = true;
           this.alertText = "请输入确认密码";
-        } else if (this.newpassword != this.oldpassword) {
+        } else if (this.confirmpassword != this.newpassword) {
           this.isShow = true;
           this.alertText = "两次输入的密码不一致";
         } else if (this.captcha1 == "") {

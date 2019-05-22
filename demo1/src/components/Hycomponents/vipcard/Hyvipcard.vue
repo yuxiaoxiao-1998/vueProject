@@ -12,7 +12,7 @@
     </div>
     <!-- banner -->
     <div class="banner">
-      <p>为账户<b>用户名</b>购买会员</p>
+      <p>为账户<b>{{name}}</b>购买会员</p>
     </div>
     <!-- 会员特权 -->
     <div class="member">
@@ -86,7 +86,16 @@
   import 'element-ui/lib/theme-chalk/index.css';
   Vue.use(ElementUI);
   export default {
-    name: "Hyorder"
+    name: "Hyvipcard",
+    data () {
+      return {
+        name:'',
+      }
+    },
+    created() {
+      this.name = sessionStorage.username;
+    }
+
   }
 </script>
 

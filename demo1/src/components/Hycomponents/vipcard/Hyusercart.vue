@@ -9,7 +9,7 @@
     </div>
     <!-- banner -->
     <div class="user_banner">
-      <p>成功兑换后将关联到当前账号:<b>用户名</b></p>
+      <p>成功兑换后将关联到当前账号:<b>{{name}}</b></p>
     </div>
     <!-- 输入框 -->
     <div class="user_input">
@@ -56,7 +56,11 @@
     data () {
       return {
         isShow:false,
+        name:'',
       }
+    },
+    created(){
+      this.name = sessionStorage.username;
     }
   }
 </script>
