@@ -168,6 +168,7 @@ const store=new Vuex.Store({
       for(let s of state.mineAllSum){
         if(s.id===id){
           s.count=0;
+          s.allMoney=0;
         }
       }
     },
